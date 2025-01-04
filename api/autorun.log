@@ -240,3 +240,31 @@ UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f511' in posit
 
 2024-12-30 13:47:57,095 - INFO - [root] - [END] Script E:\algo_project\OptionAnalysis\dashboard\upstox\loginCLI.py completed with status: FAILED
 2024-12-30 13:47:57,096 - ERROR - [root] - loginCLI script failed, aborting sequence
+2025-01-04 10:21:51,046 - INFO - [root] - Today is Saturday - Weekend
+2025-01-04 10:21:51,048 - INFO - [root] - === Script Runner Started ===
+2025-01-04 10:21:51,048 - INFO - [root] - Current day: Saturday (Weekend)
+2025-01-04 10:21:51,048 - INFO - [root] - Current time: 10:21:51
+2025-01-04 10:21:51,048 - INFO - [root] - Running in schedule mode
+2025-01-04 10:21:51,048 - INFO - [root] - Scheduled tasks for weekdays at 09:00
+2025-01-04 10:21:51,048 - INFO - [root] - Current time 10:21 is outside trading hours. Waiting for next scheduled run...
+2025-01-04 10:39:49,565 - INFO - [root] - Today is Saturday - Weekend
+2025-01-04 10:39:49,568 - INFO - [root] - === Script Runner Started ===
+2025-01-04 10:39:49,568 - INFO - [root] - Current day: Saturday (Weekend)
+2025-01-04 10:39:49,568 - INFO - [root] - Current time: 10:39:49
+2025-01-04 10:39:49,568 - INFO - [root] - Running in schedule mode
+2025-01-04 10:39:49,568 - INFO - [root] - Scheduled tasks for weekdays at 09:00
+2025-01-04 10:39:49,568 - INFO - [root] - Current time 10:39 is outside trading hours. Waiting for next scheduled run...
+2025-01-04 11:53:33,325 - INFO - [root] - Today is Saturday - Weekend
+2025-01-04 11:53:33,332 - INFO - [root] - === Script Runner Started ===
+2025-01-04 11:53:33,332 - INFO - [root] - Current day: Saturday (Weekend)
+2025-01-04 11:53:33,332 - INFO - [root] - Current time: 11:53:33
+2025-01-04 11:53:33,332 - INFO - [root] - Running in schedule mode
+2025-01-04 11:53:33,332 - INFO - [root] - Scheduled tasks for weekdays at 09:00
+2025-01-04 11:53:33,332 - INFO - [root] - Current time 11:53 is outside trading hours. Waiting for next scheduled run...
+2025-01-04 13:58:56,107 - INFO - [root] - Today is Saturday - Weekend
+2025-01-04 13:58:56,110 - INFO - [root] - === Script Runner Started ===
+2025-01-04 13:58:56,111 - INFO - [root] - Current day: Saturday (Weekend)
+2025-01-04 13:58:56,111 - INFO - [root] - Current time: 13:58:56
+2025-01-04 13:58:56,111 - INFO - [root] - Running in schedule mode
+2025-01-04 13:58:56,111 - INFO - [root] - Scheduled tasks for weekdays at 09:00
+2025-01-04 13:58:56,111 - INFO - [root] - Current time 13:58 is outside trading hours. Waiting for next scheduled run...

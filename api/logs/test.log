@@ -1,0 +1,380 @@
+2025-01-04 14:05:08,066 - INFO - Starting real-time data insertion script.
+2025-01-04 14:05:08,068 - DEBUG - Checking if the database exists.
+2025-01-04 14:05:08,143 - INFO - Database connected successfully.
+2025-01-04 14:05:08,144 - INFO - Database test already exists.
+2025-01-04 14:05:08,145 - INFO - Starting market data fetching service...
+2025-01-04 14:05:09,145 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:09,146 - INFO - Checking market status for date: 2025-01-04, time: 14:05:09
+2025-01-04 14:05:09,147 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:09,202 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:09,204 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:09,206 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:09,206 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:09,206 - INFO - Checking market status for date: 2025-01-04, time: 14:05:09
+2025-01-04 14:05:09,207 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:09,261 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:09,263 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:09,264 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:09,264 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:09,264 - INFO - Checking market status for date: 2025-01-04, time: 14:05:09
+2025-01-04 14:05:09,264 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:09,320 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:09,321 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:09,322 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:09,323 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:09,323 - INFO - Checking market status for date: 2025-01-04, time: 14:05:09
+2025-01-04 14:05:09,324 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:09,377 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:09,378 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:09,379 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:09,379 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:09,379 - INFO - Checking market status for date: 2025-01-04, time: 14:05:09
+2025-01-04 14:05:09,380 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:09,441 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:09,442 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:09,443 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:09,443 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:09,443 - INFO - Checking market status for date: 2025-01-04, time: 14:05:09
+2025-01-04 14:05:09,444 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:09,503 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:09,504 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:09,505 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:09,505 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:09,505 - INFO - Checking market status for date: 2025-01-04, time: 14:05:09
+2025-01-04 14:05:09,506 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:09,572 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:09,574 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:09,574 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:09,575 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:09,575 - INFO - Checking market status for date: 2025-01-04, time: 14:05:09
+2025-01-04 14:05:09,575 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:09,631 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:09,632 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:09,633 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:09,633 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:09,633 - INFO - Checking market status for date: 2025-01-04, time: 14:05:09
+2025-01-04 14:05:09,634 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:09,707 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:09,709 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:09,709 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:09,709 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:09,709 - INFO - Checking market status for date: 2025-01-04, time: 14:05:09
+2025-01-04 14:05:09,710 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:09,763 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:09,765 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:09,765 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:09,765 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:09,766 - INFO - Checking market status for date: 2025-01-04, time: 14:05:09
+2025-01-04 14:05:09,766 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:09,826 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:09,827 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:09,827 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:09,828 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:09,828 - INFO - Checking market status for date: 2025-01-04, time: 14:05:09
+2025-01-04 14:05:09,828 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:09,885 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:09,887 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:09,887 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:09,888 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:09,888 - INFO - Checking market status for date: 2025-01-04, time: 14:05:09
+2025-01-04 14:05:09,888 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:09,936 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:09,937 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:09,938 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:09,938 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:09,938 - INFO - Checking market status for date: 2025-01-04, time: 14:05:09
+2025-01-04 14:05:09,939 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:09,991 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:09,993 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:09,993 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:09,993 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:09,993 - INFO - Checking market status for date: 2025-01-04, time: 14:05:09
+2025-01-04 14:05:09,994 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:10,056 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:10,057 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:10,058 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:10,058 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:10,059 - INFO - Checking market status for date: 2025-01-04, time: 14:05:10
+2025-01-04 14:05:10,059 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:10,117 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:10,119 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:10,119 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:10,119 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:10,119 - INFO - Checking market status for date: 2025-01-04, time: 14:05:10
+2025-01-04 14:05:10,120 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:10,179 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:10,180 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:10,181 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:10,181 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:10,181 - INFO - Checking market status for date: 2025-01-04, time: 14:05:10
+2025-01-04 14:05:10,182 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:10,237 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:10,239 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:10,239 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:10,239 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:10,239 - INFO - Checking market status for date: 2025-01-04, time: 14:05:10
+2025-01-04 14:05:10,240 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:10,298 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:10,299 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:10,300 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:10,300 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:10,300 - INFO - Checking market status for date: 2025-01-04, time: 14:05:10
+2025-01-04 14:05:10,301 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:10,355 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:10,356 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:10,357 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:10,357 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:10,357 - INFO - Checking market status for date: 2025-01-04, time: 14:05:10
+2025-01-04 14:05:10,358 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:10,409 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:10,411 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:10,412 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:10,412 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:10,412 - INFO - Checking market status for date: 2025-01-04, time: 14:05:10
+2025-01-04 14:05:10,412 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:10,470 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:10,471 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:10,472 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:10,472 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:10,472 - INFO - Checking market status for date: 2025-01-04, time: 14:05:10
+2025-01-04 14:05:10,472 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:10,522 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:10,523 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:10,524 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:10,524 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:10,524 - INFO - Checking market status for date: 2025-01-04, time: 14:05:10
+2025-01-04 14:05:10,525 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:10,591 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:10,592 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:10,593 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:10,593 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:10,593 - INFO - Checking market status for date: 2025-01-04, time: 14:05:10
+2025-01-04 14:05:10,594 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:10,646 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:10,647 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:10,648 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:10,648 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:10,648 - INFO - Checking market status for date: 2025-01-04, time: 14:05:10
+2025-01-04 14:05:10,648 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:10,705 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:10,706 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:10,707 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:10,707 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:10,707 - INFO - Checking market status for date: 2025-01-04, time: 14:05:10
+2025-01-04 14:05:10,708 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:10,769 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:10,770 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:10,771 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:10,771 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:10,772 - INFO - Checking market status for date: 2025-01-04, time: 14:05:10
+2025-01-04 14:05:10,772 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:10,821 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:10,822 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:10,823 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:10,823 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:10,823 - INFO - Checking market status for date: 2025-01-04, time: 14:05:10
+2025-01-04 14:05:10,824 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:10,878 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:10,880 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:10,880 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:10,880 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:10,880 - INFO - Checking market status for date: 2025-01-04, time: 14:05:10
+2025-01-04 14:05:10,881 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:10,932 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:10,934 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:10,934 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:10,934 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:10,934 - INFO - Checking market status for date: 2025-01-04, time: 14:05:10
+2025-01-04 14:05:10,935 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:10,985 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:10,986 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:10,987 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:10,987 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:10,987 - INFO - Checking market status for date: 2025-01-04, time: 14:05:10
+2025-01-04 14:05:10,988 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:11,039 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:11,041 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:11,041 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:11,041 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:11,042 - INFO - Checking market status for date: 2025-01-04, time: 14:05:11
+2025-01-04 14:05:11,042 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:11,092 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:11,093 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:11,094 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:11,094 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:11,094 - INFO - Checking market status for date: 2025-01-04, time: 14:05:11
+2025-01-04 14:05:11,094 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:11,145 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:11,146 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:11,146 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:11,147 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:11,147 - INFO - Checking market status for date: 2025-01-04, time: 14:05:11
+2025-01-04 14:05:11,147 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:11,199 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:11,200 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:11,200 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:11,201 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:11,201 - INFO - Checking market status for date: 2025-01-04, time: 14:05:11
+2025-01-04 14:05:11,201 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:11,284 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:11,285 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:11,286 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:11,286 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:11,286 - INFO - Checking market status for date: 2025-01-04, time: 14:05:11
+2025-01-04 14:05:11,286 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:11,340 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:11,341 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:11,341 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:11,341 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:11,342 - INFO - Checking market status for date: 2025-01-04, time: 14:05:11
+2025-01-04 14:05:11,342 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:11,403 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:11,404 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:11,405 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:11,405 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:11,405 - INFO - Checking market status for date: 2025-01-04, time: 14:05:11
+2025-01-04 14:05:11,406 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:11,482 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:11,484 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:11,484 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:11,485 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:11,485 - INFO - Checking market status for date: 2025-01-04, time: 14:05:11
+2025-01-04 14:05:11,486 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:11,551 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:11,552 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:11,552 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:11,553 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:11,553 - INFO - Checking market status for date: 2025-01-04, time: 14:05:11
+2025-01-04 14:05:11,553 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:11,603 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:11,604 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:11,605 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:11,605 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:11,605 - INFO - Checking market status for date: 2025-01-04, time: 14:05:11
+2025-01-04 14:05:11,606 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:11,660 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:11,661 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:11,661 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:11,662 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:11,662 - INFO - Checking market status for date: 2025-01-04, time: 14:05:11
+2025-01-04 14:05:11,662 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:11,711 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:11,712 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:11,713 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:11,713 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:11,713 - INFO - Checking market status for date: 2025-01-04, time: 14:05:11
+2025-01-04 14:05:11,714 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:11,768 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:11,769 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:11,770 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:11,770 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:11,771 - INFO - Checking market status for date: 2025-01-04, time: 14:05:11
+2025-01-04 14:05:11,771 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:11,843 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:11,845 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:11,846 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:11,846 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:11,846 - INFO - Checking market status for date: 2025-01-04, time: 14:05:11
+2025-01-04 14:05:11,846 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:11,902 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:11,903 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:11,904 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:11,904 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:11,904 - INFO - Checking market status for date: 2025-01-04, time: 14:05:11
+2025-01-04 14:05:11,905 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:11,959 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:11,960 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:11,961 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:11,961 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:11,961 - INFO - Checking market status for date: 2025-01-04, time: 14:05:11
+2025-01-04 14:05:11,962 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:12,014 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:12,015 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:12,016 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:12,016 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:12,016 - INFO - Checking market status for date: 2025-01-04, time: 14:05:12
+2025-01-04 14:05:12,017 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:12,068 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:12,069 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:12,069 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:12,070 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:12,070 - INFO - Checking market status for date: 2025-01-04, time: 14:05:12
+2025-01-04 14:05:12,070 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:12,125 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:12,127 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:12,127 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:12,127 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:12,127 - INFO - Checking market status for date: 2025-01-04, time: 14:05:12
+2025-01-04 14:05:12,128 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:12,179 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:12,180 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:12,181 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:12,181 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:12,181 - INFO - Checking market status for date: 2025-01-04, time: 14:05:12
+2025-01-04 14:05:12,182 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:12,230 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:12,231 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:12,232 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:12,232 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:12,232 - INFO - Checking market status for date: 2025-01-04, time: 14:05:12
+2025-01-04 14:05:12,232 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:12,288 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:12,289 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:12,290 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:12,290 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:12,290 - INFO - Checking market status for date: 2025-01-04, time: 14:05:12
+2025-01-04 14:05:12,290 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:12,339 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:12,341 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:12,341 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:12,341 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:12,342 - INFO - Checking market status for date: 2025-01-04, time: 14:05:12
+2025-01-04 14:05:12,342 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:12,399 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:12,400 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:12,401 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:12,401 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:12,401 - INFO - Checking market status for date: 2025-01-04, time: 14:05:12
+2025-01-04 14:05:12,402 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:12,454 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:12,455 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:12,456 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:12,456 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:12,457 - INFO - Checking market status for date: 2025-01-04, time: 14:05:12
+2025-01-04 14:05:12,457 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:12,510 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:12,511 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:12,512 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:12,512 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:12,512 - INFO - Checking market status for date: 2025-01-04, time: 14:05:12
+2025-01-04 14:05:12,513 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:12,565 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:12,567 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:12,568 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:12,568 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:12,568 - INFO - Checking market status for date: 2025-01-04, time: 14:05:12
+2025-01-04 14:05:12,569 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:12,620 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:12,621 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:12,622 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:12,622 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:12,622 - INFO - Checking market status for date: 2025-01-04, time: 14:05:12
+2025-01-04 14:05:12,623 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:12,675 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:12,676 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:12,677 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:12,677 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:12,677 - INFO - Checking market status for date: 2025-01-04, time: 14:05:12
+2025-01-04 14:05:12,678 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:12,729 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:12,730 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:12,730 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:12,731 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:12,731 - INFO - Checking market status for date: 2025-01-04, time: 14:05:12
+2025-01-04 14:05:12,731 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-04 14:05:12,783 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-04 HTTP/1.1" 200 None
+2025-01-04 14:05:12,785 - INFO - Regular market hours check - Is Open: True
+2025-01-04 14:05:12,785 - ERROR - Error in main loop: name 'expiry_date' is not defined
+2025-01-04 14:05:12,785 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-04 14:05:12,785 - INFO - Checking market status for date: 2025-01-04, time: 14:05:12
+2025-01-04 14:05:12,786 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
