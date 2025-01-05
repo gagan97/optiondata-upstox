@@ -1,0 +1,16 @@
+# Ignore AWS-related files and directories
+aws/
+awscliv2.zip
+windows-server-aws.pem
+
+# Ignore the bin directory
+bin/
+
+# Ignore the optiondata-upstox directory
+optiondata-upstox/
+
+# Ignore the downloads directory
+downloads/
+
+# Ignore the proot-distro directory
+proot-distro/
