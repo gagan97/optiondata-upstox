@@ -14,3 +14,18 @@ downloads/
 
 # Ignore the proot-distro directory
 proot-distro/
+.android/
+.aws/
+.bash_history
+.bashrc
+.cache/
+.git-credentials
+.gitconfig
+.gnupg/
+.lesshst
+.local/
+.python_history
+.ssh/
+.termux/
+.wget-hsts
+proot-distro
