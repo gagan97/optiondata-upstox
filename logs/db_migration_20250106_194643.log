@@ -1,0 +1,13 @@
+2025-01-06 19:46:43,349 - INFO - Starting database migration
+2025-01-06 19:46:57,210 - INFO - Copied 46108 rows for nse_index_nifty_50_2025_01_02
+2025-01-06 19:47:18,332 - INFO - Copied 120946 rows for nse_index_nifty_50_2025_01_09
+2025-01-06 19:47:19,411 - ERROR - Error copying nse_index_nifty_fin_service_2025_01_28: duplicate key value violates unique constraint "nse_index_nifty_fin_service_2025_01_28_pkey"
+DETAIL:  Key ("timestamp")=(2025-01-01 10:21:01.512) already exists.
+CONTEXT:  COPY nse_index_nifty_fin_service_2025_01_28, line 1
+
+2025-01-06 19:47:22,186 - INFO - Copied 171453 rows for nse_index_nifty_mid_select_2025_01_27
+2025-01-06 19:47:22,291 - INFO - Copied 171476 rows for bse_index_bankex_2025_01_27
+2025-01-06 19:47:27,326 - INFO - Copied 63242 rows for bse_index_sensex_2025_01_10
+2025-01-06 19:47:29,709 - INFO - Copied 108664 rows for bse_index_sensex_2025_01_03
+2025-01-06 19:47:36,981 - INFO - Copied 169621 rows for nse_index_nifty_bank_2025_01_29
+2025-01-06 19:47:51,299 - INFO - Copied 177088 rows for nse_index_nifty_next_50_2025_01_31
