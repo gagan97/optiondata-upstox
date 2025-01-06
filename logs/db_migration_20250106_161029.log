@@ -1,0 +1,31 @@
+2025-01-06 16:10:29,338 - INFO - Starting database migration
+2025-01-06 16:10:30,119 - INFO - Successfully connected to OptionChain database
+2025-01-06 16:10:30,541 - INFO - Successfully connected to OptionData database
+2025-01-06 16:10:30,618 - INFO - Processing table nse_index_nifty_mid_select_2025_01_27 (1/7)
+2025-01-06 16:10:30,702 - INFO - Created table nse_index_nifty_mid_select_2025_01_27 in target database
+2025-01-06 16:10:54,223 - INFO - Table nse_index_nifty_mid_select_2025_01_27: Skipped 57218 duplicate rows, Inserted 0 new rows.
+2025-01-06 16:10:55,822 - INFO - Processing table nse_index_nifty_bank_2025_01_29 (2/7)
+2025-01-06 16:10:55,899 - INFO - Created table nse_index_nifty_bank_2025_01_29 in target database
+2025-01-06 16:11:19,020 - INFO - Table nse_index_nifty_bank_2025_01_29: Skipped 56925 duplicate rows, Inserted 0 new rows.
+2025-01-06 16:11:20,463 - INFO - Processing table nse_index_nifty_50_2025_01_09 (3/7)
+2025-01-06 16:11:20,541 - INFO - Created table nse_index_nifty_50_2025_01_09 in target database
+2025-01-06 16:11:43,980 - INFO - Table nse_index_nifty_50_2025_01_09: Skipped 55648 duplicate rows, Inserted 0 new rows.
+2025-01-06 16:11:45,418 - INFO - Processing table nse_index_nifty_next_50_2025_01_31 (4/7)
+2025-01-06 16:11:45,498 - INFO - Created table nse_index_nifty_next_50_2025_01_31 in target database
+2025-01-06 16:12:07,257 - INFO - Table nse_index_nifty_next_50_2025_01_31: Skipped 59168 duplicate rows, Inserted 0 new rows.
+2025-01-06 16:12:08,619 - INFO - Processing table nse_index_nifty_fin_service_2025_01_28 (5/7)
+2025-01-06 16:12:08,697 - INFO - Created table nse_index_nifty_fin_service_2025_01_28 in target database
+2025-01-06 16:12:31,504 - INFO - Table nse_index_nifty_fin_service_2025_01_28: Skipped 56329 duplicate rows, Inserted 0 new rows.
+2025-01-06 16:12:32,941 - INFO - Processing table bse_index_bankex_2025_01_27 (6/7)
+2025-01-06 16:12:32,946 - INFO - Created table bse_index_bankex_2025_01_27 in target database
+2025-01-06 16:12:54,788 - INFO - Table bse_index_bankex_2025_01_27: Skipped 57477 duplicate rows, Inserted 0 new rows.
+2025-01-06 16:12:56,061 - INFO - Processing table bse_index_sensex_2025_01_10 (7/7)
+2025-01-06 16:12:56,140 - INFO - Created table bse_index_sensex_2025_01_10 in target database
+2025-01-06 16:13:17,260 - INFO - Table bse_index_sensex_2025_01_10: Skipped 57218 duplicate rows, Inserted 0 new rows.
+2025-01-06 16:13:18,384 - INFO - 
+Migration Summary:
+----------------
+Total tables processed: 7
+Total rows migrated: 0
+
+2025-01-06 16:13:18,384 - INFO - Database connections closed

@@ -1,0 +1,6 @@
+2025-01-06 15:35:15,344 - INFO - Starting database migration
+2025-01-06 15:35:15,344 - ERROR - Error connecting to OptionChain database: invalid dsn: invalid connection option "databse"
+
+2025-01-06 15:35:15,344 - ERROR - Migration failed: invalid dsn: invalid connection option "databse"
+
+2025-01-06 15:35:15,344 - INFO - Database connections closed

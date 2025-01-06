@@ -1,0 +1,8 @@
+2025-01-06 16:03:54,697 - INFO - Starting database migration
+2025-01-06 16:03:55,185 - INFO - Successfully connected to OptionChain database
+2025-01-06 16:03:55,737 - INFO - Successfully connected to OptionData database
+2025-01-06 16:03:55,759 - INFO - Processing table nse_index_nifty_mid_select_2025_01_27 (1/7)
+2025-01-06 16:03:55,978 - INFO - Created table nse_index_nifty_mid_select_2025_01_27 in target database
+2025-01-06 16:04:20,143 - INFO - Table nse_index_nifty_mid_select_2025_01_27: Skipped 57218 duplicate rows, Inserted 0 new rows.
+2025-01-06 16:04:21,664 - ERROR - Migration failed: unsupported operand type(s) for +=: 'int' and 'NoneType'
+2025-01-06 16:04:21,664 - INFO - Database connections closed

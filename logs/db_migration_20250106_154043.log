@@ -1,0 +1,7 @@
+2025-01-06 15:40:43,097 - INFO - Starting database migration
+2025-01-06 15:40:44,068 - INFO - Successfully connected to OptionChain database
+2025-01-06 15:40:44,538 - INFO - Successfully connected to OptionData database
+2025-01-06 15:40:44,552 - INFO - Processing table nse_index_nifty_mid_select_2025_01_27 (1/7)
+2025-01-06 15:40:44,779 - INFO - Created table nse_index_nifty_mid_select_2025_01_27 in target database
+2025-01-06 15:40:47,984 - ERROR - Migration failed: Composed elements must be Composable, got '%s' instead
+2025-01-06 15:40:47,985 - INFO - Database connections closed
