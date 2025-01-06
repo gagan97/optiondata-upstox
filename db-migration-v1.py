@@ -23,16 +23,49 @@ def read_db_config(file_path):
         'port': config['postgresql']['port']
     }
 
+def get_database_size(conn):
+    with conn.cursor() as cur:
+        cur.execute("""
+            SELECT pg_database_size(current_database()) as size
+        """)
+        size_bytes = cur.fetchone()[0]
+        
+        # Convert to appropriate unit
+        units = ['B', 'KB', 'MB', 'GB', 'TB']
+        index = 0
+        size = float(size_bytes)
+        while size >= 1024 and index < len(units) - 1:
+            size /= 1024
+            index += 1
+        return f"{size:.2f} {units[index]}"
+
+def get_table_size(conn, table_name):
+    with conn.cursor() as cur:
+        cur.execute(f"""
+            SELECT pg_total_relation_size('{table_name}') as size
+        """)
+        size_bytes = cur.fetchone()[0]
+        
+        units = ['B', 'KB', 'MB', 'GB', 'TB']
+        index = 0
+        size = float(size_bytes)
+        while size >= 1024 and index < len(units) - 1:
+            size /= 1024
+            index += 1
+        return f"{size:.2f} {units[index]}"
+
 def get_table_stats(conn, table_name):
     with conn.cursor() as cur:
         cur.execute(f"SELECT COUNT(*) FROM {table_name}")
         return cur.fetchone()[0]
 
-def print_migration_summary(tables_info):
+def print_migration_summary(tables_info, source_size, target_size):
     table = Table(title="Migration Summary", show_header=True, header_style="bold magenta")
     table.add_column("Table Name", style="cyan")
     table.add_column("Source Rows", justify="right", style="green")
     table.add_column("Target Rows", justify="right", style="blue")
+    table.add_column("Source Size", justify="right", style="green")
+    table.add_column("Target Size", justify="right", style="blue")
     table.add_column("Status", style="yellow")
     
     total_source = total_target = 0
@@ -42,12 +75,22 @@ def print_migration_summary(tables_info):
             info['table'],
             str(info['source_rows']),
             str(info['target_rows']),
+            info['source_size'],
+            info['target_size'],
             "✅ Success" if info['success'] else "❌ Failed"
         )
         total_source += info['source_rows']
         total_target += info['target_rows']
     
-    table.add_row("Total", str(total_source), str(total_target), "✨ Complete", style="bold")
+    table.add_row(
+        "Total", 
+        str(total_source), 
+        str(total_target),
+        source_size,
+        target_size,
+        "✨ Complete",
+        style="bold"
+    )
     console.print("\n")
     console.print(table)
 
@@ -56,6 +99,8 @@ def copy_table_data(source_conn, target_conn, table_name, progress, task_id):
         with source_conn.cursor() as source_cur, target_conn.cursor() as target_cur:
             source_rows = get_table_stats(source_conn, table_name)
             progress.update(task_id, total=source_rows)
+            
+            source_size = get_table_size(source_conn, table_name)
             
             temp_table = f"temp_{table_name}"
             source_cur.execute("""
@@ -89,11 +134,14 @@ def copy_table_data(source_conn, target_conn, table_name, progress, task_id):
             
             progress.update(task_id, advance=source_rows)
             target_rows = get_table_stats(target_conn, table_name)
+            target_size = get_table_size(target_conn, table_name)
             
             return {
                 'table': table_name,
                 'source_rows': source_rows,
                 'target_rows': target_rows,
+                'source_size': source_size,
+                'target_size': target_size,
                 'success': True
             }
             
@@ -104,10 +152,17 @@ def copy_table_data(source_conn, target_conn, table_name, progress, task_id):
             'table': table_name,
             'source_rows': source_rows if 'source_rows' in locals() else 0,
             'target_rows': 0,
+            'source_size': source_size if 'source_size' in locals() else '0 B',
+            'target_size': '0 B',
             'success': False
         }
 
 def process_tables(source_params, target_params, tables):
+    source_conn = psycopg2.connect(**source_params)
+    target_conn = psycopg2.connect(**target_params)
+    
+    source_total_size = get_database_size(source_conn)
+    
     with Progress(
         SpinnerColumn(),
         TextColumn("[progress.description]{task.description}"),
@@ -136,7 +191,12 @@ def process_tables(source_params, target_params, tables):
             for future, _ in futures:
                 tables_info.append(future.result())
     
-    return tables_info
+    target_total_size = get_database_size(target_conn)
+    
+    source_conn.close()
+    target_conn.close()
+    
+    return tables_info, source_total_size, target_total_size
 
 def main():
     try:
@@ -160,8 +220,8 @@ def main():
             border_style="blue"
         ))
         
-        tables_info = process_tables(option_chain_params, option_data_params, tables)
-        print_migration_summary(tables_info)
+        tables_info, source_size, target_size = process_tables(option_chain_params, option_data_params, tables)
+        print_migration_summary(tables_info, source_size, target_size)
 
     except Exception as e:
         console.print(f"[bold red]Migration failed: {str(e)}[/bold red]")
