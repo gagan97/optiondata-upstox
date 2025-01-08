@@ -280,59 +280,63 @@ def main():
         
         source_params = read_db_config(os.path.join('api', 'ini', 'OptionChain.ini'))
         target_params = read_db_config(os.path.join('api', 'ini', 'optiondata.ini'))
+
+        progress = Progress(
+            SpinnerColumn(),
+            TextColumn("[progress.description]{task.description}"),
+            BarColumn(),
+            TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
+            TimeElapsedColumn(),
+            console=console,
+            expand=True,
+            transient=True
+        )
         
         with Live(auto_refresh=False, vertical_overflow="visible") as live:
             layout = Layout()
-
-            # Create a more compact layout
             layout.split_column(
                 Layout(name="header", size=15),
-                Layout(name="table", size=20),
+                Layout(name="status", size=20),
                 Layout(name="progress")
             )
             
-            layout["db_info"].split_row(
+            layout["header"].split_row(
                 Layout(name="source_db"),
                 Layout(name="target_db")
             )
+            source_conn = psycopg2.connect(**source_params)
+            target_conn = psycopg2.connect(**target_params)
 
-            # Initial table display
-            layout["table"].update(create_progress_table([]))
-            
-            with Progress(
-                SpinnerColumn(),
-                TextColumn("[progress.description]{task.description}"),
-                BarColumn(),
-                TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
-                TimeElapsedColumn(),
-                console=console,
-                expand=True,
-                transient=True  # This will make completed tasks disappear
-            
-            ) as progress:
-                with ThreadPoolExecutor(max_workers=4) as executor:
-                    tables = get_tables(source_conn)
-                    futures = []
-                    tables_info = []
-                    
-                    for table in tables:
-                        future = executor.submit(
-                            copy_table_data,
-                            psycopg2.connect(**source_params),
-                            psycopg2.connect(**target_params),
-                            table,
-                            progress
-                        )
-                        futures.append((future, table))
-                    
-                    for future, table in futures:
-                        result = future.result()
-                        tables_info.append(result)
-                        layout["table"].update(create_progress_table(tables_info))
-                        live.update(layout)
-            
-            source_conn.close()
-            target_conn.close()
+            source_stats = get_database_stats(source_conn, source_params)
+            target_stats = get_database_stats(target_conn, target_params)
+
+            layout["source_db"].update(create_db_info_panel(source_stats, "Source Database"))
+            layout["target_db"].update(create_db_info_panel(target_stats, "Target Database"))
+            layout["status"].update(create_progress_table([]))
+
+            with ThreadPoolExecutor(max_workers=4) as executor:
+                tables = get_tables(source_conn)
+                futures = []
+                tables_info = []
+                
+                for table in tables:
+                    future = executor.submit(
+                        copy_table_data,
+                        psycopg2.connect(**source_params),
+                        psycopg2.connect(**target_params),
+                        table,
+                        progress
+                    )
+                    futures.append((future, table))
+                
+                for future, table in futures:
+                    result = future.result()
+                    tables_info.append(result)
+                    layout["status"].update(create_progress_table(tables_info))
+                    live.update(layout)
+        
+        source_conn.close()
+        target_conn.close()
 
     except Exception as e:
         logger.error(f"Migration failed: {str(e)}", exc_info=True)
