@@ -15,9 +15,20 @@ from market_holiday_date_wise import market_holiday_date_wise
 from pathlib import Path
 import calendar
 from colorama import init, Fore, Style
+from rich.console import Console
+from rich.live import Live
+from rich.text import Text
+import threading
+from rich.progress import Progress, TextColumn, BarColumn, TimeElapsedColumn, SpinnerColumn
+from rich.console import Console
+from rich.panel import Panel
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from functools import lru_cache
 
 # Initialize colorama for colored terminal output
 init()
+
+console = Console()
 
 # Call the function
 market_holiday_date_wise()
@@ -39,7 +50,7 @@ if not os.path.exists(log_directory):
     os.makedirs(log_directory)
 
 # Configure logging with rotating file handler
-log_file = "api/logs/OC_Nifty50.log"
+log_file = "api/logs/test.log"
 handler = RotatingFileHandler(log_file, maxBytes=5000000, backupCount=5)  # 5 MB max per log file, keep 5 backups
 formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 handler.setFormatter(formatter)
@@ -176,7 +187,7 @@ def get_current_timestamp():
     return now.strftime("%Y-%m-%d %H:%M:%S") + f".{now.microsecond // 1000:03d}"
 
 # Fetch database config
-def configDB(filename="api/ini/OptionChain.ini", section="postgresql"):
+def configDB(filename="api/ini/test.ini", section="postgresql"):
     parser = ConfigParser()
     parser.read(filename)
     db = {}
@@ -358,82 +369,161 @@ def insert_data_into_db(db_config, table_name, data):
         if conn is not None:
             conn.close()
 
-# Fetch and process data from API
-class OptionChainFetcher:
-    def fetch_data(self, expiry_date=None):
-        """Modified to accept specific expiry date and show progress"""
-        current_dir = Path(__file__).parent
-        token_path = current_dir / 'api' / 'token' / 'accessToken_order.txt'
+@lru_cache(maxsize=1)
+def check_market_status():
+    """
+    Check market status once and cache the result
+    Returns: tuple (is_open: bool, message: str)
+    """
+    try:
+        # Get current time in IST
+        now = datetime.now(pytz.timezone('Asia/Kolkata'))
+        current_date = now.strftime('%Y-%m-%d')
+        
+        # Check holiday status
+        holiday_response = market_holiday_date_wise()
+        
+        if holiday_response and holiday_response.get('status') == 'success':
+            holidays_list = [holiday['date'] for holiday in holiday_response.get('data', [])]
+            
+            if current_date in holidays_list:
+                return False, f"Market is closed (Holiday: {current_date})"
+            
+            # Check market hours (9:15 AMhours (9:15 AM to 3:30 PM IST)
+            market_start = now.replace(hour=9, minute=15, second=0, microsecond=0)
+            market_end = now.replace(hour=15, minute=30, second=0, microsecond=0)
+            
+            if market_start <= now <= market_end and now.weekday() < 5:
+                return True, "Market is open"
+            else:
+                return False, "Market is closed (Outside trading hours)"
+        else:
+            return False, "Could not verify market status"
+            
+    except Exception as e:
+        logging.error(f"Error checking market status: {e}")
+        return False, f"Error checking market status: {e}"
+
+class ThreadedOptionChainFetcher:
+
+    def __init__(self):
+        self.console = Console()
+        
+    def process_single_expiry(self, expiry_date, access_token, progress):
+        """Process a single expiry date with progress tracking"""
+        task_id = progress.add_task(
+            f"[cyan]Expiry {expiry_date}",
+            total=100,
+            start=False
+        )
         
         try:
-            with open(token_path, 'r') as file:
-                access_token = file.read().strip()
-        except FileNotFoundError:
-            logging.error("Access token file not found.")
-            print(f"{Fore.RED}Error: Access token file not found{Style.RESET_ALL}")
-            return {}
-
-        # If no expiry_date provided, get all expiries for current month
-        now = datetime.now()
-        if expiry_date is None:
-            expiry_dates = get_all_thursday_expiries(now.year, now.month)
-        else:
-            expiry_dates = [expiry_date]
-
-        all_data = []
-        for expiry in expiry_dates:
-            print(f"{Fore.CYAN}Fetching data for expiry: {expiry}{Style.RESET_ALL}")
+            # Update progress - Starting
+            progress.start_task(task_id)
+            progress.update(task_id, completed=10, description=f"[cyan]Fetching data for {expiry_date}")
+            
+            # Fetch data
             params = {
                 'instrument_key': 'NSE_INDEX|Nifty 50',
-                'expiry_date': expiry
+                'expiry_date': expiry_date
             }
             headers = {
                 'Accept': 'application/json',
                 'Authorization': f'Bearer {access_token}'
             }
-
-            try:
-                response = requests.get('https://api.upstox.com/v2/option/chain', 
-                                     params=params, headers=headers)
-                response.raise_for_status()
-                data = response.json()
-                if data.get('status') == 'success':
-                    print(f"{Fore.GREEN}Successfully fetched data for {expiry}{Style.RESET_ALL}")
-                    all_data.append(data)
-                else:
-                    print(f"{Fore.RED}Failed to fetch data for {expiry}{Style.RESET_ALL}")
-            except requests.RequestException as e:
-                error_msg = f"Request failed for expiry {expiry}: {e}"
-                logging.error(error_msg)
-                print(f"{Fore.RED}{error_msg}{Style.RESET_ALL}")
-
-        return all_data
-
-    def start_fetching(self):
-        print(f"\n{Fore.CYAN}Starting data fetching for all expiries...{Style.RESET_ALL}")
-        all_data = self.fetch_data()
-
-        for data in all_data:
+            
+            response = requests.get(
+                'https://api.upstox.com/v2/option/chain',
+                params=params,
+                headers=headers
+            )
+            response.raise_for_status()
+            data = response.json()
+            
+            progress.update(task_id, completed=40, description=f"[yellow]Processing {expiry_date}")
+            
             if data.get('status') == 'success' and 'data' in data:
+                records = []
                 for item in data['data']:
-                    expiry = item.get('expiry')
-                    underlying_key = item.get('underlying_key')
-                    table_name = sanitize_table_name(expiry, underlying_key)
-                    
-                    print(f"{Fore.GREEN}Inserting data for {expiry} into {table_name}{Style.RESET_ALL}")
-                    
                     record = {
-                        'expiry': expiry,
+                        'expiry': item.get('expiry'),
                         'strike_price': item.get('strike_price'),
                         'underlying_spot_price': item.get('underlying_spot_price'),
                         'pcr': item.get('pcr'),
-                        'underlying_key': underlying_key,
+                        'underlying_key': item.get('underlying_key'),
                         'call_options': item.get('call_options'),
                         'put_options': item.get('put_options')
                     }
+                    records.append(record)
+                progress.update(task_id, completed=70, description=f"[green]Inserting {expiry_date}")
+                
+                # Insert records into database
+                for record in records:
+                    table_name = sanitize_table_name(record['expiry'], record['underlying_key'])
                     insert_data_into_db(db_config, table_name, record)
+                
+                progress.update(task_id, completed=100, description=f"[bold green]✓ Completed {expiry_date}")
+                return True
             else:
-                print(f"{Fore.RED}Error processing data batch{Style.RESET_ALL}")
+                progress.update(task_id, completed=100, description=f"[bold red]✗ Failed {expiry_date}")
+                return False
+                
+        except Exception as e:
+            progress.update(task_id, completed=100, description=f"[bold red]✗ Error {expiry_date}")
+            logging.error(f"Error processing {expiry_date}: {e}")
+            return False
+
+    def start_fetching(self):
+        # First check market status
+        is_open, status_message = check_market_status()
+        
+        # Display market status
+        if is_open:
+            self.console.print(Panel(f"[bold green]{status_message}", title="Market Status"))
+        else:
+            self.console.print(Panel(f"[bold red]{status_message}", title="Market Status"))
+            return
+        
+        # If market is open, proceed with data fetching
+        if is_open:
+            current_dir = Path(__file__).parent
+            token_path = current_dir / 'api' / 'token' / 'accessToken_order.txt'
+            
+            try:
+                with open(token_path, 'r') as file:
+                    access_token = file.read().strip()
+            except FileNotFoundError:
+                self.console.print("[red]Error: Access token file not found")
+                return
+                
+            # Get all expiry datesGet all expiry dates
+            now = datetime.now()
+            expiry_dates = get_all_thursday_expiries(now.year, now.month)
+            
+            with Progress(
+                SpinnerColumn(),
+                TextColumn("[progress.description]{task.description}"),
+                BarColumn(),
+                TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
+                TimeElapsedColumn(),
+                console=self.console
+            ) as progress:
+                # Create thread pool for parallel processing
+                with ThreadPoolExecutor(max_workers=min(len(expiry_dates), 5)) as executor:
+                    # Submit all tasks
+                    futures = [
+                        executor.submit(self.process_single_expiry, expiry, access_token, progress)
+                        for expiry in expiry_dates
+                    ]
+                    
+                    # Wait for all tasks to complete
+                    for future in as_completed(futures):
+                        try:
+                            future.result()
+                        except Exception as e:
+                            logging.error(f"Thread error: {e}")
+
+# Replace the existing fetcher instantiation
 
 def fetch_and_insert_data():
     if is_market_open():
@@ -476,46 +566,110 @@ def parse_exchange_timings(holiday_data):
         logging.error(f"Error parsing exchange timings: {e}")
     return None
 
+#def is_market_open():
+#    """Check if market is open based on time and day"""
+#    now = datetime.now(pytz.timezone('Asia/Kolkata'))
+#    current_day = now.strftime('%A')
+    
+#    # Weekend check
+#    if current_day in ['Saturday', 'Sunday']:
+#        return False
+    
+#    # Check market hours (9:00 AM to 3:30 PM)
+#    market_time = now.time()
+#    return dt_time(9, 0) <= market_time <= dt_time(15, 30)
+
+#def create_status_line():
+#    """Create a single status line with all information"""
+#    now = datetime.now(pytz.timezone('Asia/Kolkata'))
+#    current_day = now.strftime('%A')
+#    current_datetime = now.strftime('%Y-%m-%d %H:%M:%S')
+   
+#    # Create status text
+#    status = Text()
+   
+#    # Base status
+#    status.append("Status: ", style="cyan")
+#    status.append("success ", style="green")
+    
+#    # Holiday/Weekend status
+#    if current_day in ['Saturday', 'Sunday']:
+#        status.append("Holiday (Weekend) ", style="yellow")
+#    else:
+#        status.append("No holiday ", style="green")
+    
+#    # Current date/time and day
+#    status.append(f"{current_datetime} {current_day} ", style="blue")
+    
+#    # Market status
+#    market_open = is_market_open()
+#    status.append("market ", style="cyan")
+#    status.append("OPEN" if market_open else "CLOSED", 
+#                 style="green" if market_open else "red")
+   
+#    return status
+
 def is_market_open():
-    """
-    Check if the market is open based on regular hours and holiday special timings.
-    Returns: bool
-    """
-    # Get current time in IST
+    """Check if market is open based on time, day and holidays"""
     now = datetime.now(pytz.timezone('Asia/Kolkata'))
     current_date = now.strftime('%Y-%m-%d')
+    current_day = now.strftime('%A')
     
-    logging.info(f"Checking market status for date: {current_date}, time: {now.strftime('%H:%M:%S')}")
+    # Weekend check
+    if current_day in ['Saturday', 'Sunday']:
+        return False, "Weekend Holiday"
     
     # Check holiday data
     holiday_response = market_holiday_date_wise()
-    
     if holiday_response and holiday_response.get('status') == 'success':
         holidays = holiday_response.get('data', [])
-        
         for holiday in holidays:
-            logging.info(f"Checking holiday: {holiday}")
-            
             if holiday['date'] == current_date:
-                logging.info("Today is a holiday with special timing")
-                
                 # Parse exchange timings
                 exchange_info = parse_exchange_timings(holiday)
-                
                 if exchange_info:
                     start_time = convert_milliseconds_to_time(exchange_info['start'])
                     end_time = convert_milliseconds_to_time(exchange_info['end'])
-                    
                     if start_time and end_time:
                         is_open = start_time <= now <= end_time
-                        logging.info(f"Special timing check - Start: {start_time}, End: {end_time}, Current: {now}, Is Open: {is_open}")
-                        return is_open
+                        return is_open, f"Holiday ({holiday.get('description', 'Special Timing')})"
+                return False, f"Holiday ({holiday.get('description', 'Market Closed')})"
     
-    # Regular market hours check
-    regular_market_time = now.time()
-    is_regular_open = dt_time(9, 00) <= regular_market_time <= dt_time(15, 30)
-    logging.info(f"Regular market hours check - Is Open: {is_regular_open}")
-    return is_regular_open
+    # Regular market hours check (9:00 AM to 3:30 PM)
+    market_time = now.time()
+    is_regular_open = dt_time(9, 0) <= market_time <= dt_time(15, 30)
+    return is_regular_open, "Regular Hours"
+
+def create_status_line():
+    """Create a single status line with all information"""
+    now = datetime.now(pytz.timezone('Asia/Kolkata'))
+    current_day = now.strftime('%A')
+    current_datetime = now.strftime('%Y-%m-%d %H:%M:%S')
+    
+    market_open, status_reason = is_market_open()
+    
+    # Create status text
+    status = Text()
+    
+    # Base status
+    status.append("Status: ", style="cyan")
+    status.append("success ", style="green")
+    
+    # Holiday/Regular Day status
+    if "Holiday" in status_reason:
+        status.append(f"{status_reason} ", style="yellow")
+    else:
+        status.append("No holiday ", style="green")
+    
+    # Current date/time and day
+    status.append(f"{current_datetime} {current_day} ", style="blue")
+    
+    # Market status
+    status.append("market ", style="cyan")
+    status.append("OPEN" if market_open else "CLOSED", 
+                 style="green" if market_open else "red")
+    
+    return status
 
 if __name__ == '__main__':
     print(f"{Fore.CYAN}{'='*50}")
@@ -526,21 +680,19 @@ if __name__ == '__main__':
     db_config = configDB()
     check_and_create_db(db_config)
 
-    fetcher = OptionChainFetcher()
+    fetcher = ThreadedOptionChainFetcher()
 
     # Schedule data fetching during market hours every second
     schedule.every(1).seconds.do(fetch_and_insert_data)
 
-    print(f"{Fore.GREEN}Service started successfully. Press Ctrl+C to stop.{Style.RESET_ALL}")
+    console.clear()
+    console.print("[bold cyan]NIFTY50 OPTION CHAIN MONITOR[/bold cyan]")
+    console.print("[green]Service started successfully. Press Ctrl+C to stop.[/green]")
     
-    while True:
-        try:
-            schedule.run_pending()
-            t.sleep(1)
-        except KeyboardInterrupt:
-            print(f"\n{Fore.YELLOW}Stopping service...{Style.RESET_ALL}")
-            sys.exit(0)
-        except Exception as e:
-            error_msg = f"Error in main loop: {e}"
-            logging.error(error_msg)
-            print(f"{Fore.RED}{error_msg}{Style.RESET_ALL}")
+    with Live(create_status_line(), refresh_per_second=1, transient=True) as live:
+        while True:
+            try:
+                live.update(create_status_line())
+            except KeyboardInterrupt:
+                console.print("\n[yellow]Service stopped[/yellow]")
+                sys.exit(0)

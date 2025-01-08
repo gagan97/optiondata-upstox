@@ -436,3 +436,276 @@ Extracted api/instrument/suspended.json.gz to api/instrument/suspended.json
 2025-01-06 19:38:09,190 - INFO - [root] - [INFO] Stopping execution for today (Monday)
 2025-01-06 20:38:09,191 - INFO - [root] - [INFO] Stopping execution for today (Monday)
 2025-01-06 21:38:09,192 - INFO - [root] - [INFO] Stopping execution for today (Monday)
+2025-01-07 08:58:41,930 - INFO - [root] - Today is Tuesday - Weekday
+2025-01-07 08:58:41,936 - INFO - [root] - === Script Runner Started ===
+2025-01-07 08:58:41,936 - INFO - [root] - Current day: Tuesday (Weekday)
+2025-01-07 08:58:41,936 - INFO - [root] - Current time: 08:58:41
+2025-01-07 08:58:41,936 - INFO - [root] - Running in schedule mode
+2025-01-07 08:58:41,936 - INFO - [root] - Outside trading hours (09:00-15:30)
+2025-01-07 08:58:41,937 - INFO - [root] - Scheduled tasks for weekdays at 09:00
+2025-01-07 08:58:41,937 - INFO - [root] - Current time 08:58 is outside trading hours. Waiting for next scheduled run...
+2025-01-07 09:00:41,937 - DEBUG - [schedule] - Running job Job(interval=1, unit=weeks, do=random_task, args=(), kwargs={})
+2025-01-07 09:00:41,938 - INFO - [root] - Checking schedule: Tuesday at 09:00
+2025-01-07 09:00:41,938 - INFO - [root] - [INFO] Delaying task execution by 2970 seconds
+2025-01-07 09:02:23,785 - INFO - [root] - Today is Tuesday - Weekday
+2025-01-07 09:02:23,785 - INFO - [root] - === Script Runner Started ===
+2025-01-07 09:02:23,785 - INFO - [root] - Current day: Tuesday (Weekday)
+2025-01-07 09:02:23,785 - INFO - [root] - Current time: 09:02:23
+2025-01-07 09:02:23,785 - INFO - [root] - Running in schedule mode
+2025-01-07 09:02:23,785 - INFO - [root] - Currently in trading hours (09:00-15:30)
+2025-01-07 09:02:23,785 - INFO - [root] - Scheduled tasks for weekdays at 09:00
+2025-01-07 09:02:23,786 - INFO - [root] - Current time 09:02 is within trading hours. Starting immediate execution...
+2025-01-07 09:02:23,786 - INFO - [root] - Running task sequence on Tuesday
+2025-01-07 09:02:23,786 - INFO - [root] - [TASK] Starting logoutCLI script...
+2025-01-07 09:02:23,786 - INFO - [root] - [START] Running script: /home/ubuntu/optiondata-upstox/logoutCLI.py
+2025-01-07 09:02:24,356 - DEBUG - [root] - Script output:
+Found 3 token files to process...
+--------------------------------------------------
+
+Processing token 1/3:
+Token loaded from: /home/ubuntu/optiondata-upstox/api/token/accessToken_order.txt
+Exception when calling LoginApi->logout: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'Date': 'Tue, 07 Jan 2025 03:32:24 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'pragma': 'no-cache', 'strict-transport-security': 'max-age=0; includeSubDomains', 'x-frame-options': 'DENY', 'Cache-Control': 'must-revalidate,no-cache,no-store', 'vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'message': 'request failed', 'CF-Cache-Status': 'DYNAMIC', 'Set-Cookie': '__cf_bm=7IOOkjcCyd0_tT9dxdaUsNz7.yJxqnYq5brfSx18wkw-1736220744-1.0.1.1-J32caBFGeYDDIIoXL46a1WKsrQlfEAEH9CHRspxHtBEA71lEhivGt58ZTzQXrxru; path=/; expires=Tue, 07-Jan-25 04:02:24 GMT; domain=.upstox.com; HttpOnly; Secure; SameSite=None, _cfuvid=kAdPyQgMriKZb._BYZINe13O.qgWzGYl_aoZlBcqS7c-1736220744196-0.0.1.1-604800000; path=/; domain=.upstox.com; HttpOnly; Secure; SameSite=None', 'Server': 'cloudflare', 'CF-RAY': '8fe0e1631d483c34-BOM', 'alt-svc': 'h3=":443"; ma=86400'})
+HTTP response body: b'{"status":"error","errors":[{"errorCode":"UDAPI100050","message":"Invalid token used to access API","propertyPath":null,"invalidValue":null,"error_code":"UDAPI100050","property_path":null,"invalid_value":null}]}'
+
+Access token file '/home/ubuntu/optiondata-upstox/api/token/accessToken_order.txt' has been deleted.
+--------------------------------------------------
+
+Processing token 2/3:
+Token loaded from: /home/ubuntu/optiondata-upstox/api/token/accessToken_his.txt
+Exception when calling LoginApi->logout: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'Date': 'Tue, 07 Jan 2025 03:32:24 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'pragma': 'no-cache', 'strict-transport-security': 'max-age=0; includeSubDomains', 'x-frame-options': 'DENY', 'Cache-Control': 'must-revalidate,no-cache,no-store', 'vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'message': 'request failed', 'CF-Cache-Status': 'DYNAMIC', 'Set-Cookie': '__cf_bm=sBoVa0sYH1kWsCgGvoBaERXdCxGRP_TddJplai1fhzI-1736220744-1.0.1.1-v5PpKI_tUgaEhIuzD67f.ih1ITKpln_fA1arRZOQubOx6wxSE5Celhc0SEH.U7HF; path=/; expires=Tue, 07-Jan-25 04:02:24 GMT; domain=.upstox.com; HttpOnly; Secure; SameSite=None, _cfuvid=x4ptBv8Zf.aDB5_2L7U171e7n8ahAqhZ5rZ3Xt2K3oQ-1736220744256-0.0.1.1-604800000; path=/; domain=.upstox.com; HttpOnly; Secure; SameSite=None', 'Server': 'cloudflare', 'CF-RAY': '8fe0e1637f233a33-BOM', 'alt-svc': 'h3=":443"; ma=86400'})
+HTTP response body: b'{"status":"error","errors":[{"errorCode":"UDAPI100050","message":"Invalid token used to access API","propertyPath":null,"invalidValue":null,"error_code":"UDAPI100050","property_path":null,"invalid_value":null}]}'
+
+Access token file '/home/ubuntu/optiondata-upstox/api/token/accessToken_his.txt' has been deleted.
+--------------------------------------------------
+
+Processing token 3/3:
+Token loaded from: /home/ubuntu/optiondata-upstox/api/token/accessToken_oc.txt
+Exception when calling LoginApi->logout: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'Date': 'Tue, 07 Jan 2025 03:32:24 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'pragma': 'no-cache', 'strict-transport-security': 'max-age=0; includeSubDomains', 'x-frame-options': 'DENY', 'Cache-Control': 'must-revalidate,no-cache,no-store', 'vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'message': 'request failed', 'CF-Cache-Status': 'DYNAMIC', 'Set-Cookie': '__cf_bm=G5frN0ikKvBSAu0BI5W09g795WBTMTLA40EjOHw9dPg-1736220744-1.0.1.1-zrAYrYtmITRXk6m2Dr298Nq4uqLq1ZFnlIq7shky8jEjvqTWjm6O8e6XnDd6AIbt; path=/; expires=Tue, 07-Jan-25 04:02:24 GMT; domain=.upstox.com; HttpOnly; Secure; SameSite=None, _cfuvid=CvRSpCKYpAIY7NB3b3DpQJlVUfAF0iU3jaGiYReY6qE-1736220744319-0.0.1.1-604800000; path=/; domain=.upstox.com; HttpOnly; Secure; SameSite=None', 'Server': 'cloudflare', 'CF-RAY': '8fe0e163de5147b2-BOM', 'alt-svc': 'h3=":443"; ma=86400'})
+HTTP response body: b'{"status":"error","errors":[{"errorCode":"UDAPI100050","message":"Invalid token used to access API","propertyPath":null,"invalidValue":null,"error_code":"UDAPI100050","property_path":null,"invalid_value":null}]}'
+
+Access token file '/home/ubuntu/optiondata-upstox/api/token/accessToken_oc.txt' has been deleted.
+--------------------------------------------------
+
+All tokens processed successfully!
+
+Press Enter to exit...
+Unexpected Error: EOF when reading a line
+
+Script execution completed.
+
+2025-01-07 09:02:24,356 - INFO - [root] - [END] Script /home/ubuntu/optiondata-upstox/logoutCLI.py completed with status: SUCCESS
+2025-01-07 09:02:29,356 - INFO - [root] - [TASK] Starting loginCLI script...
+2025-01-07 09:02:29,357 - INFO - [root] - [START] Running script: /home/ubuntu/optiondata-upstox/loginCLI.py
+2025-01-07 09:02:55,947 - DEBUG - [root] - Script output:
+Access Token saved to api/token/accessToken_his.txt
+Access Token saved to api/token/accessToken_oc.txt
+Access Token saved to api/token/accessToken_order.txt
+[36m
+🔑 Processing token from accessToken_order.txt[0m
+[32m
+🎉 Login Successful![0m
+[36m==============================[0m
+[33m📧 Email: [1msharmajiindia2012@gmail.com[0m
+[33m🏦 Broker: [1mUPSTOX[0m
+[33m🆔 Client ID: [1m7EAHBJ[0m
+[33m🆔 Name: [1mvijay kumar sharma[0m
+[33m🔖 Type: [1mindividual[0m
+[33m✅ Active: [1mTrue[0m
+[36m==============================[0m
+[36m
+🔑 Processing token from accessToken_his.txt[0m
+[32m
+🎉 Login Successful![0m
+[36m==============================[0m
+[33m📧 Email: [1msharmajiindia2012@gmail.com[0m
+[33m🏦 Broker: [1mUPSTOX[0m
+[33m🆔 Client ID: [1m7EAHBJ[0m
+[33m🆔 Name: [1mvijay kumar sharma[0m
+[33m🔖 Type: [1mindividual[0m
+[33m✅ Active: [1mTrue[0m
+[36m==============================[0m
+[36m
+🔑 Processing token from accessToken_oc.txt[0m
+[32m
+🎉 Login Successful![0m
+[36m==============================[0m
+[33m📧 Email: [1msharmajiindia2012@gmail.com[0m
+[33m🏦 Broker: [1mUPSTOX[0m
+[33m🆔 Client ID: [1m7EAHBJ[0m
+[33m🆔 Name: [1mvijay kumar sharma[0m
+[33m🔖 Type: [1mindividual[0m
+[33m✅ Active: [1mTrue[0m
+[36m==============================[0m
+Downloading nse instrument data...
+Extracted api/instrument/nse.json.gz to api/instrument/nse.json
+Downloading bse instrument data...
+Extracted api/instrument/bse.json.gz to api/instrument/bse.json
+Downloading mcx instrument data...
+Extracted api/instrument/mcx.json.gz to api/instrument/mcx.json
+Downloading complete instrument data...
+Extracted api/instrument/complete.json.gz to api/instrument/complete.json
+Downloading suspended instrument data...
+Extracted api/instrument/suspended.json.gz to api/instrument/suspended.json
+
+2025-01-07 09:02:55,948 - INFO - [root] - [END] Script /home/ubuntu/optiondata-upstox/loginCLI.py completed with status: SUCCESS
+2025-01-07 09:03:00,948 - INFO - [root] - [TASK] Starting option chain scripts concurrently...
+2025-01-07 09:03:00,948 - INFO - [root] - [START] Starting script concurrently: /home/ubuntu/optiondata-upstox/historic_optionChain_Bankex.py
+2025-01-07 09:03:00,955 - INFO - [root] - [START] Starting script concurrently: /home/ubuntu/optiondata-upstox/historic_optionChain_BankNifty.py
+2025-01-07 09:03:00,956 - INFO - [root] - [START] Running script: /home/ubuntu/optiondata-upstox/historic_optionChain_Bankex.py
+2025-01-07 09:03:00,959 - INFO - [root] - [START] Starting script concurrently: /home/ubuntu/optiondata-upstox/historic_optionChain_FinNifty.py
+2025-01-07 09:03:00,961 - INFO - [root] - [START] Starting script concurrently: /home/ubuntu/optiondata-upstox/historic_optionChain_Nifty50.py
+2025-01-07 09:03:00,963 - INFO - [root] - [START] Running script: /home/ubuntu/optiondata-upstox/historic_optionChain_BankNifty.py
+2025-01-07 09:03:00,965 - INFO - [root] - [START] Starting script concurrently: /home/ubuntu/optiondata-upstox/historic_optionChain_NiftyMidcpSelect.py
+2025-01-07 09:03:00,966 - INFO - [root] - [START] Starting script concurrently: /home/ubuntu/optiondata-upstox/historic_optionChain_NiftyNXT50.py
+2025-01-07 09:03:00,967 - INFO - [root] - [START] Running script: /home/ubuntu/optiondata-upstox/historic_optionChain_FinNifty.py
+2025-01-07 09:03:00,970 - INFO - [root] - [START] Running script: /home/ubuntu/optiondata-upstox/historic_optionChain_NiftyMidcpSelect.py
+2025-01-07 09:03:00,976 - INFO - [root] - [START] Running script: /home/ubuntu/optiondata-upstox/historic_optionChain_Nifty50.py
+2025-01-07 09:03:00,978 - INFO - [root] - [START] Starting script concurrently: /home/ubuntu/optiondata-upstox/historic_optionChain_Sensex.py
+2025-01-07 09:03:00,982 - INFO - [root] - [START] Running script: /home/ubuntu/optiondata-upstox/historic_optionChain_NiftyNXT50.py
+2025-01-07 09:03:00,984 - INFO - [root] - [START] Running script: /home/ubuntu/optiondata-upstox/historic_optionChain_Sensex.py
+2025-01-07 23:29:15,902 - INFO - [root] - Today is Tuesday - Weekday
+2025-01-07 23:29:15,909 - INFO - [root] - === Script Runner Started ===
+2025-01-07 23:29:15,909 - INFO - [root] - Current day: Tuesday (Weekday)
+2025-01-07 23:29:15,909 - INFO - [root] - Current time: 23:29:15
+2025-01-07 23:29:15,909 - INFO - [root] - Running in schedule mode
+2025-01-07 23:29:15,917 - INFO - [root] - Outside trading hours (09:00-15:30)
+2025-01-07 23:29:15,926 - INFO - [root] - Scheduled tasks for weekdays at 09:00
+2025-01-07 23:29:15,926 - INFO - [root] - Current time 23:29 is outside trading hours. Waiting for next scheduled run...
+2025-01-07 23:29:15,926 - INFO - [root] - [INFO] Stopping execution for today (Tuesday)
+2025-01-07 23:38:02,178 - INFO - [root] - Today is Tuesday - Weekday
+2025-01-07 23:38:02,181 - INFO - [root] - === Script Runner Started ===
+2025-01-07 23:38:02,181 - INFO - [root] - Current day: Tuesday (Weekday)
+2025-01-07 23:38:02,181 - INFO - [root] - Current time: 23:38:02
+2025-01-07 23:38:02,181 - INFO - [root] - Running in schedule mode
+2025-01-07 23:38:02,181 - INFO - [root] - Outside trading hours (09:00-15:30)
+2025-01-07 23:38:02,182 - INFO - [root] - Scheduled tasks for weekdays at 09:00
+2025-01-07 23:38:02,182 - INFO - [root] - Current time 23:38 is outside trading hours. Waiting for next scheduled run...
+2025-01-07 23:38:02,182 - INFO - [root] - [INFO] Stopping execution for today (Tuesday)
+2025-01-08 09:00:06,061 - INFO - [root] - Today is Wednesday - Weekday
+2025-01-08 09:00:06,062 - INFO - [root] - === Script Runner Started ===
+2025-01-08 09:00:06,062 - INFO - [root] - Current day: Wednesday (Weekday)
+2025-01-08 09:00:06,062 - INFO - [root] - Current time: 09:00:06
+2025-01-08 09:00:06,062 - INFO - [root] - Running in schedule mode
+2025-01-08 09:00:06,062 - INFO - [root] - Currently in trading hours (09:00-15:30)
+2025-01-08 09:00:06,062 - INFO - [root] - Scheduled tasks for weekdays at 09:00
+2025-01-08 09:00:06,062 - INFO - [root] - Current time 09:00 is within trading hours. Starting immediate execution...
+2025-01-08 09:00:06,062 - INFO - [root] - Running task sequence on Wednesday
+2025-01-08 09:00:06,062 - INFO - [root] - [TASK] Starting logoutCLI script...
+2025-01-08 09:00:06,062 - INFO - [root] - [START] Running script: /home/ubuntu/optiondata-upstox/logoutCLI.py
+2025-01-08 09:00:06,662 - DEBUG - [root] - Script output:
+Found 3 token files to process...
+--------------------------------------------------
+
+Processing token 1/3:
+Token loaded from: /home/ubuntu/optiondata-upstox/api/token/accessToken_order.txt
+Exception when calling LoginApi->logout: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'Date': 'Wed, 08 Jan 2025 03:30:06 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'pragma': 'no-cache', 'strict-transport-security': 'max-age=0; includeSubDomains', 'x-frame-options': 'DENY', 'Cache-Control': 'must-revalidate,no-cache,no-store', 'vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'message': 'request failed', 'CF-Cache-Status': 'DYNAMIC', 'Set-Cookie': '__cf_bm=rquUCeSEwYY8qpXWV2xTt.Mi7UcABFbwzBc.wT6M.I0-1736307006-1.0.1.1-9YVGi85Ging6wXyOCqMZm_lw9q.NZKodeNa_fqOOFFuqQy57W._MkJL79knZaCtn; path=/; expires=Wed, 08-Jan-25 04:00:06 GMT; domain=.upstox.com; HttpOnly; Secure; SameSite=None, _cfuvid=Mj0CExkN2527F2nmEfVz2Nk3A_vCGndxxW.tc9hsmLM-1736307006496-0.0.1.1-604800000; path=/; domain=.upstox.com; HttpOnly; Secure; SameSite=None', 'Server': 'cloudflare', 'CF-RAY': '8fe91b6679ac490d-BOM', 'alt-svc': 'h3=":443"; ma=86400'})
+HTTP response body: b'{"status":"error","errors":[{"errorCode":"UDAPI100050","message":"Invalid token used to access API","propertyPath":null,"invalidValue":null,"error_code":"UDAPI100050","property_path":null,"invalid_value":null}]}'
+
+Access token file '/home/ubuntu/optiondata-upstox/api/token/accessToken_order.txt' has been deleted.
+--------------------------------------------------
+
+Processing token 2/3:
+Token loaded from: /home/ubuntu/optiondata-upstox/api/token/accessToken_his.txt
+Exception when calling LoginApi->logout: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'Date': 'Wed, 08 Jan 2025 03:30:06 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'pragma': 'no-cache', 'strict-transport-security': 'max-age=0; includeSubDomains', 'x-frame-options': 'DENY', 'Cache-Control': 'must-revalidate,no-cache,no-store', 'vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'message': 'request failed', 'CF-Cache-Status': 'DYNAMIC', 'Set-Cookie': '__cf_bm=OpRupGthw5znKFa9.dAWUcNGF.AtOe.EiQ_UH4sBOns-1736307006-1.0.1.1-17a8CPbxCGl62zdb4MQSI4zD3TCCGmFoy_fCYyvhh0T_2b5w9KLeE3SUPY0a3AHo; path=/; expires=Wed, 08-Jan-25 04:00:06 GMT; domain=.upstox.com; HttpOnly; Secure; SameSite=None, _cfuvid=lvbVyxxaj_O1xBdtDBIatz6UdO228VoF322KHpb.mP0-1736307006561-0.0.1.1-604800000; path=/; domain=.upstox.com; HttpOnly; Secure; SameSite=None', 'Server': 'cloudflare', 'CF-RAY': '8fe91b66d9484272-BOM', 'alt-svc': 'h3=":443"; ma=86400'})
+HTTP response body: b'{"status":"error","errors":[{"errorCode":"UDAPI100050","message":"Invalid token used to access API","propertyPath":null,"invalidValue":null,"error_code":"UDAPI100050","property_path":null,"invalid_value":null}]}'
+
+Access token file '/home/ubuntu/optiondata-upstox/api/token/accessToken_his.txt' has been deleted.
+--------------------------------------------------
+
+Processing token 3/3:
+Token loaded from: /home/ubuntu/optiondata-upstox/api/token/accessToken_oc.txt
+Exception when calling LoginApi->logout: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'Date': 'Wed, 08 Jan 2025 03:30:06 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'pragma': 'no-cache', 'strict-transport-security': 'max-age=0; includeSubDomains', 'x-frame-options': 'DENY', 'Cache-Control': 'must-revalidate,no-cache,no-store', 'vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'message': 'request failed', 'CF-Cache-Status': 'DYNAMIC', 'Set-Cookie': '__cf_bm=FeIKPj7d45arnZ1f7mrZMgGMqPw.uJ8qVuQrbnH5LkY-1736307006-1.0.1.1-43a9wGq2fmJJR7zR4ThzAnzdmKo6bpoIJPbUD0BjwLg9MuvC.4LJzX3NYJO1JkAZ; path=/; expires=Wed, 08-Jan-25 04:00:06 GMT; domain=.upstox.com; HttpOnly; Secure; SameSite=None, _cfuvid=YG0nsqm50TaAowOjgDB5zymPWyBcbOI2B9QVq9UogVk-1736307006629-0.0.1.1-604800000; path=/; domain=.upstox.com; HttpOnly; Secure; SameSite=None', 'Server': 'cloudflare', 'CF-RAY': '8fe91b674c85482f-BOM', 'alt-svc': 'h3=":443"; ma=86400'})
+HTTP response body: b'{"status":"error","errors":[{"errorCode":"UDAPI100050","message":"Invalid token used to access API","propertyPath":null,"invalidValue":null,"error_code":"UDAPI100050","property_path":null,"invalid_value":null}]}'
+
+Access token file '/home/ubuntu/optiondata-upstox/api/token/accessToken_oc.txt' has been deleted.
+--------------------------------------------------
+
+All tokens processed successfully!
+
+Press Enter to exit...
+Unexpected Error: EOF when reading a line
+
+Script execution completed.
+
+2025-01-08 09:00:06,662 - INFO - [root] - [END] Script /home/ubuntu/optiondata-upstox/logoutCLI.py completed with status: SUCCESS
+2025-01-08 09:00:11,663 - INFO - [root] - [TASK] Starting loginCLI script...
+2025-01-08 09:00:11,663 - INFO - [root] - [START] Running script: /home/ubuntu/optiondata-upstox/loginCLI.py
+2025-01-08 09:00:38,617 - DEBUG - [root] - Script output:
+Access Token saved to api/token/accessToken_his.txt
+Access Token saved to api/token/accessToken_oc.txt
+Access Token saved to api/token/accessToken_order.txt
+[36m
+🔑 Processing token from accessToken_order.txt[0m
+[32m
+🎉 Login Successful![0m
+[36m==============================[0m
+[33m📧 Email: [1msharmajiindia2012@gmail.com[0m
+[33m🏦 Broker: [1mUPSTOX[0m
+[33m🆔 Client ID: [1m7EAHBJ[0m
+[33m🆔 Name: [1mvijay kumar sharma[0m
+[33m🔖 Type: [1mindividual[0m
+[33m✅ Active: [1mTrue[0m
+[36m==============================[0m
+[36m
+🔑 Processing token from accessToken_his.txt[0m
+[32m
+🎉 Login Successful![0m
+[36m==============================[0m
+[33m📧 Email: [1msharmajiindia2012@gmail.com[0m
+[33m🏦 Broker: [1mUPSTOX[0m
+[33m🆔 Client ID: [1m7EAHBJ[0m
+[33m🆔 Name: [1mvijay kumar sharma[0m
+[33m🔖 Type: [1mindividual[0m
+[33m✅ Active: [1mTrue[0m
+[36m==============================[0m
+[36m
+🔑 Processing token from accessToken_oc.txt[0m
+[32m
+🎉 Login Successful![0m
+[36m==============================[0m
+[33m📧 Email: [1msharmajiindia2012@gmail.com[0m
+[33m🏦 Broker: [1mUPSTOX[0m
+[33m🆔 Client ID: [1m7EAHBJ[0m
+[33m🆔 Name: [1mvijay kumar sharma[0m
+[33m🔖 Type: [1mindividual[0m
+[33m✅ Active: [1mTrue[0m
+[36m==============================[0m
+Downloading nse instrument data...
+Extracted api/instrument/nse.json.gz to api/instrument/nse.json
+Downloading bse instrument data...
+Extracted api/instrument/bse.json.gz to api/instrument/bse.json
+Downloading mcx instrument data...
+Extracted api/instrument/mcx.json.gz to api/instrument/mcx.json
+Downloading complete instrument data...
+Extracted api/instrument/complete.json.gz to api/instrument/complete.json
+Downloading suspended instrument data...
+Extracted api/instrument/suspended.json.gz to api/instrument/suspended.json
+
+2025-01-08 09:00:38,618 - INFO - [root] - [END] Script /home/ubuntu/optiondata-upstox/loginCLI.py completed with status: SUCCESS
+2025-01-08 09:00:43,618 - INFO - [root] - [TASK] Starting option chain scripts concurrently...
+2025-01-08 09:00:43,619 - INFO - [root] - [START] Starting script concurrently: /home/ubuntu/optiondata-upstox/historic_optionChain_Bankex.py
+2025-01-08 09:00:43,628 - INFO - [root] - [START] Running script: /home/ubuntu/optiondata-upstox/historic_optionChain_Bankex.py
+2025-01-08 09:00:43,627 - INFO - [root] - [START] Starting script concurrently: /home/ubuntu/optiondata-upstox/historic_optionChain_BankNifty.py
+2025-01-08 09:00:43,629 - INFO - [root] - [START] Starting script concurrently: /home/ubuntu/optiondata-upstox/historic_optionChain_FinNifty.py
+2025-01-08 09:00:43,631 - INFO - [root] - [START] Running script: /home/ubuntu/optiondata-upstox/historic_optionChain_BankNifty.py
+2025-01-08 09:00:43,633 - INFO - [root] - [START] Starting script concurrently: /home/ubuntu/optiondata-upstox/historic_optionChain_Nifty50.py
+2025-01-08 09:00:43,636 - INFO - [root] - [START] Starting script concurrently: /home/ubuntu/optiondata-upstox/historic_optionChain_NiftyMidcpSelect.py
+2025-01-08 09:00:43,637 - INFO - [root] - [START] Running script: /home/ubuntu/optiondata-upstox/historic_optionChain_FinNifty.py
+2025-01-08 09:00:43,640 - INFO - [root] - [START] Running script: /home/ubuntu/optiondata-upstox/historic_optionChain_Nifty50.py
+2025-01-08 09:00:43,641 - INFO - [root] - [START] Starting script concurrently: /home/ubuntu/optiondata-upstox/historic_optionChain_NiftyNXT50.py
+2025-01-08 09:00:43,641 - INFO - [root] - [START] Running script: /home/ubuntu/optiondata-upstox/historic_optionChain_NiftyMidcpSelect.py
+2025-01-08 09:00:43,645 - INFO - [root] - [START] Starting script concurrently: /home/ubuntu/optiondata-upstox/historic_optionChain_Sensex.py
+2025-01-08 09:00:43,648 - INFO - [root] - [START] Running script: /home/ubuntu/optiondata-upstox/historic_optionChain_NiftyNXT50.py
+2025-01-08 09:00:43,653 - INFO - [root] - [START] Running script: /home/ubuntu/optiondata-upstox/historic_optionChain_Sensex.py
