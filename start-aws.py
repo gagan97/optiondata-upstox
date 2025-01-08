@@ -104,7 +104,7 @@ def wait_for_instance_state(desired_state, progress):
         if info['state'] == desired_state:
             return True
         time.sleep(2)
-        progress.update(task_id=progress.task_ids[0], advance=2)
+        progress.update(progress.task_ids[0], advance=2)
 
 def start_instance():
     """Start the EC2 instance with enhanced visual feedback"""
@@ -121,7 +121,7 @@ def start_instance():
                                   box=ROUNDED, border_style="yellow"))
                 progress.update(task, completed=100)  # Complete the progress bar
             else:
-                # Start the instanceStart the instance
+                # Start the instance
                 ec2.start_instances(InstanceIds=[INSTANCE_ID])
                 
                 # Wait for instance to be running
@@ -147,7 +147,7 @@ def start_instance():
             # Brief pause to show the status message
             time.sleep(1)
             
-            # Execute SSH commandusing os.execvp to replace current process
+            # Execute SSH command using os.execvp to replace current process
             ssh_args = ['ssh', '-i', KEY_PATH, '-o', 'ConnectTimeout=10', 
                        '-o', 'StrictHostKeyChecking=no', f'{USERNAME}@{instance_ip}']
             
@@ -178,7 +178,7 @@ def stop_instance():
             ec2.stop_instances(InstanceIds=[INSTANCE_ID])
             
             # Wait for instance to be stopped
-            wait_for_instance_state('stopped', task)
+            wait_for_instance_state('stopped', progress)  # Fixed: Pass progress object instead of task
             
             console.print(Panel("[bold red]✓ Instance stopped successfully![/bold red]", 
                               box=ROUNDED, border_style="red"))
