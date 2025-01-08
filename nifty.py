@@ -13,19 +13,6 @@ import pytz
 import holidays
 from market_holiday_date_wise import market_holiday_date_wise
 from pathlib import Path
-import calendar
-from colorama import init, Fore, Style
-from rich.console import Console
-from rich.live import Live
-from rich.text import Text
-import threading
-from rich.progress import Progress, TextColumn, BarColumn, TimeElapsedColumn
-from concurrent.futures import ThreadPoolExecutor, as_completed
-
-# Initialize colorama for colored terminal output
-init()
-
-console = Console()
 
 # Call the function
 market_holiday_date_wise()
@@ -72,62 +59,6 @@ logger.info("Starting real-time data insertion script.")
 
 #     logging.info(f"Last Thursday expiry date is {last_thursday.date()}.")
 #     return last_thursday.date()
-
-def print_expiry_info(expiry_dates):
-    """Print formatted expiry dates information to terminal"""
-    print(f"\n{Fore.CYAN}{'='*50}")
-    print(f"{Fore.GREEN}NIFTY50 OPTION CHAIN EXPIRY DATES")
-    print(f"{Fore.CYAN}{'='*50}{Style.RESET_ALL}")
-    
-    now = datetime.now().date()
-    
-    for i, date in enumerate(expiry_dates, 1):
-        if date == now:
-            print(f"{Fore.YELLOW}Expiry {i}: {date} (TODAY){Style.RESET_ALL}")
-        elif date < now:
-            print(f"{Fore.RED}Expiry {i}: {date} (PAST){Style.RESET_ALL}")
-        else:
-            print(f"{Fore.GREEN}Expiry {i}: {date} (UPCOMING){Style.RESET_ALL}")
-    
-    print(f"{Fore.CYAN}{'='*50}{Style.RESET_ALL}\n")
-
-def get_all_thursday_expiries(year, month):
-    """Get all Thursday expiry dates for a given month."""
-    logging.info(f"Getting all Thursday expiries for {year}-{month}")
-    
-    # Get the holiday response once for the month
-    holiday_response = market_holiday_date_wise()
-    holidays_list = []
-    
-    if holiday_response and holiday_response.get('status') == 'success' and holiday_response.get('data'):
-        holidays_list = [holiday['date'] for holiday in holiday_response['data']]
-
-    # Get all dates for the month
-    c = calendar.monthcalendar(year, month)
-    
-    # Thursday is represented by 3 in calendar
-    thursday_dates = []
-
-    for week in c:
-        thursday = week[3]
-        if thursday != 0:  # 0 means the day belongs to another month
-            thursday_date = datetime(year, month, thursday).date()
-            
-            # Check if Thursday is a holiday
-            if thursday_date.strftime('%Y-%m-%d') in holidays_list:
-                # Get previous trading day
-                temp_date = thursday_date
-                while temp_date.strftime('%Y-%m-%d') in holidays_list or temp_date.weekday() > 4:
-                    temp_date -= timedelta(days=1)
-                thursday_dates.append(temp_date)
-                print(f"{Fore.YELLOW}Holiday found on {thursday_date}, adjusted to {temp_date}{Style.RESET_ALL}")
-            else:
-                thursday_dates.append(thursday_date)
-    
-    # Print expiry dates to terminal
-    print_expiry_info(thursday_dates)
-    logging.info(f"Found expiry dates: {thursday_dates}")
-    return thursday_dates
 
 def get_next_thursday(year, month, today=None):
     if today is None:
@@ -184,7 +115,7 @@ def get_current_timestamp():
     return now.strftime("%Y-%m-%d %H:%M:%S") + f".{now.microsecond // 1000:03d}"
 
 # Fetch database config
-def configDB(filename="api/ini/test.ini", section="postgresql"):
+def configDB(filename="api/ini/OptionChain.ini", section="postgresql"):
     parser = ConfigParser()
     parser.read(filename)
     db = {}
@@ -367,124 +298,102 @@ def insert_data_into_db(db_config, table_name, data):
             conn.close()
 
 # Fetch and process data from API
+class OptionChainFetcher:
 
-class ThreadedOptionChainFetcher:
-    def __init__(self):
-        self.console = Console()
-        
-    def process_single_expiry(self, expiry_date, access_token):
-        with Progress(
-            TextColumn("[bold blue]{task.description}"),
-            BarColumn(),
-            TextColumn("[bold green]{task.completed}/{task.total}"),
-            TimeElapsedColumn(),
-            console=self.console
-        ) as progress:
-            # Create main task for this expiry
-            main_task = progress.add_task(f"Processing {expiry_date}", total=3)
-            
-            # Step 1: Fetching data
-            progress.update(main_task, description=f"[cyan]Fetching data for {expiry_date}")
-            params = {
-                'instrument_key': 'NSE_INDEX|Nifty 50',
-                'expiry_date': expiry_date
-            }
-            headers = {
-                'Accept': 'application/json',
-                'Authorization': f'Bearer {access_token}'
-            }
-            
-            try:
-                response = requests.get(
-                    'https://api.upstox.com/v2/option/chain',
-                    params=params,
-                    headers=headers
-                )
-                response.raise_for_status()
-                data = response.json()
-                progress.update(main_task, advance=1)
-                
-                # Step 2: Processing data
-                progress.update(main_task, description=f"[yellow]Processing data for {expiry_date}")
-                if data.get('status') == 'success' and 'data' in data:
-                    records = []
-                    for item in data['data']:
-                        record = {
-                            'expiry': item.get('expiry'),
-                            'strike_price': item.get('strike_price'),
-                            'underlying_spot_price': item.get('underlying_spot_price'),
-                            'pcr': item.get('pcr'),
-                            'underlying_key': item.get('underlying_key'),
-                            'call_options': item.get('call_options'),
-                            'put_options': item.get('put_options')
-                        }
-                        records.append(record)
-                    progress.update(main_task, advance=1)
-                    
-                    # Step 3: Database insertionStep 3: Database insertion
-                    progress.update(main_task, description=f"[green]Inserting data for {expiry_date}")
-                    for record in records:
-                        table_name = sanitize_table_name(record['expiry'], record['underlying_key'])
-                        insert_data_into_db(db_config, table_name, record)
-                    progress.update(main_task, advance=1)
-                    
-                    return True
-                else:
-                    self.console.print(f"[red]Error: Failed to fetch data for {expiry_date}")
-                    return False
-                    
-            except Exception as e:
-                self.console.print(f"[red]Error processing {expiry_date}: {str(e)}")
-                return False
-
-    def start_fetching(self):
+    def fetch_data(self):
+    # Get the current file's directory and construct relative path
         current_dir = Path(__file__).parent
         token_path = current_dir / 'api' / 'token' / 'accessToken_order.txt'
-        
+    
         try:
             with open(token_path, 'r') as file:
                 access_token = file.read().strip()
         except FileNotFoundError:
-            self.console.print("[red]Error: Access token file not found")
-            return
-            
-        # Get all expiry dates
-        now = datetime.now()
-        expiry_dates = get_all_thursday_expiries(now.year, now.month)
-        
-        self.console.print("[bold cyan]Starting parallel processing of all expiries...")
-        
-        # Create thread pool for parallel processing
-        with ThreadPoolExecutor(max_workers=min(len(expiry_dates), 5)) as executor:
-            # Submit all tasks
-            future_to_expiry = {
-                executor.submit(self.process_single_expiry, expiry, access_token): expiry 
-                for expiry in expiry_dates
-            }
-            
-            # Process completed tasksProcess completed tasks
-            for future in as_completed(future_to_expiry):
-                expiry = future_to_expiry[future]
-                try:
-                    success = future.result()
-                    if success:
-                        self.console.print(f"[green]✓ Completed processing for {expiry}")
-                    else:
-                        self.console.print(f"[red]✗ Failed processing for {expiry}")
-                except Exception as e:
-                    self.console.print(f"[red]Error in thread for {expiry}: {str(e)}")
+            logging.error("Access token file not found.")
+            return {}
+        # Read the access token from file
+#        try:
+ #           with open('api/token/accessToken_OC.txt', 'r') as file:
+  #              access_token = file.read().strip()
+   #     except FileNotFoundError:
+    #        logging.error("Access token file not found.")
+     #       return {}
 
-# Replace the existing fetcher instantiation with the threaded version
-fetcher = ThreadedOptionChainFetcher()
+        # Get the current year and month
+        now = datetime.now()
+        # expiry_date = get_last_thursday(now.year, now.month)
+        expiry_date = get_next_thursday(now.year, now.month)
+
+        # Prepare the API request parameters
+        params = {
+            'instrument_key': 'NSE_INDEX|Nifty 50',
+            'expiry_date': expiry_date  # Use the dynamically generated expiry date
+        }
+        headers = {
+            'Accept': 'application/json',
+            'Authorization': f'Bearer {access_token}'
+        }
+
+        # Sanitize and generate the table name
+        table_name = sanitize_table_name(str(expiry_date), params['instrument_key'])
+
+        try:
+            response = requests.get('https://api.upstox.com/v2/option/chain', params=params, headers=headers)
+            response.raise_for_status()  # Raise an exception for HTTP errors
+            logging.debug(f"Request URL: {response.url}")
+            return response.json()
+        except requests.RequestException as e:
+            logging.error(f"Request failed: {e}")
+            return {}
+
+    def start_fetching(self):
+        logging.info("Starting data fetching...")
+        data = self.fetch_data()
+
+        # Check for successful status and presence of 'data' key
+        if data.get('status') == 'success' and 'data' in data:
+            logging.debug(f"Data fetched successfully: {data}")
+
+            # Loop through the items in the 'data' key directly
+            for item in data['data']:
+                expiry = item.get('expiry')
+                underlying_spot_price = item.get('underlying_spot_price')
+                pcr = item.get('pcr')
+                underlying_key = item.get('underlying_key')
+                strike_price = item.get('strike_price')
+                call_options = item.get('call_options')
+                put_options = item.get('put_options')
+
+                # Generate a valid table name using the expiry date and instrument key
+                table_name = sanitize_table_name(expiry, underlying_key)
+
+                record = {
+                    'expiry': expiry,
+                    'strike_price': strike_price,
+                    'underlying_spot_price': underlying_spot_price,
+                    'pcr': pcr,
+                    'underlying_key': underlying_key,
+                    'call_options': call_options,
+                    'put_options': put_options
+                }
+                # Insert the data into the dynamically generated table
+                insert_data_into_db(db_config, table_name, record)
+
+        else:
+            logging.error(f"API error or unexpected response format: {data}")
+
+# Schedule job
+def is_market_open():
+    now = datetime.now(pytz.timezone('Asia/Kolkata')).time()
+    return dt_time(9, 00) <= now <= dt_time(15, 30)
 
 def fetch_and_insert_data():
     if is_market_open():
-        current_time = datetime.now().strftime("%H:%M:%S")
-        print(f"\n{Fore.CYAN}[{current_time}] Market is open. Fetching data for all expiries.{Style.RESET_ALL}")
+        logging.info("Market is open. Fetching data.")
         fetcher.start_fetching()
     else:
-        current_time = datetime.now().strftime("%H:%M:%S")
-        print(f"\n{Fore.YELLOW}[{current_time}] Market is closed.{Style.RESET_ALL}")
+        logging.info("Market is closed. Stopping script.")
+        exit()
 
 def convert_milliseconds_to_time(milliseconds):
     """Convert milliseconds timestamp to datetime object in IST."""
@@ -518,133 +427,87 @@ def parse_exchange_timings(holiday_data):
         logging.error(f"Error parsing exchange timings: {e}")
     return None
 
-#def is_market_open():
-#    """Check if market is open based on time and day"""
-#    now = datetime.now(pytz.timezone('Asia/Kolkata'))
-#    current_day = now.strftime('%A')
-    
-#    # Weekend check
-#    if current_day in ['Saturday', 'Sunday']:
-#        return False
-    
-#    # Check market hours (9:00 AM to 3:30 PM)
-#    market_time = now.time()
-#    return dt_time(9, 0) <= market_time <= dt_time(15, 30)
-
-#def create_status_line():
-#    """Create a single status line with all information"""
-#    now = datetime.now(pytz.timezone('Asia/Kolkata'))
-#    current_day = now.strftime('%A')
-#    current_datetime = now.strftime('%Y-%m-%d %H:%M:%S')
-   
-#    # Create status text
-#    status = Text()
-   
-#    # Base status
-#    status.append("Status: ", style="cyan")
-#    status.append("success ", style="green")
-    
-#    # Holiday/Weekend status
-#    if current_day in ['Saturday', 'Sunday']:
-#        status.append("Holiday (Weekend) ", style="yellow")
-#    else:
-#        status.append("No holiday ", style="green")
-    
-#    # Current date/time and day
-#    status.append(f"{current_datetime} {current_day} ", style="blue")
-    
-#    # Market status
-#    market_open = is_market_open()
-#    status.append("market ", style="cyan")
-#    status.append("OPEN" if market_open else "CLOSED", 
-#                 style="green" if market_open else "red")
-   
-#    return status
-
 def is_market_open():
-    """Check if market is open based on time, day and holidays"""
+    """
+    Check if the market is open based on regular hours and holiday special timings.
+    Returns: bool
+    """
+    # Get current time in IST
     now = datetime.now(pytz.timezone('Asia/Kolkata'))
     current_date = now.strftime('%Y-%m-%d')
-    current_day = now.strftime('%A')
     
-    # Weekend check
-    if current_day in ['Saturday', 'Sunday']:
-        return False, "Weekend Holiday"
+    logging.info(f"Checking market status for date: {current_date}, time: {now.strftime('%H:%M:%S')}")
     
     # Check holiday data
     holiday_response = market_holiday_date_wise()
+    
     if holiday_response and holiday_response.get('status') == 'success':
         holidays = holiday_response.get('data', [])
+        
         for holiday in holidays:
+            logging.info(f"Checking holiday: {holiday}")
+            
             if holiday['date'] == current_date:
+                logging.info("Today is a holiday with special timing")
+                
                 # Parse exchange timings
                 exchange_info = parse_exchange_timings(holiday)
+                
                 if exchange_info:
                     start_time = convert_milliseconds_to_time(exchange_info['start'])
                     end_time = convert_milliseconds_to_time(exchange_info['end'])
+                    
                     if start_time and end_time:
                         is_open = start_time <= now <= end_time
-                        return is_open, f"Holiday ({holiday.get('description', 'Special Timing')})"
-                return False, f"Holiday ({holiday.get('description', 'Market Closed')})"
+                        logging.info(f"Special timing check - Start: {start_time}, End: {end_time}, Current: {now}, Is Open: {is_open}")
+                        return is_open
     
-    # Regular market hours check (9:00 AM to 3:30 PM)
-    market_time = now.time()
-    is_regular_open = dt_time(9, 0) <= market_time <= dt_time(15, 30)
-    return is_regular_open, "Regular Hours"
+    # Regular market hours check
+    regular_market_time = now.time()
+    is_regular_open = dt_time(9, 00) <= regular_market_time <= dt_time(15, 30)
+    logging.info(f"Regular market hours check - Is Open: {is_regular_open}")
+    return is_regular_open
 
-def create_status_line():
-    """Create a single status line with all information"""
-    now = datetime.now(pytz.timezone('Asia/Kolkata'))
-    current_day = now.strftime('%A')
-    current_datetime = now.strftime('%Y-%m-%d %H:%M:%S')
-    
-    market_open, status_reason = is_market_open()
-    
-    # Create status text
-    status = Text()
-    
-    # Base status
-    status.append("Status: ", style="cyan")
-    status.append("success ", style="green")
-    
-    # Holiday/Regular Day status
-    if "Holiday" in status_reason:
-        status.append(f"{status_reason} ", style="yellow")
-    else:
-        status.append("No holiday ", style="green")
-    
-    # Current date/time and day
-    status.append(f"{current_datetime} {current_day} ", style="blue")
-    
-    # Market status
-    status.append("market ", style="cyan")
-    status.append("OPEN" if market_open else "CLOSED", 
-                 style="green" if market_open else "red")
-    
-    return status
+def fetch_and_insert_data():
+    """Modified fetch and insert function with detailed logging."""
+    try:
+        market_open = is_market_open()
+        logging.info(f"Market open status: {market_open}")
+        
+        if market_open:
+            logging.info("Market is open. Starting data fetch...")
+            fetcher.start_fetching()
+        else:
+            current_time = datetime.now(pytz.timezone('Asia/Kolkata'))
+            logging.info(f"Market is closed at {current_time}. Waiting for next check.")
+    except Exception as e:
+        logging.error(f"Error in fetch_and_insert_data: {e}")
 
 if __name__ == '__main__':
-    print(f"{Fore.CYAN}{'='*50}")
-    print(f"{Fore.GREEN}NIFTY50 OPTION CHAIN DATA FETCHER")
-    print(f"{Fore.CYAN}{'='*50}{Style.RESET_ALL}")
+    # Set up logging with more detailed format
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.StreamHandler(),
+            logging.FileHandler('market_timing.log')
+        ]
+    )
     
     # Database setup
     db_config = configDB()
     check_and_create_db(db_config)
 
-    fetcher = ThreadedOptionChainFetcher()
+    fetcher = OptionChainFetcher()
 
     # Schedule data fetching during market hours every second
     schedule.every(1).seconds.do(fetch_and_insert_data)
 
-    console.clear()
-    console.print("[bold cyan]NIFTY50 OPTION CHAIN MONITOR[/bold cyan]")
-    console.print("[green]Service started successfully. Press Ctrl+C to stop.[/green]")
+    logging.info("Starting market data fetching service...")
     
-    with Live(create_status_line(), refresh_per_second=1, transient=True) as live:
-        while True:
-            try:
-                live.update(create_status_line())
-            except KeyboardInterrupt:
-                console.print("\n[yellow]Service stopped[/yellow]")
-                sys.exit(0)
+    while True:
+        try:
+            schedule.run_pending()
+            t.sleep(1)  # Changed from 0 to 1 second to reduce CPU usage
+        except Exception as e:
+            logging.error(f"Error in main loop: {e}")
