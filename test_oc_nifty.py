@@ -408,6 +408,22 @@ class ThreadedOptionChainFetcher:
 
     def __init__(self):
         self.console = Console()
+        self.max_retries = 3
+        self.retry_delay = 5  # seconds
+        
+    def fetch_with_retry(self, url, params, headers):
+        """Fetch data with retry logic"""
+        for attempt in range(self.max_retries):
+            try:
+                response = requests.get(url, params=params, headers=headers, timeout=30)
+                response.raise_for_status()
+                return response.json()
+            except requests.exceptions.RequestException as e:
+                if attempt == self.max_retries - 1:
+                    raise
+                logging.warning(f"Attempt {attempt + 1} failed: {str(e)}. Retrying...")
+                t.sleep(self.retry_delay)
+        return None
         
     def process_single_expiry(self, expiry_date, access_token, progress):
         """Process a single expiry date with progress tracking"""
@@ -431,31 +447,43 @@ class ThreadedOptionChainFetcher:
                 'Accept': 'application/json',
                 'Authorization': f'Bearer {access_token}'
             }
-            
-            response = requests.get(
+
+            data = self.fetch_with_retry(
                 'https://api.upstox.com/v2/option/chain',
                 params=params,
                 headers=headers
             )
-            response.raise_for_status()
-            data = response.json()
-            
+
+            if not data:
+                progress.update(task_id, completed=100, description=f"[bold red]✗ No data received for {expiry_date}")
+                return False
+
             progress.update(task_id, completed=40, description=f"[yellow]Processing {expiry_date}")
             
             if data.get('status') == 'success' and 'data' in data:
                 records = []
                 for item in data['data']:
+                    if not all(k in item for k in ['expiry', 'strike_price', 'underlying_spot_price']):
+                        logging.warning(f"Skipping incomplete record for {expiry_date}")
+                        continue
+                        
                     record = {
                         'expiry': item.get('expiry'),
                         'strike_price': item.get('strike_price'),
                         'underlying_spot_price': item.get('underlying_spot_price'),
                         'pcr': item.get('pcr'),
                         'underlying_key': item.get('underlying_key'),
-                        'call_options': item.get('call_options'),
-                        'put_options': item.get('put_options')
+                        'call_options': item.get('call_options', {}),
+                        'put_options': item.get('put_options', {})
                     }
                     records.append(record)
+                
+                if not records:
+                    progress.update(task_id, completed=100, description=f"[bold red]✗ No valid records for {expiry_date}")
+                    return False
+                
                 progress.update(task_id, completed=70, description=f"[green]Inserting {expiry_date}")
+                
                 
                 # Insert records into database
                 for record in records:
@@ -465,15 +493,17 @@ class ThreadedOptionChainFetcher:
                 progress.update(task_id, completed=100, description=f"[bold green]✓ Completed {expiry_date}")
                 return True
             else:
-                progress.update(task_id, completed=100, description=f"[bold red]✗ Failed {expiry_date}")
+                error_msg = data.get('message', 'Unknown error')
+                progress.update(task_id, completed=100, description=f"[bold red]✗ Failed {expiry_date}: {error_msg}")
                 return False
                 
         except Exception as e:
-            progress.update(task_id, completed=100, description=f"[bold red]✗ Error {expiry_date}")
+            progress.update(task_id, completed=100, description=f"[bold red]✗ Error {expiry_date}: {str(e)}")
             logging.error(f"Error processing {expiry_date}: {e}")
             return False
 
     def start_fetching(self):
+        """Main method to start fetching data"""
         # First check market status
         is_open, status_message = check_market_status()
         
@@ -482,48 +512,72 @@ class ThreadedOptionChainFetcher:
             self.console.print(Panel(f"[bold green]{status_message}", title="Market Status"))
         else:
             self.console.print(Panel(f"[bold red]{status_message}", title="Market Status"))
-            return
-        
-        # If market is open, proceed with data fetching
-        if is_open:
-            current_dir = Path(__file__).parent
-            token_path = current_dir / 'api' / 'token' / 'accessToken_order.txt'
-            
-            try:
-                with open(token_path, 'r') as file:
-                    access_token = file.read().strip()
-            except FileNotFoundError:
-                self.console.print("[red]Error: Access token file not found")
+            if datetime.now().weekday() >= 5:  # Weekend
+                logging.info("Weekend - no data collection needed")
                 return
-                
-            # Get all expiry datesGet all expiry dates
-            now = datetime.now()
-            expiry_dates = get_all_thursday_expiries(now.year, now.month)
+        
+        # If market is open or we're testing, proceed with data fetching
+        try:
+            # Find access token file
+            possible_paths = [
+                Path('api/token/accessToken_order.txt'),
+                Path(__file__).parent / 'api' / 'token' / 'accessToken_order.txt',
+                Path.home() / 'api' / 'token' / 'accessToken_order.txt'
+            ]
             
+            token_path = None
+            for path in possible_paths:
+                if path.exists():
+                    token_path = path
+                    break
+                    
+            if not token_path:
+                raise FileNotFoundError("Access token file not found in any expected location")
+                
+            with open(token_path, 'r') as file:
+                access_token = file.read().strip()
+                
+            if not access_token:
+                raise ValueError("Access token is empty")
+                
+            # Get all expiry dates
+            now = datetime.now()
+            current_month_expiries = get_all_thursday_expiries(now.year, now.month)
+            next_month = now.replace(day=1) + timedelta(days=32)  # Jump to next month
+            next_month_expiries = get_all_thursday_expiries(next_month.year, next_month.month)
+            
+            all_expiries = current_month_expiries + next_month_expiries
+            
+            # Create progress display
             with Progress(
                 SpinnerColumn(),
                 TextColumn("[progress.description]{task.description}"),
                 BarColumn(),
-                TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
                 TimeElapsedColumn(),
                 console=self.console
             ) as progress:
-                # Create thread pool for parallel processing
-                with ThreadPoolExecutor(max_workers=min(len(expiry_dates), 5)) as executor:
-                    # Submit all tasks
-                    futures = [
-                        executor.submit(self.process_single_expiry, expiry, access_token, progress)
-                        for expiry in expiry_dates
-                    ]
+                # Process each expiry dateProcess each expiry date
+                with ThreadPoolExecutor(max_workers=3) as executor:
+                    futures = []
+                    for expiry in all_expiries:
+                        future = executor.submit(
+                            self.process_single_expiry,
+                            expiry,
+                            access_token,
+                            progress
+                        )
+                        futures.append(future)
                     
                     # Wait for all tasks to complete
                     for future in as_completed(futures):
                         try:
                             future.result()
                         except Exception as e:
-                            logging.error(f"Thread error: {e}")
-
-# Replace the existing fetcher instantiation
+                            logging.error(f"Task failed with error: {e}")
+                            
+        except Exception as e:
+            logging.error(f"Fatal error in start_fetching: {e}")
+            self.console.print(f"[bold red]Error: {str(e)}")
 
 def fetch_and_insert_data():
     if is_market_open():
@@ -681,6 +735,7 @@ if __name__ == '__main__':
     check_and_create_db(db_config)
 
     fetcher = ThreadedOptionChainFetcher()
+    fetcher.start_fetching()
 
     # Schedule data fetching during market hours every second
     schedule.every(1).seconds.do(fetch_and_insert_data)
