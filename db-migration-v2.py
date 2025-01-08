@@ -14,19 +14,48 @@ from rich.live import Live
 from rich.align import Align
 from rich.text import Text
 from rich import box
+import pytz
 
+# Set up logging
+log_dir = os.path.join('api', 'db-migration')
+os.makedirs(log_dir, exist_ok=True)
+log_file = os.path.join(log_dir, 'db-migration.log')
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(log_file),
+#        logging.StreamHandler()
+    ]
+)
+
+logger = logging.getLogger(__name__)
 console = Console()
 
+# Create a separate console handler for errors only
+error_console_handler = logging.StreamHandler()
+error_console_handler.setLevel(logging.ERROR)
+error_formatter = logging.Formatter('%(levelname)s: %(message)s')
+error_console_handler.setFormatter(error_formatter)
+logger.addHandler(error_console_handler)
+
 def read_db_config(file_path):
-    config = configparser.ConfigParser()
-    config.read(file_path)
-    return {
-        'dbname': config['postgresql']['database'],
-        'user': config['postgresql']['user'],
-        'password': config['postgresql']['password'],
-        'host': config['postgresql']['host'],
-        'port': config['postgresql']['port']
-    }
+    try:
+        config = configparser.ConfigParser()
+        config.read(file_path)
+        db_config = {
+            'dbname': config['postgresql']['database'],
+            'user': config['postgresql']['user'],
+            'password': config['postgresql']['password'],
+            'host': config['postgresql']['host'],
+            'port': config['postgresql']['port']
+        }
+        logger.info(f"Successfully read configuration from {file_path}")
+        return db_config
+    except Exception as e:
+        logger.error(f"Error reading configuration from {file_path}: {str(e)}")
+        raise
 
 def format_size(size_bytes):
     units = ['B', 'KB', 'MB', 'GB', 'TB']
@@ -38,24 +67,120 @@ def format_size(size_bytes):
     return f"{size:.2f} {units[index]}"
 
 def get_database_stats(conn):
-    with conn.cursor() as cur:
-        # Get database size
-        cur.execute("SELECT pg_database_size(current_database())")
-        total_size = cur.fetchone()[0]
-        
-        # Get number of active connections
-        cur.execute("SELECT count(*) FROM pg_stat_activity")
-        connections = cur.fetchone()[0]
-        
-        # Get database uptime
-        cur.execute("SELECT pg_postmaster_start_time()")
-        start_time = cur.fetchone()[0]
-        uptime = datetime.now() - start_time
-        
+    try:
+        with conn.cursor() as cur:
+            # Get database size
+            cur.execute("SELECT pg_database_size(current_database())")
+            total_size = cur.fetchone()[0]
+            
+            # Get number of active connections
+            cur.execute("SELECT count(*) FROM pg_stat_activity")
+            connections = cur.fetchone()[0]
+            
+            # Get database uptime with proper timezone handling
+            cur.execute("SELECT pg_postmaster_start_time()")
+            start_time = cur.fetchone()[0]
+            
+            # Convert start_time to timezone-aware if it's naive
+            if start_time.tzinfo is None:
+                start_time = pytz.UTC.localize(start_time)
+            
+            # Ensure current_time is timezone-aware
+            current_time = datetime.now(pytz.UTC)
+            
+            uptime = current_time - start_time
+            
+            stats = {
+                'size': format_size(total_size),
+                'connections': connections,
+                'uptime': str(uptime).split('.')[0]  # Remove microseconds
+            }
+            
+            logger.debug(f"Retrieved database stats: {stats}")
+            return stats
+    except Exception as e:
+        logger.error(f"Error getting database stats: {str(e)}")
+        raise
+
+def copy_table_data(source_conn, target_conn, table_name):
+    try:
+        logger.info(f"Starting migration for table: {table_name}")
+        with source_conn.cursor() as source_cur, target_conn.cursor() as target_cur:
+            # Get source table statistics
+            source_cur.execute(f"SELECT COUNT(*) FROM {table_name}")
+            source_rows = source_cur.fetchone()[0]
+            logger.info(f"Source table {table_name} has {source_rows} rows")
+            
+            # Get source table size
+            source_cur.execute(f"SELECT pg_total_relation_size('{table_name}')")
+            source_size = format_size(source_cur.fetchone()[0])
+            
+            # Create temporary table
+            source_cur.execute("""
+                SELECT column_name, data_type, character_maximum_length 
+                FROM information_schema.columns 
+                WHERE table_name = %s
+            """, (table_name,))
+            
+            columns_def = ', '.join(
+                f"{col[0]} {col[1]}" + (f"({col[2]})" if col[2] else '')
+                for col in source_cur.fetchall()
+            )
+            
+            temp_table = f"temp_{table_name}"
+            target_cur.execute(f"CREATE TEMP TABLE {temp_table} ({columns_def})")
+            logger.info(f"Created temporary table for {table_name}")
+            
+            # Copy data
+            output = io.StringIO()
+            source_cur.copy_expert(f"COPY {table_name} TO STDOUT WITH CSV", output)
+            output.seek(0)
+            target_cur.copy_expert(f"COPY {temp_table} FROM STDIN WITH CSV", output)
+            
+            # Insert new records
+            target_cur.execute(f"""
+                INSERT INTO {table_name}
+                SELECT * FROM {temp_table} t
+                WHERE NOT EXISTS (
+                    SELECT 1 FROM {table_name} m
+                    WHERE m.timestamp = t.timestamp
+                )
+            """)
+            
+            rows_inserted = target_cur.rowcount
+            target_conn.commit()
+            logger.info(f"Inserted {rows_inserted} new rows into {table_name}")
+            
+            # Get target statistics
+            target_cur.execute(f"SELECT COUNT(*) FROM {table_name}")
+            target_rows = target_cur.fetchone()[0]
+            
+            target_cur.execute(f"SELECT pg_total_relation_size('{table_name}')")
+            target_size = format_size(target_cur.fetchone()[0])
+            
+            result = {
+                'table': table_name,
+                'source_rows': source_rows,
+                'target_rows': target_rows,
+                'source_size': source_size,
+                'target_size': target_size,
+                'success': True
+            }
+            
+            logger.info(f"Successfully completed migration for {table_name}")
+            return result
+            
+    except Exception as e:
+        error_msg = f"Error copying {table_name}: {str(e)}"
+        logger.error(error_msg)
+        target_conn.rollback()
         return {
-            'size': format_size(total_size),
-            'connections': connections,
-            'uptime': str(uptime).split('.')[0]  # Remove microseconds
+            'table': table_name,
+            'source_rows': source_rows if 'source_rows' in locals() else 0,
+            'target_rows': 0,
+            'source_size': source_size if 'source_size' in locals() else '0 B',
+            'target_size': '0 B',
+            'success': False
         }
 
 def create_status_panel(source_stats, target_stats):
@@ -75,12 +200,7 @@ def create_status_panel(source_stats, target_stats):
     )
 
 def create_progress_table(tables_info):
-    table = Table(
-        title="Migration Progress",
-        show_header=True,
-        header_style="bold magenta",
-        box=box.ROUNDED
-    )
+    table = Table(show_header=True, header_style="bold magenta", box=box.ROUNDED)
     
     table.add_column("Table Name", style="cyan", width=30)
     table.add_column("Source Rows", justify="right", style="green")
@@ -109,48 +229,15 @@ def create_progress_table(tables_info):
     
     return table
 
-def create_summary_panel(tables_info, source_size, target_size):
-    successful = sum(1 for info in tables_info if info['success'])
-    total_tables = len(tables_info)
-    
-    total_source_rows = sum(info['source_rows'] for info in tables_info)
-    total_target_rows = sum(info['target_rows'] for info in tables_info)
-    
-    summary = Table.grid()
-    summary.add_column(style="cyan")
-    summary.add_column(style="yellow")
-    
-    summary.add_row("Total Tables:", f"{total_tables}")
-    summary.add_row("Successfully Migrated:", f"{successful}/{total_tables}")
-    summary.add_row("Total Source Rows:", f"{total_source_rows:,}")
-    summary.add_row("Total Target Rows:", f"{total_target_rows:,}")
-    summary.add_row("Source Database Size:", source_size)
-    summary.add_row("Target Database Size:", target_size)
-    
-    return Panel(
-        summary,
-        title="[bold]Migration Summary[/bold]",
-        border_style="green"
-    )
-
-def update_dashboard(tables_info, source_stats, target_stats, source_size, target_size):
-    layout = Layout()
-    
-    layout.split_column(
-        Layout(name="upper"),
-        Layout(name="lower", ratio=2)
-    )
-    
-    layout["upper"].split_row(
-        Layout(create_status_panel(source_stats, target_stats), ratio=2),
-        Layout(create_summary_panel(tables_info, source_size, target_size))
-    )
-    
-    layout["lower"].update(create_progress_table(tables_info))
-    
-    return layout
+def print_to_console(message, style=""):
+    """Utility function to print to console with Rich styling"""
+    if style:
+        console.print(message, style=style)
+    else:
+        console.print(message)
 
 def main():
+    logger.info("Starting database migration process")
     try:
         console.clear()
         console.print("[bold blue]Database Migration Dashboard[/bold blue]", justify="center")
@@ -160,6 +247,7 @@ def main():
             source_params = read_db_config(os.path.join('api', 'ini', 'OptionChain.ini'))
             target_params = read_db_config(os.path.join('api', 'ini', 'optiondata.ini'))
             
+            logger.info("Establishing database connections")
             with psycopg2.connect(**source_params) as conn:
                 with conn.cursor() as cur:
                     cur.execute("""
@@ -168,9 +256,10 @@ def main():
                         WHERE table_schema = 'public'
                     """)
                     tables = [table[0] for table in cur.fetchall()]
+            
+            logger.info(f"Found {len(tables)} tables to migrate")
         
         with Live(auto_refresh=False) as live:
-            # Initialize connections for stats
             source_conn = psycopg2.connect(**source_params)
             target_conn = psycopg2.connect(**target_params)
             
@@ -191,28 +280,32 @@ def main():
                     )
                     futures.append((future, table))
                 
-                for future, _ in futures:
+                for future, table in futures:
                     result = future.result()
                     tables_info.append(result)
                     
-                    # Update dashboard after each table
                     target_stats = get_database_stats(target_conn)
-                    dashboard = update_dashboard(
-                        tables_info,
-                        source_stats,
-                        target_stats,
-                        source_size,
-                        target_stats['size']
+                    layout = Layout()
+                    layout.split_column(
+                        Layout(name="upper"),
+                        Layout(name="lower", ratio=2)
                     )
-                    live.update(dashboard, refresh=True)
+                    layout["upper"].update(create_status_panel(source_stats, target_stats))
+                    layout["lower"].update(create_progress_table(tables_info))
+                    live.update(layout, refresh=True)
             
             source_conn.close()
             target_conn.close()
+            
+        logger.info("Migration process completed successfully")
 
     except Exception as e:
-        console.print(f"[bold red]Migration failed: {str(e)}[/bold red]")
+        logger.error(f"Migration failed: {str(e)}", exc_info=True)
         raise
 
 if __name__ == "__main__":
-    main()
-    console.print("\n[bold green]Migration completed successfully![/bold green]")
+    try:
+        main()
+        console.print("\n[bold green]Migration completed successfully![/bold green]")
+    except Exception as e:
+        console.print(f"\n[bold red]Migration failed: {str(e)}[/bold red]")

@@ -1,0 +1,102 @@
+2025-01-08 20:49:15,108 - INFO - Starting database migration process
+2025-01-08 20:49:15,112 - INFO - Successfully read configuration from api/ini/OptionChain.ini
+2025-01-08 20:49:15,113 - INFO - Successfully read configuration from api/ini/optiondata.ini
+2025-01-08 20:49:15,113 - INFO - Establishing database connections
+2025-01-08 20:49:15,175 - INFO - Found 9 tables to migrate
+2025-01-08 20:49:15,325 - INFO - Starting migration for table: nse_index_nifty_fin_service_2025_01_28
+2025-01-08 20:49:15,381 - INFO - Starting migration for table: bse_index_bankex_2025_01_27
+2025-01-08 20:49:15,401 - INFO - Source table nse_index_nifty_fin_service_2025_01_28 has 168728 rows
+2025-01-08 20:49:15,437 - INFO - Starting migration for table: nse_index_nifty_mid_select_2025_01_27
+2025-01-08 20:49:15,464 - INFO - Created temporary table for nse_index_nifty_fin_service_2025_01_28
+2025-01-08 20:49:15,495 - INFO - Starting migration for table: nse_index_nifty_50_2025_01_02
+2025-01-08 20:49:15,498 - INFO - Source table nse_index_nifty_mid_select_2025_01_27 has 171453 rows
+2025-01-08 20:49:15,512 - INFO - Created temporary table for nse_index_nifty_mid_select_2025_01_27
+2025-01-08 20:49:15,590 - INFO - Source table nse_index_nifty_50_2025_01_02 has 46108 rows
+2025-01-08 20:49:15,622 - INFO - Created temporary table for nse_index_nifty_50_2025_01_02
+2025-01-08 20:49:15,758 - INFO - Source table bse_index_bankex_2025_01_27 has 171476 rows
+2025-01-08 20:49:15,855 - INFO - Created temporary table for bse_index_bankex_2025_01_27
+2025-01-08 20:49:19,565 - INFO - Inserted 0 new rows into nse_index_nifty_50_2025_01_02
+2025-01-08 20:49:19,749 - INFO - Successfully completed migration for nse_index_nifty_50_2025_01_02
+2025-01-08 20:49:19,751 - INFO - Starting migration for table: nse_index_nifty_50_2025_01_09
+2025-01-08 20:49:20,224 - INFO - Source table nse_index_nifty_50_2025_01_09 has 120946 rows
+2025-01-08 20:49:22,247 - INFO - Created temporary table for nse_index_nifty_50_2025_01_09
+2025-01-08 20:49:33,921 - INFO - Inserted 0 new rows into nse_index_nifty_50_2025_01_09
+2025-01-08 20:49:35,159 - INFO - Inserted 0 new rows into bse_index_bankex_2025_01_27
+2025-01-08 20:49:35,754 - INFO - Inserted 0 new rows into nse_index_nifty_fin_service_2025_01_28
+2025-01-08 20:49:42,374 - INFO - Successfully completed migration for bse_index_bankex_2025_01_27
+2025-01-08 20:49:42,380 - INFO - Starting migration for table: bse_index_sensex_2025_01_10
+2025-01-08 20:49:43,562 - INFO - Successfully completed migration for nse_index_nifty_50_2025_01_09
+2025-01-08 20:49:43,567 - INFO - Starting migration for table: bse_index_sensex_2025_01_03
+2025-01-08 20:49:44,137 - INFO - Successfully completed migration for nse_index_nifty_fin_service_2025_01_28
+2025-01-08 20:49:44,144 - INFO - Starting migration for table: nse_index_nifty_bank_2025_01_29
+2025-01-08 20:49:46,257 - INFO - Source table nse_index_nifty_bank_2025_01_29 has 169621 rows
+2025-01-08 20:49:46,266 - INFO - Source table bse_index_sensex_2025_01_03 has 108664 rows
+2025-01-08 20:49:46,527 - INFO - Source table bse_index_sensex_2025_01_10 has 63242 rows
+2025-01-08 20:49:46,784 - INFO - Created temporary table for bse_index_sensex_2025_01_03
+2025-01-08 20:49:46,787 - INFO - Created temporary table for nse_index_nifty_bank_2025_01_29
+2025-01-08 20:49:46,796 - INFO - Created temporary table for bse_index_sensex_2025_01_10
+2025-01-08 20:49:47,926 - INFO - Inserted 0 new rows into nse_index_nifty_mid_select_2025_01_27
+2025-01-08 20:49:49,435 - INFO - Successfully completed migration for nse_index_nifty_mid_select_2025_01_27
+2025-01-08 20:49:49,440 - INFO - Starting migration for table: nse_index_nifty_next_50_2025_01_31
+2025-01-08 20:49:52,481 - INFO - Inserted 0 new rows into bse_index_sensex_2025_01_10
+2025-01-08 20:49:52,834 - INFO - Source table nse_index_nifty_next_50_2025_01_31 has 177088 rows
+2025-01-08 20:49:54,513 - INFO - Created temporary table for nse_index_nifty_next_50_2025_01_31
+2025-01-08 20:49:58,978 - INFO - Successfully completed migration for bse_index_sensex_2025_01_10
+2025-01-08 20:50:08,023 - INFO - Inserted 0 new rows into bse_index_sensex_2025_01_03
+2025-01-08 20:50:08,174 - INFO - Inserted 0 new rows into nse_index_nifty_bank_2025_01_29
+2025-01-08 20:50:08,189 - INFO - Successfully completed migration for bse_index_sensex_2025_01_03
+2025-01-08 20:50:09,502 - INFO - Successfully completed migration for nse_index_nifty_bank_2025_01_29
+2025-01-08 20:50:11,995 - INFO - Inserted 0 new rows into nse_index_nifty_next_50_2025_01_31
+2025-01-08 20:50:14,104 - INFO - Successfully completed migration for nse_index_nifty_next_50_2025_01_31
+2025-01-08 20:50:14,225 - INFO - Migration process completed successfully
+2025-01-08 20:56:02,850 - INFO - Starting database migration process
+2025-01-08 20:56:02,855 - INFO - Successfully read configuration from api/ini/OptionChain.ini
+2025-01-08 20:56:02,855 - INFO - Successfully read configuration from api/ini/optiondata.ini
+2025-01-08 20:56:02,855 - INFO - Establishing database connections
+2025-01-08 20:56:02,961 - INFO - Found 9 tables to migrate
+2025-01-08 20:56:03,118 - INFO - Starting migration for table: nse_index_nifty_fin_service_2025_01_28
+2025-01-08 20:56:03,165 - INFO - Source table nse_index_nifty_fin_service_2025_01_28 has 168728 rows
+2025-01-08 20:56:03,176 - INFO - Starting migration for table: bse_index_bankex_2025_01_27
+2025-01-08 20:56:03,204 - INFO - Created temporary table for nse_index_nifty_fin_service_2025_01_28
+2025-01-08 20:56:03,239 - INFO - Starting migration for table: nse_index_nifty_mid_select_2025_01_27
+2025-01-08 20:56:03,278 - INFO - Source table nse_index_nifty_mid_select_2025_01_27 has 171453 rows
+2025-01-08 20:56:03,298 - INFO - Created temporary table for nse_index_nifty_mid_select_2025_01_27
+2025-01-08 20:56:03,331 - INFO - Starting migration for table: nse_index_nifty_50_2025_01_02
+2025-01-08 20:56:03,397 - INFO - Source table bse_index_bankex_2025_01_27 has 171476 rows
+2025-01-08 20:56:03,408 - INFO - Source table nse_index_nifty_50_2025_01_02 has 46108 rows
+2025-01-08 20:56:03,414 - INFO - Created temporary table for bse_index_bankex_2025_01_27
+2025-01-08 20:56:03,423 - INFO - Created temporary table for nse_index_nifty_50_2025_01_02
+2025-01-08 20:56:05,665 - INFO - Inserted 0 new rows into nse_index_nifty_50_2025_01_02
+2025-01-08 20:56:06,317 - INFO - Successfully completed migration for nse_index_nifty_50_2025_01_02
+2025-01-08 20:56:06,319 - INFO - Starting migration for table: nse_index_nifty_50_2025_01_09
+2025-01-08 20:56:07,445 - INFO - Source table nse_index_nifty_50_2025_01_09 has 120946 rows
+2025-01-08 20:56:09,213 - INFO - Created temporary table for nse_index_nifty_50_2025_01_09
+2025-01-08 20:56:12,758 - INFO - Inserted 0 new rows into nse_index_nifty_fin_service_2025_01_28
+2025-01-08 20:56:12,758 - INFO - Inserted 0 new rows into bse_index_bankex_2025_01_27
+2025-01-08 20:56:15,568 - INFO - Inserted 0 new rows into nse_index_nifty_mid_select_2025_01_27
+2025-01-08 20:56:19,144 - INFO - Successfully completed migration for bse_index_bankex_2025_01_27
+2025-01-08 20:56:19,149 - INFO - Successfully completed migration for nse_index_nifty_fin_service_2025_01_28
+2025-01-08 20:56:19,154 - INFO - Starting migration for table: bse_index_sensex_2025_01_10
+2025-01-08 20:56:19,155 - INFO - Starting migration for table: bse_index_sensex_2025_01_03
+2025-01-08 20:56:20,250 - INFO - Source table bse_index_sensex_2025_01_03 has 108664 rows
+2025-01-08 20:56:20,277 - INFO - Source table bse_index_sensex_2025_01_10 has 63242 rows
+2025-01-08 20:56:21,396 - INFO - Successfully completed migration for nse_index_nifty_mid_select_2025_01_27
+2025-01-08 20:56:21,400 - INFO - Starting migration for table: nse_index_nifty_bank_2025_01_29
+2025-01-08 20:56:22,156 - INFO - Created temporary table for bse_index_sensex_2025_01_10
+2025-01-08 20:56:22,206 - INFO - Created temporary table for bse_index_sensex_2025_01_03
+2025-01-08 20:56:22,329 - INFO - Source table nse_index_nifty_bank_2025_01_29 has 169621 rows
+2025-01-08 20:56:22,715 - INFO - Created temporary table for nse_index_nifty_bank_2025_01_29
+2025-01-08 20:56:23,482 - INFO - Inserted 0 new rows into nse_index_nifty_50_2025_01_09
+2025-01-08 20:56:24,829 - INFO - Successfully completed migration for nse_index_nifty_50_2025_01_09
+2025-01-08 20:56:24,834 - INFO - Starting migration for table: nse_index_nifty_next_50_2025_01_31
+2025-01-08 20:56:26,641 - INFO - Inserted 0 new rows into bse_index_sensex_2025_01_10
+2025-01-08 20:56:27,803 - INFO - Source table nse_index_nifty_next_50_2025_01_31 has 177088 rows
+2025-01-08 20:56:31,030 - INFO - Created temporary table for nse_index_nifty_next_50_2025_01_31
+2025-01-08 20:56:31,528 - INFO - Successfully completed migration for bse_index_sensex_2025_01_10
+2025-01-08 20:56:32,727 - INFO - Inserted 0 new rows into bse_index_sensex_2025_01_03
+2025-01-08 20:56:32,829 - INFO - Successfully completed migration for bse_index_sensex_2025_01_03
+2025-01-08 20:56:35,448 - INFO - Inserted 0 new rows into nse_index_nifty_bank_2025_01_29
+2025-01-08 20:56:39,509 - INFO - Inserted 0 new rows into nse_index_nifty_next_50_2025_01_31
+2025-01-08 20:56:46,431 - INFO - Successfully completed migration for nse_index_nifty_next_50_2025_01_31
+2025-01-08 20:56:46,546 - INFO - Successfully completed migration for nse_index_nifty_bank_2025_01_29
+2025-01-08 20:56:47,182 - INFO - Migration process completed successfully
