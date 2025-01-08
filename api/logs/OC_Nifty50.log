@@ -20887,3 +20887,40 @@
 2025-01-08 09:47:52,507 - INFO - Data inserted successfully.
 2025-01-08 09:47:52,507 - DEBUG - Expiry Date is 2025-01-09.
 2025-01-08 09:47:52,507 - DEBUG - Inserting data into table nse_index_nifty_50_2025_01_09.
+2025-01-08 20:31:14,763 - INFO - Starting real-time data insertion script.
+2025-01-08 20:31:14,766 - DEBUG - Checking if the database exists.
+2025-01-08 20:31:14,844 - INFO - Database OptionData already exists.
+2025-01-08 20:31:14,845 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-08 20:31:14,921 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-08 HTTP/1.1" 200 None
+2025-01-08 20:31:14,923 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-08 20:31:14,981 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-08 HTTP/1.1" 200 None
+2025-01-08 20:31:14,983 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-08 20:31:15,038 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-08 HTTP/1.1" 200 None
+2025-01-08 20:31:15,040 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-08 20:31:15,101 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-08 HTTP/1.1" 200 None
+2025-01-08 20:31:15,102 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-08 20:31:15,158 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-08 HTTP/1.1" 200 None
+2025-01-08 20:31:15,163 - INFO - Checking market status for date: 2025-01-08, time: 20:31:15
+2025-01-08 20:31:15,164 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-08 20:31:15,164 - INFO - Checking market status for date: 2025-01-08, time: 20:31:15
+2025-01-08 20:31:15,166 - INFO - Checking market status for date: 2025-01-08, time: 20:31:15
+2025-01-08 20:31:15,166 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-08 20:31:15,166 - INFO - Checking market status for date: 2025-01-08, time: 20:31:15
+2025-01-08 20:31:15,167 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-08 20:31:15,169 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-08 20:31:15,170 - INFO - Checking market status for date: 2025-01-08, time: 20:31:15
+2025-01-08 20:31:15,180 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-08 20:31:15,185 - INFO - Checking market status for date: 2025-01-08, time: 20:31:15
+2025-01-08 20:31:15,186 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-08 20:31:15,365 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-08 HTTP/1.1" 200 None
+2025-01-08 20:31:15,372 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-08 HTTP/1.1" 200 None
+2025-01-08 20:31:15,379 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-08 HTTP/1.1" 200 None
+2025-01-08 20:31:15,389 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-08 HTTP/1.1" 200 None
+2025-01-08 20:31:15,390 - INFO - Regular market hours check - Is Open: False
+2025-01-08 20:31:15,390 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-08 HTTP/1.1" 200 None
+2025-01-08 20:31:15,400 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-08 HTTP/1.1" 200 None
+2025-01-08 20:31:15,413 - INFO - Regular market hours check - Is Open: False
+2025-01-08 20:31:15,422 - INFO - Regular market hours check - Is Open: False
+2025-01-08 20:31:15,437 - INFO - Regular market hours check - Is Open: False
+2025-01-08 20:31:15,438 - INFO - Regular market hours check - Is Open: False
+2025-01-08 20:31:15,439 - INFO - Regular market hours check - Is Open: False
