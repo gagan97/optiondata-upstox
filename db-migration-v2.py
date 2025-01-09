@@ -278,7 +278,7 @@ def main():
         console.print(Align.center("[bold blue]Database Migration Dashboard[/bold blue]"))
         console.print(Align.center("=" * min(console.width, 100)))
         
-        source_params = read_db_config(os.path.join('api', 'ini', 'OptionChain.ini'))
+        source_params = read_db_config(os.path.join('api', 'ini', 'test.ini'))
         target_params = read_db_config(os.path.join('api', 'ini', 'optiondata.ini'))
 
         progress = Progress(

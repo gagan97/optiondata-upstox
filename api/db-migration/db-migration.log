@@ -125,3 +125,15 @@ rich.errors.LiveError: Only one live display may be active at once
 2025-01-08 22:59:33,143 - INFO - Starting migration for table: nse_index_nifty_bank_2025_01_29
 2025-01-08 22:59:33,953 - INFO - Starting migration for table: nse_index_nifty_next_50_2025_01_31
 2025-01-08 22:59:42,361 - INFO - Migration process completed successfully
+2025-01-09 16:31:23,893 - INFO - Starting database migration process
+2025-01-09 16:31:23,900 - INFO - Successfully read configuration from api/ini/test.ini
+2025-01-09 16:31:23,901 - INFO - Successfully read configuration from api/ini/optiondata.ini
+2025-01-09 16:31:24,225 - INFO - Starting migration for table: nse_index_nifty_50_2025_01_16
+2025-01-09 16:31:24,285 - INFO - Starting migration for table: nse_index_nifty_50_2025_02_27
+2025-01-09 16:31:24,344 - INFO - Starting migration for table: nse_index_nifty_50_2025_01_09
+2025-01-09 16:31:24,416 - ERROR - Error copying nse_index_nifty_50_2025_02_27: relation "nse_index_nifty_50_2025_02_27" does not exist
+LINE 2:                 INSERT INTO nse_index_nifty_50_2025_02_27
+                                    ^
+
+2025-01-09 16:31:24,421 - INFO - Starting migration for table: nse_index_nifty_50_2025_01_23
+2025-01-09 16:31:24,483 - INFO - Starting migration for table: nse_index_nifty_50_2025_01_30
