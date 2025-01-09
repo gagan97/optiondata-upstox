@@ -1,5 +1,0 @@
-2025-01-06 16:15:41,985 - INFO - Starting database migration
-2025-01-06 16:15:42,937 - INFO - Successfully connected to OptionChain database
-2025-01-06 16:15:43,261 - INFO - Successfully connected to OptionData database
-2025-01-06 16:15:43,338 - INFO - Processing table nse_index_nifty_fin_service_2025_01_28 (1/9)
-2025-01-06 16:15:43,422 - INFO - Created table nse_index_nifty_fin_service_2025_01_28 in target database
