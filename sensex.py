@@ -30,7 +30,7 @@ if not os.path.exists(log_directory):
     os.makedirs(log_directory)
 
 # Configure logging with rotating file handler
-log_file = "api/logs/test.log"
+log_file = "api/logs/sensex_test.log"
 handler = RotatingFileHandler(log_file, maxBytes=5000000, backupCount=5)
 formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 handler.setFormatter(formatter)
@@ -504,7 +504,7 @@ def main():
             format='%(asctime)s - %(levelname)s - %(message)s',
             handlers=[
                 logging.StreamHandler(),
-                logging.FileHandler('sensex_test.log')
+                logging.FileHandler('api/logs/sensex_test1.log')
             ]
         )
 
