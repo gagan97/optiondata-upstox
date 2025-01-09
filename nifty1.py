@@ -42,6 +42,84 @@ logger.addHandler(handler)
 
 logger.info("Starting real-time data insertion script.")
 
+class MarketCalendar:
+    def __init__(self):
+        self.holidays = []
+        self.special_timings = {}
+        self.fetch_holiday_data()
+        
+    def fetch_holiday_data(self):
+        """Fetch holiday data once during initialization"""
+        try:
+            holiday_response = market_holiday_date_wise()
+            if holiday_response and holiday_response.get('status') == 'success':
+                for holiday in holiday_response.get('data', []):
+                    date = holiday['date']
+                    self.holidays.append(date)
+                    
+                    # Store special timing information if available
+                    exchange_info = self.parse_exchange_timings(holiday)
+                    if exchange_info:
+                        self.special_timings[date] = exchange_info
+                        
+                logging.info(f"Successfully loaded {len(self.holidays)} holidays and {len(self.special_timings)} special timing dates")
+            else:
+                logging.warning("Failed to fetch holiday data, assuming regular trading hours")
+        except Exception as e:
+            logging.error(f"Error fetching holiday data: {e}")
+
+    def parse_exchange_timings(self, holiday_data):
+        """Parse exchange timings from holiday data"""
+        try:
+            for exchange_info in holiday_data.get('open_exchanges', []):
+                if isinstance(exchange_info, str):
+                    parts = exchange_info.split('(')
+                    exchange_name = parts[0].strip()
+                    if exchange_name == 'NSE':
+                        timing_parts = parts[1].strip(')').split(',')
+                        start_ms = int(timing_parts[0].split(':')[1].strip())
+                        end_ms = int(timing_parts[1].split(':')[1].strip())
+                        return {
+                            'start': start_ms,
+                            'end': end_ms
+                        }
+        except Exception as e:
+            logging.error(f"Error parsing exchange timings: {e}")
+        return None
+    
+    def is_market_open(self):
+        """Check if market is open based on pre-loaded holiday data"""
+        now = datetime.now(pytz.timezone('Asia/Kolkata'))
+        current_date = now.strftime('%Y-%m-%d')
+        
+        # Check if it's a holiday withspecial timing
+        if current_date in self.special_timings:
+            timing_info = self.special_timings[current_date]
+            start_time = self.convert_milliseconds_to_time(timing_info['start'])
+            end_time = self.convert_milliseconds_to_time(timing_info['end'])
+            
+            if start_time and end_time:
+                return start_time <= now <= end_time
+        
+        # Check if it's a regular holiday
+        if current_date in self.holidays:
+            return False
+        
+        # Regular market hours check (9:15 AM to 3:30 PM)
+        regular_market_time = now.time()
+        return dt_time(9, 15) <= regular_market_time <= dt_time(15, 30)
+    
+    @staticmethod
+    def convert_milliseconds_to_time(milliseconds):
+        """Convert milliseconds timestampto datetime object in IST"""
+        try:
+            seconds = milliseconds / 1000
+            return datetime.fromtimestamp(seconds, pytz.timezone('Asia/Kolkata'))
+        except Exception as e:
+            logging.error(f"Error converting milliseconds {milliseconds}: {e}")
+            return None
+
+
 class ExpiryManager:
     def __init__(self):
         self.expiry_dates = []
@@ -254,16 +332,18 @@ def insert_data_into_db(db_config, table_name, data):
             conn.close()
 
 class DataFetcher(threading.Thread):
-    def __init__(self, expiry_date, progress_data, lock, db_config):
+
+    def __init__(self, expiry_date, progress_data, lock, db_config, market_calendar):
         super().__init__()
         self.expiry_date = expiry_date
         self.progress_data = progress_data
         self.lock = lock
         self.db_config = db_config
+        self.market_calendar = market_calendar
         self.daemon = True
         
     def run(self):
-        while is_market_open():
+        while self.market_calendar.is_market_open():
             try:
                 with self.lock:
                     self.progress_data[self.expiry_date] = {
@@ -352,69 +432,69 @@ class ProgressDisplay:
         
         return table
 
-def is_market_open():
-    now = datetime.now(pytz.timezone('Asia/Kolkata'))
-    current_date = now.strftime('%Y-%m-%d')
-    
-    logging.info(f"Checking market status for date: {current_date}, time: {now.strftime('%H:%M:%S')}")
-    
-    holiday_response = market_holiday_date_wise()
-    
-    if holiday_response and holiday_response.get('status') == 'success':
-        holidays = holiday_response.get('data', [])
-        
-        for holiday in holidays:
-            if holiday['date'] == current_date:
-                logging.info("Today is a holiday with special timing")
-                
-                # Parse exchange timings
-                exchange_info = parse_exchange_timings(holiday)
-                
-                if exchange_info:
-                    start_time = convert_milliseconds_to_time(exchange_info['start'])
-                    end_time = convert_milliseconds_to_time(exchange_info['end'])
-                    
-                    if start_time and end_time:
-                        is_open = start_time <= now <= end_time
-                        logging.info(f"Special timing check - Start: {start_time}, End: {end_time}, Current: {now}, Is Open: {is_open}")
-                        return is_open
-    
-    # Regular market hours check (9:00 AM to 3:30 PM)
-    regular_market_time = now.time()
-    is_regular_open = dt_time(9, 00) <= regular_market_time <= dt_time(15, 30)
-    logging.info(f"Regular market hours check - Is Open: {is_regular_open}")
-    return is_regular_open
+#def is_market_open():
+#    now = datetime.now(pytz.timezone('Asia/Kolkata'))
+#    current_date = now.strftime('%Y-%m-%d')
+#    
+#    logging.info(f"Checking market status for date: {current_date}, time: {now.strftime('%H:%M:%S')}")
+#    
+#    holiday_response = market_holiday_date_wise()
+#    
+#    if holiday_response and holiday_response.get('status') == 'success':
+#        holidays = holiday_response.get('data', [])
+#        
+#        for holiday in holidays:
+#            if holiday['date'] == current_date:
+#                logging.info("Today is a holiday with special timing")
+#                
+#                # Parse exchange timings
+#                exchange_info = parse_exchange_timings(holiday)
+#                
+#                if exchange_info:
+#                    start_time = convert_milliseconds_to_time(exchange_info['start'])
+#                    end_time = convert_milliseconds_to_time(exchange_info['end'])
+#                    
+#                    if start_time and end_time:
+#                        is_open = start_time <= now <= end_time
+#                        logging.info(f"Special timing check - Start: {start_time}, End: {end_time}, Current: {now}, Is Open: {is_open}")
+#                        return is_open
+#    
+#    # Regular market hours check (9:00 AM to 3:30 PM)
+#    regular_market_time = now.time()
+#    is_regular_open = dt_time(9, 00) <= regular_market_time <= dt_time(15, 30)
+#    logging.info(f"Regular market hours check - Is Open: {is_regular_open}")
+#    return is_regular_open
 
-def convert_milliseconds_to_time(milliseconds):
-    """Convert milliseconds timestamp to datetime object in IST."""
-    try:
-        seconds = milliseconds / 1000
-        dt = datetime.fromtimestamp(seconds, pytz.timezone('Asia/Kolkata'))
-        logging.info(f"Converted milliseconds {milliseconds} to datetime: {dt}")
-        return dt
-    except Exception as e:
-        logging.error(f"Error converting milliseconds {milliseconds}: {e}")
-        return None
+#def convert_milliseconds_to_time(milliseconds):
+#    """Convert milliseconds timestamp to datetime object in IST."""
+#    try:
+#        seconds = milliseconds / 1000
+#        dt = datetime.fromtimestamp(seconds, pytz.timezone('Asia/Kolkata'))
+#        logging.info(f"Converted milliseconds {milliseconds} to datetime: {dt}")
+#        return dt
+#    except Exception as e:
+#        logging.error(f"Error converting milliseconds {milliseconds}: {e}")
+#        return None
 
-def parse_exchange_timings(holiday_data):
-    """Parse exchange timings from holiday data."""
-    try:
-        for exchange_info in holiday_data.get('open_exchanges', []):
-            if isinstance(exchange_info, str):
-                parts = exchange_info.split('(')
-                exchange_name = parts[0].strip()
-                if exchange_name == 'NSE':
-                    timing_parts = parts[1].strip(')').split(',')
-                    start_ms = int(timing_parts[0].split(':')[1].strip())
-                    end_ms = int(timing_parts[1].split(':')[1].strip())
-                    return {
-                        'name': 'NSE',
-                        'start': start_ms,
-                        'end': end_ms
-                    }
-    except Exception as e:
-        logging.error(f"Error parsing exchange timings: {e}")
-    return None
+#def parse_exchange_timings(holiday_data):
+#    """Parse exchange timings from holiday data."""
+#    try:
+#        for exchange_info in holiday_data.get('open_exchanges', []):
+#            if isinstance(exchange_info, str):
+#                parts = exchange_info.split('(')
+#                exchange_name = parts[0].strip()
+#                if exchange_name == 'NSE':
+#                    timing_parts = parts[1].strip(')').split(',')
+#                    start_ms = int(timing_parts[0].split(':')[1].strip())
+#                    end_ms = int(timing_parts[1].split(':')[1].strip())
+#                    return {
+#                        'name': 'NSE',
+#                        'start': start_ms,
+#                        'end': end_ms
+#                    }
+#    except Exception as e:
+#        logging.error(f"Error parsing exchange timings: {e}")
+#    return None
 
 def main():
     try:
@@ -427,6 +507,9 @@ def main():
                 logging.FileHandler('market_timing.log')
             ]
         )
+
+        # Initialize market calendar
+        market_calendar = MarketCalendar()
 
         # Database setup
         db_config = configDB()
@@ -458,14 +541,14 @@ def main():
         # Start a thread for each expiry
         threads = []
         for expiry_date in expiry_dates:
-            thread = DataFetcher(expiry_date, progress_data, lock, db_config)
+            thread = DataFetcher(expiry_date, progress_data, lock, db_config, market_calendar)
             thread.start()
             threads.append(thread)
         
         # Display progress with Rich
         with Live(progress_display.generate_table(progress_data), refresh_per_second=1) as live:
             while True:
-                if not is_market_open():
+                if not market_calendar.is_market_open():
                     rprint("[bold red]Market is closed. Stopping data collection.[/bold red]")
                     break
                 
@@ -474,7 +557,7 @@ def main():
                     # Restart threads
                     threads = []
                     for expiry_date in expiry_dates:
-                        thread = DataFetcher(expiry_date, progress_data, lock, db_config)
+                        thread = DataFetcher(expiry_date, progress_data, lock, db_config, market_calendar)
                         thread.start()
                         threads.append(thread)
                 
