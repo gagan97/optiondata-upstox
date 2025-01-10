@@ -26,6 +26,56 @@ def read_db_config(file_path):
         'port': config['postgresql']['port']
     }
 
+def check_database_connection(db_params, db_type="source"):
+    """Check database connection and provide detailed error messages"""
+    try:
+        with psycopg2.connect(**db_params) as conn:
+            return True
+    except psycopg2.OperationalError as e:
+        error_msg = str(e)
+        console.print(f"\n[bold red]Error connecting to {db_type} database:[/bold red]")
+        
+        if "database" in error_msg and "does not exist" in error_msg:
+            db_name = db_params.get('dbname', 'unknown')
+            console.print(f"""
+[yellow]Database '{db_name}' does not exist. Please check:[/yellow]
+1. The database name in your configuration file is correct
+2. The database has been created on the server
+3. The configuration file path: [cyan]api/ini/{db_type}.ini[/cyan]
+
+Configuration found:
+- Database: {db_params.get('dbname')}
+- Host: {db_params.get('host')}
+- Port: {db_params.get('port')}
+- User: {db_params.get('user')}
+            """)
+        elif "connection refused" in error_msg.lower():
+            console.print(f"""
+[yellow]Unable to connect to the database server. Please check:[/yellow]
+1. The server host and port are correct
+2. The server is running and accessible
+3. Any firewall rules or security groups allow the connection
+4. The configuration file path: [cyan]api/ini/{db_type}.ini[/cyan]
+            """)
+        elif "password authentication failed" in error_msg.lower():
+            console.print(f"""
+[yellow]Authentication failed. Please check:[/yellow]
+1. The username and password in your configuration file are correct
+2. The user has proper permissions
+3. The configuration file path: [cyan]api/ini/{db_type}.ini[/cyan]
+            """)
+        else:
+            console.print(f"""
+[yellow]Connection error. Please check your database configuration:[/yellow]
+1. All connection parameters are correct
+2. The database server is accessible
+3. The configuration file path: [cyan]api/ini/{db_type}.ini[/cyan]
+
+Error details: {error_msg}
+            """)
+        
+        return False
+
 def get_system_info():
     """Get current system utilization metrics"""
     cpu_percent = psutil.cpu_percent(interval=1)
@@ -368,9 +418,19 @@ def process_tables(source_params, target_params, tables):
 def main():
     try:
         with console.status("[bold green]Reading configuration...") as status:
-            option_chain_params = read_db_config(os.path.join('api', 'ini', 'test.ini'))
-            option_data_params = read_db_config(os.path.join('api', 'ini', 'optiondata.ini'))
+            option_chain_params = read_db_config(os.path.join('api', 'ini', 'optiondata.ini'))
+            option_data_params = read_db_config(os.path.join('api', 'ini', 'test.ini'))
+
+            # Check source database connection
+            if not check_database_connection(option_chain_params, "source"):
+                console.print("\n[bold red]Migration aborted due to source database connection failure.[/bold red]")
+                return
             
+            # Check target database connection
+            if not check_database_connection(option_data_params, "target"):
+                console.print("\n[bold red]Migration aborted due to target database connection failure.[/bold red]")
+                return
+
             with psycopg2.connect(**option_chain_params) as conn:
                 with conn.cursor() as cur:
                     cur.execute("""
