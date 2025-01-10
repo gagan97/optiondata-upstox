@@ -1,35 +1,78 @@
+from datetime import datetime, timezone, timedelta
 import boto3
-import os
-import sys
-import time
-import json
-from datetime import datetime, timezone
-from rich.console import Console
-from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, TimeElapsedColumn
-from rich.prompt import IntPrompt
-from rich.panel import Panel
+from rich import box
+from rich.align import Align
+from rich.console import Console, Group
 from rich.layout import Layout
-from rich.text import Text
+from rich.panel import Panel
+from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn
 from rich.table import Table
 from rich.live import Live
-from rich.box import ROUNDED
 from rich.tree import Tree
-from botocore.exceptions import ClientError
 
-# Initialize rich console with better styling
 console = Console()
 
-# Configuration
-INSTANCE_ID = "i-0974bc14f968e1549"
-KEY_PATH = "windows-server-aws.pem"   # Your key file path
-USERNAME = "ubuntu"                   # SSH username
-REGION = "us-east-1"  # Add your AWS region
-
-# Initialize boto3 clients
+# Initialize AWS clients
 ec2 = boto3.client('ec2')
 cloudwatch = boto3.client('cloudwatch')
 pricing = boto3.client('pricing', region_name='us-east-1')  # Pricing API is only available in us-east-1
 iam = boto3.client('iam')
+
+class HeaderWidget:
+    """Display header with instance info and current time."""
+    def __init__(self, instance_id):
+        self.instance_id = instance_id
+
+    def __rich__(self) -> Panel:
+        grid = Table.grid(expand=True)
+        grid.add_column(justify="left", ratio=1)
+        grid.add_column(justify="center", ratio=1)
+        grid.add_column(justify="right")
+        grid.add_row(
+            f"[b]Instance:[/b] {self.instance_id}",
+            "[b]AWS Instance Monitor[/b]",
+            datetime.now().ctime().replace(":", "[blink]:[/]"),
+        )
+        return Panel(grid, style="white on blue")
+
+def create_header():
+    """Create a styled header panel"""
+    grid = Table.grid(expand=True)
+    grid.add_column(justify="center", ratio=1)
+    grid.add_row("[bold cyan]AWS Instance Controller[/bold cyan]")
+    grid.add_row("[dim]Manage your EC2 instances with style[/dim]")
+    return Panel(grid, box=ROUNDED, border_style="blue")
+
+def make_layout() -> Layout:
+    """Define the layout structure."""
+    layout = Layout(name="root")
+
+    # Main splits
+    layout.split(
+        Layout(name="header", size=3),
+        Layout(name="main", ratio=1),
+        Layout(name="footer", size=7),
+    )
+
+    # Split main area into side and body
+    layout["main"].split_row(
+        Layout(name="side", ratio=1),
+        Layout(name="body", ratio=2),
+    )
+
+    # Split side area into two boxes
+    layout["side"].split(
+        Layout(name="metrics", ratio=1),
+        Layout(name="volumes", ratio=1),
+    )
+
+    # Split body area into two sections
+    layout["body"].split(
+        Layout(name="network", ratio=1),
+        Layout(name="security", ratio=1),
+    )
+
+    return layout
 
 def get_instance_price(instance_type, region):
     """Get the hourly price for the instance type"""
@@ -185,230 +228,6 @@ def get_network_interfaces(instance_id):
         console.print(f"[red]Error getting network interface info: {str(e)}[/red]")
         return []
 
-def get_instance_status(instance_id):
-    """Get detailed instance status checks"""
-    try:
-        response = ec2.describe_instance_status(InstanceIds=[instance_id])
-        if response['InstanceStatuses']:
-            status = response['InstanceStatuses'][0]
-            return {
-                'system_status': status['SystemStatus']['Status'],
-                'instance_status': status['InstanceStatus']['Status'],
-                'system_details': status['SystemStatus'].get('Details', []),
-                'instance_details': status['InstanceStatus'].get('Details', [])
-            }
-        return None
-    except Exception as e:
-        console.print(f"[red]Error getting instance status: {str(e)}[/red]")
-        return None
-
-def get_instance_role():
-    """Get IAM role information for the instance"""
-    try:
-        response = ec2.describe_instances(InstanceIds=[INSTANCE_ID])
-        instance = response['Reservations'][0]['Instances'][0]
-        if 'IamInstanceProfile' in instance:
-            profile_arn = instance['IamInstanceProfile']['Arn']
-            profile_name = profile_arn.split('/')[-1]
-            
-            # Get role details
-            response = iam.get_instance_profile(InstanceProfileName=profile_name)
-            if response['InstanceProfile']['Roles']:
-                role = response['InstanceProfile']['Roles'][0]
-                
-                # Get role policies
-                attached_policies = iam.list_attached_role_policies(RoleName=role['RoleName'])
-                inline_policies = iam.list_role_policies(RoleName=role['RoleName'])
-                
-                return {
-                    'role_name': role['RoleName'],
-                    'role_id': role['RoleId'],
-                    'arn': role['Arn'],
-                    'attached_policies': attached_policies['AttachedPolicies'],
-                    'inline_policies': inline_policies['PolicyNames']
-                }
-        return None
-    except Exception as e:
-        console.print(f"[red]Error getting IAM role info: {str(e)}[/red]")
-        return None
-
-def format_bytes(bytes_value):
-    """Format bytes to human readable format"""
-    for unit in ['B', 'KB', 'MB', 'GB', 'TB']:
-        if bytes_value < 1024:
-            return f"{bytes_value:.2f} {unit}"
-        bytes_value /= 1024
-    return f"{bytes_value:.2f} PB"
-
-def display_status():
-    """Display comprehensive instance status in a styled layout"""
-    info = get_instance_info()
-    volumes = get_volume_info(INSTANCE_ID)
-    metrics = get_instance_metrics(INSTANCE_ID)
-    security_groups = get_security_groups(INSTANCE_ID)
-    network_interfaces = get_network_interfaces(INSTANCE_ID)
-    instance_status = get_instance_status(INSTANCE_ID)
-    role_info = get_instance_role()
-    
-    # Calculate estimated cost
-    hourly_price = get_instance_price(info['type'], REGION)
-    if hourly_price and info['total_hours']:
-        estimated_cost = hourly_price * info['total_hours']
-    else:
-        estimated_cost = None
-
-    layout = Layout()
-    layout.split_column(
-        Layout(name="top", size=3),
-        Layout(name="middle", size=1),
-        Layout(name="bottom", size=7)
-    )
-    
-    layout["top"].split_row(
-        Layout(name="instance_info"),
-        Layout(name="metrics")
-    )
-    
-    layout["middle"].split_row(
-        Layout(name="volumes"),
-        Layout(name="network")
-    )
-    
-    layout["bottom"].split_row(
-        Layout(name="security"),
-        Layout(name="iam")
-    )
-
-    # Instance Information Table
-    instance_table = Table(box=ROUNDED, show_header=False)
-    instance_table.add_column("Key", style="cyan", width=20)
-    instance_table.add_column("Value", style="white")
-    
-    status_color = {
-        'running': 'green',
-        'stopped': 'red',
-        'pending': 'yellow',
-        'stopping': 'yellow',
-        'unknown': 'dim white'
-    }.get(info['state'], 'white')
-    
-    instance_table.add_row("Instance ID", INSTANCE_ID)
-    instance_table.add_row("Status", f"[{status_color}]{info['state']}[/{status_color}]")
-    instance_table.add_row("Type", info['type'])
-    instance_table.add_row("Launch Time", format_datetime(info['launch_time']))
-    instance_table.add_row("Running Hours", f"{info['total_hours']:.2f}")
-    if estimated_cost:
-        instance_table.add_row("Est. Total Cost", f"${estimated_cost:.2f}")
-    instance_table.add_row("Platform", info['platform'])
-    instance_table.add_row("Architecture", info['architecture'])
-
-    # Performance Metrics Table
-    metrics_table = Table(box=ROUNDED, show_header=False)
-    metrics_table.add_column("Metric", style="cyan")
-    metrics_table.add_column("Value", style="white")
-    
-    metrics_table.add_row("CPU Utilization", f"{metrics['cpu']:.1f}%")
-    metrics_table.add_row("Network In", format_bytes(metrics['network_in']))
-    metrics_table.add_row("Network Out", format_bytes(metrics['network_out']))
-    metrics_table.add_row("Disk Read", format_bytes(metrics['disk_read']))
-    metrics_table.add_row("Disk Write", format_bytes(metrics['disk_write']))
-    
-    if instance_status:
-        metrics_table.add_row("System Status", instance_status['system_status'])
-        metrics_table.add_row("Instance Status", instance_status['instance_status'])
-
-    # Volume Information Table
-    volume_table = Table(box=ROUNDED, show_header=True)
-    volume_table.add_column("Device")
-    volume_table.add_column("Volume ID")
-    volume_table.add_column("Size (GB)")
-    volume_table.add_column("Type")
-    volume_table.add_column("IOPS")
-    volume_table.add_column("Created")
-    
-    for volume in volumes:
-        volume_table.add_row(
-            volume['device'],
-            volume['volume_id'],
-            str(volume['size']),
-            volume['type'],
-            str(volume['iops']),
-            format_datetime(volume['created'])
-        )
-
-    # Network Interfaces Table
-    network_table = Table(box=ROUNDED, show_header=True)
-    network_table.add_column("Interface ID")
-    network_table.add_column("Private IP")
-    network_table.add_column("Public IP")
-    network_table.add_column("Subnet")
-    network_table.add_column("Status")
-    
-    for interface in network_interfaces:
-        network_table.add_row(
-            interface['id'],
-            interface['private_ip'],
-            interface['public_ip'],
-            interface['subnet_id'],
-            interface['status']
-        )
-
-    # Security Groups Tree
-    sg_tree = Tree("🔒 Security Groups")
-    for sg in security_groups:
-        sg_node = sg_tree.add(f"[cyan]{sg['name']}[/cyan] ({sg['id']})")
-        inbound = sg_node.add("Inbound Rules")
-        outbound = sg_node.add("Outbound Rules")
-        
-        for rule in sg['inbound_rules']:
-            ports = f"{rule.get('FromPort', 'All')} - {rule.get('ToPort', 'All')}"
-            protocol = rule.get('IpProtocol', 'All')
-            for ip_range in rule.get('IpRanges', []):
-                inbound.add(f"{protocol.upper()} {ports} from {ip_range['CidrIp']}")
-
-            """View detailed security group information"""
-    console.clear()
-    console.print(create_header())
-    
-    security_groups = get_security_groups(INSTANCE_ID)
-    
-    for sg in security_groups:
-        console.print(Panel(f"[bold cyan]{sg['name']}[/bold cyan] ({sg['id']})\n"
-                          f"Description: {sg['description']}", 
-                          border_style="cyan"))
-        
-        # Inbound rules table
-        in_table = Table(title="Inbound Rules", box=ROUNDED)
-        in_table.add_column("Protocol")
-        in_table.add_column("Ports")
-        in_table.add_column("Source")
-        
-        for rule in sg['inbound_rules']:
-            protocol = rule.get('IpProtocol', 'All')
-            ports = f"{rule.get('FromPort', 'All')} - {rule.get('ToPort', 'All')}"
-            for ip_range in rule.get('IpRanges', []):
-                in_table.add_row(protocol.upper(), ports, ip_range['CidrIp'])
-        
-        console.print(in_table)
-        
-        # Outbound rules table
-        out_table = Table(title="Outbound Rules", box=ROUNDED)
-        out_table.add_column("Protocol")
-        out_table.add_column("Ports")
-        out_table.add_column("Destination")
-        
-        for rule in sg['outbound_rules']:
-            protocol = rule.get('IpProtocol', 'All')
-            ports = f"{rule.get('FromPort', 'All')} - {rule.get('ToPort', 'All')}"
-            for ip_range in rule.get('IpRanges', []):
-                out_table.add_row(protocol.upper(), ports, ip_range['CidrIp'])
-        
-        console.print(out_table)
-        console.print("")
-    
-    console.print("\nPress Enter to continue...")
-    input()
-
 def view_volume_details():
     """View detailed volume information"""
     console.clear()
@@ -474,7 +293,6 @@ def view_cost_estimates():
         console.print(f"Start Date: [blue]{info['start_date'].strftime('%Y-%m-%d %H:%M:%S')}[/blue]")
     else:
         console.print("[red]Error:[/red] Unable to retrieve pricing information.")
-
 def get_volume_info(instance_id):
     """Get detailed information about attached EBS volumes"""
     try:
@@ -519,7 +337,6 @@ def get_instance_uptime(instance_id):
     except Exception as e:
         console.print(f"[red]Error calculating uptime: {str(e)}[/red]")
         return {'launch_time': None, 'total_hours': 0}
-
 def get_instance_info():
     """Get detailed instance information"""
     try:
@@ -738,16 +555,156 @@ def stop_instance():
             console.print(Panel(error_message, border_style="red", box=ROUNDED))
             sys.exit(1)
 
-def create_header():
-    """Create a styled header panel"""
-    grid = Table.grid(expand=True)
-    grid.add_column(justify="center", ratio=1)
-    grid.add_row("[bold cyan]AWS Instance Controller[/bold cyan]")
-    grid.add_row("[dim]Manage your EC2 instances with style[/dim]")
-    return Panel(grid, box=ROUNDED, border_style="blue")
+def get_instance_status(instance_id):
+    """Get detailed instance status checks"""
+    try:
+        response = ec2.describe_instance_status(InstanceIds=[instance_id])
+        if response['InstanceStatuses']:
+            status = response['InstanceStatuses'][0]
+            return {
+                'system_status': status['SystemStatus']['Status'],
+                'instance_status': status['InstanceStatus']['Status'],
+                'system_details': status['SystemStatus'].get('Details', []),
+                'instance_details': status['InstanceStatus'].get('Details', [])
+            }
+        return None
+    except Exception as e:
+        console.print(f"[red]Error getting instance status: {str(e)}[/red]")
+        return None
 
-def main():
-    """Main function with enhanced UI"""
+def get_instance_role():
+    """Get IAM role information for the instance"""
+    try:
+        response = ec2.describe_instances(InstanceIds=[INSTANCE_ID])
+        instance = response['Reservations'][0]['Instances'][0]
+        if 'IamInstanceProfile' in instance:
+            profile_arn = instance['IamInstanceProfile']['Arn']
+            profile_name = profile_arn.split('/')[-1]
+            
+            # Get role details
+            response = iam.get_instance_profile(InstanceProfileName=profile_name)
+            if response['InstanceProfile']['Roles']:
+                role = response['InstanceProfile']['Roles'][0]
+                
+                # Get role policies
+                attached_policies = iam.list_attached_role_policies(RoleName=role['RoleName'])
+                inline_policies = iam.list_role_policies(RoleName=role['RoleName'])
+                
+                return {
+                    'role_name': role['RoleName'],
+                    'role_id': role['RoleId'],
+                    'arn': role['Arn'],
+                    'attached_policies': attached_policies['AttachedPolicies'],
+                    'inline_policies': inline_policies['PolicyNames']
+                }
+        return None
+    except Exception as e:
+        console.print(f"[red]Error getting IAM role info: {str(e)}[/red]")
+        return None
+
+def format_bytes(bytes_value):
+    """Format bytes to human readable format"""
+    for unit in ['B', 'KB', 'MB', 'GB', 'TB']:
+        if bytes_value < 1024:
+            return f"{bytes_value:.2f} {unit}"
+        bytes_value /= 1024
+    return f"{bytes_value:.2f} PB"
+
+def create_metrics_panel(metrics):
+    """Create a panel showing instance metrics."""
+    metrics_table = Table(show_header=False, box=box.ROUNDED)
+    metrics_table.add_column("Metric", style="cyan")
+    metrics_table.add_column("Value", style="white")
+    
+    metrics_table.add_row("CPU Utilization", f"{metrics['cpu']:.1f}%")
+    metrics_table.add_row("Network In", format_bytes(metrics['network_in']))
+    metrics_table.add_row("Network Out", format_bytes(metrics['network_out']))
+    metrics_table.add_row("Disk Read", format_bytes(metrics['disk_read']))
+    metrics_table.add_row("Disk Write", format_bytes(metrics['disk_write']))
+    
+    return Panel(metrics_table, title="[b]Instance Metrics", border_style="green")
+
+def create_volumes_panel(volumes):
+    """Create a panel showing volume information."""
+    volume_table = Table(box=box.ROUNDED, show_header=True)
+    volume_table.add_column("Device")
+    volume_table.add_column("Size")
+    volume_table.add_column("Type")
+    volume_table.add_column("IOPS")
+    
+    for volume in volumes:
+        volume_table.add_row(
+            volume['device'],
+            f"{volume['size']} GB",
+            volume['type'],
+            str(volume['iops'])
+        )
+    
+    return Panel(volume_table, title="[b]EBS Volumes", border_style="blue")
+
+def create_network_panel(network_interfaces):
+    """Create a panel showing network information."""
+    net_table = Table(box=box.ROUNDED, show_header=True)
+    net_table.add_column("Interface ID")
+    net_table.add_column("Private IP")
+    net_table.add_column("Public IP")
+    net_table.add_column("Status")
+    
+    for interface in network_interfaces:
+        net_table.add_row(
+            interface['id'],
+            interface['private_ip'],
+            interface['public_ip'],
+            interface['status']
+        )
+    
+    return Panel(net_table, title="[b]Network Interfaces", border_style="magenta")
+
+def create_security_panel(security_groups):
+    """Create a panel showing security group information."""
+    sg_tree = Tree("🔒 Security Groups")
+    for sg in security_groups:
+        sg_node = sg_tree.add(f"[cyan]{sg['name']}[/cyan] ({sg['id']})")
+        inbound = sg_node.add("Inbound Rules")
+        outbound = sg_node.add("Outbound Rules")
+        
+        for rule in sg['inbound_rules']:
+            ports = f"{rule.get('FromPort', 'All')} - {rule.get('ToPort', 'All')}"
+            protocol = rule.get('IpProtocol', 'All')
+            for ip_range in rule.get('IpRanges', []):
+                inbound.add(f"{protocol.upper()} {ports} from {ip_range['CidrIp']}")
+    
+    return Panel(sg_tree, title="[b]Security Groups", border_style="red")
+
+def monitor_instance(instance_id: str):
+    """Main function to monitor the instance with live updates."""
+    layout = make_layout()
+    layout["header"].update(HeaderWidget(instance_id))
+
+    with Live(layout, refresh_per_second=1, screen=True):
+        while True:
+            # Get all instance information
+            metrics = get_instance_metrics(instance_id)
+            volumes = get_volume_info(instance_id)
+            network_interfaces = get_network_interfaces(instance_id)
+            security_groups = get_security_groups(instance_id)
+
+            # Update all panels
+            layout["metrics"].update(create_metrics_panel(metrics))
+            layout["volumes"].update(create_volumes_panel(volumes))
+            layout["network"].update(create_network_panel(network_interfaces))
+            layout["security"].update(create_security_panel(security_groups))
+
+if __name__ == "__main__":
+    # Configuration
+    INSTANCE_ID = "i-0974bc14f968e1549"
+    KEY_PATH = "windows-server-aws.pem"   # Your key file path
+    USERNAME = "ubuntu"                   # SSH username
+    REGION = "us-east-1"  # Add your AWS region
+    try:
+        monitor_instance(INSTANCE_ID)
+    except KeyboardInterrupt:
+        console.print("[yellow]Monitoring stopped by user[/yellow]")
     while True:
         console.clear()
         console.print(create_header())
@@ -766,6 +723,3 @@ def main():
             console.print(Panel("[yellow]👋 Goodbye![/yellow]", 
                               box=ROUNDED, border_style="yellow"))
             sys.exit(0)
-
-if __name__ == "__main__":
-    main()
