@@ -49,7 +49,6 @@ def get_repo_stats():
     else:
         stats['last_commit'] = None
     
-    # Get list of changed files
     stdout, _, _ = run_command("git status --porcelain")
     stats['changed_files'] = []
     for line in stdout.split('\n'):
@@ -67,6 +66,16 @@ class DashboardManager:
         self.status_message = ""
         self.operation_status = "idle"
         self.pushed_files = []
+        self.initial_file_statuses = {}
+
+    def store_initial_statuses(self):
+        """Store the initial status of files before operations."""
+        stdout, _, _ = run_command("git status --porcelain")
+        for line in stdout.split('\n'):
+            if line.strip():
+                status = line[:2]
+                filename = line[3:].strip()
+                self.initial_file_statuses[filename] = status
 
     def create_info_section(self, stats):
         """Create a compact info section combining branch and modified files."""
@@ -78,8 +87,8 @@ class DashboardManager:
         info_text.append(f"📝 {stats['modified_files']}", style="bold magenta")
         return Panel(info_text, box=box.ROUNDED)
 
-    def create_files_section(self, stats):
-        """Create a section showing changed files."""
+    def create_files_table(self, files_data, title):
+        """Create a table for displaying files."""
         table = Table(
             show_header=True,
             header_style="bold blue",
@@ -99,55 +108,49 @@ class DashboardManager:
             '??': "Untracked"
         }
 
-        for status, filename in stats['changed_files']:
+        for status, filename in files_data:
             status_text = status_map.get(status, status)
-            table.add_row(
-                status_text,
-                filename
-            )
+            table.add_row(status_text, filename)
 
-        return Panel(
-            table,
-            title="Changed Files",
-            box=box.ROUNDED
-        )
-
-    def create_commit_section(self, stats):
-        """Create a compact commit info section."""
-        if stats['last_commit']:
-            commit_text = Text()
-            commit_text.append(f"#{stats['last_commit']['hash']} ", style="bold yellow")
-            commit_text.append(f"{stats['last_commit']['message']} ", style="dim white")
-            commit_text.append(f"({stats['last_commit']['time']})", style="italic blue")
-        else:
-            commit_text = Text("No commits yet", style="dim")
-        return Panel(commit_text, box=box.ROUNDED)
-
-    def create_progress_section(self):
-        """Create a compact progress section."""
-        content = Text("Ready for operations", style="dim")
-        if self.operation_status == "running":
-            content = self.progress
-        elif self.operation_status in ["success", "error"]:
-            content = Text(
-                self.status_message,
-                style="bold green" if self.operation_status == "success" else "bold red"
-            )
-        return Panel(content, box=box.ROUNDED)
+        return Panel(table, title=title, box=box.ROUNDED)
 
     def create_dashboard(self, stats):
         """Create a compact dashboard layout."""
         layout = Layout()
-        layout.split_column(
-            Layout(name="info", size=3),
-            Layout(name="files", size=8),
-            Layout(name="commit", size=3),
-            Layout(name="progress", size=3)
-        )
         
+        if self.operation_status == "success" and self.pushed_files:
+            # Show both changed and pushed files after successful push
+            files_layout = Layout()
+            initial_files = [(self.initial_file_statuses.get(f, '??'), f) 
+                           for f in self.pushed_files]
+            
+            # Split the files section into two columns
+            files_layout.split_row(
+                Layout(self.create_files_table(
+                    initial_files, 
+                    "📤 Pushed Files"
+                ))
+            )
+            
+            layout.split_column(
+                Layout(name="info", size=3),
+                Layout(name="files", size=8),
+                Layout(name="progress", size=3)
+            )
+            layout["files"].update(files_layout)
+        else:
+            # Show regular dashboard during operation
+            layout.split_column(
+                Layout(name="info", size=3),
+                Layout(name="files", size=8),
+                Layout(name="progress", size=3)
+            )
+            layout["files"].update(self.create_files_table(
+                stats['changed_files'], 
+                "📋 Changed Files"
+            ))
+
         layout["info"].update(self.create_info_section(stats))
-        layout["files"].update(self.create_files_section(stats))
-        layout["commit"].update(self.create_commit_section(stats))
         layout["progress"].update(self.create_progress_section())
         
         return Panel(
@@ -156,6 +159,19 @@ class DashboardManager:
             subtitle=f"[dim]{datetime.now().strftime('%H:%M:%S')}[/dim]",
             box=box.ROUNDED
         )
+
+    def create_progress_section(self):
+        """Create a compact progress section."""
+        if self.operation_status == "idle":
+            content = Text("Ready for operations", style="dim")
+        elif self.operation_status == "running":
+            content = self.progress
+        else:
+            content = Text(
+                self.status_message,
+                style="bold green" if self.operation_status == "success" else "bold red"
+            )
+        return Panel(content, box=box.ROUNDED)
 
     def git_operations(self, live):
         """Perform git operations with live updates."""
@@ -166,9 +182,9 @@ class DashboardManager:
 
         self.operation_status = "running"
         try:
-            # Store files before adding
-            stdout, _, _ = run_command("git status --porcelain")
-            self.pushed_files = [line[3:].strip() for line in stdout.split('\n') if line.strip()]
+            # Store initial file statuses
+            self.store_initial_statuses()
+            self.pushed_files = list(self.initial_file_statuses.keys())
 
             task1 = self.progress.add_task("Adding changes", total=100)
             stdout, stderr, returncode = run_command("git add .")
