@@ -10,35 +10,49 @@ console = Console()
 progress = Progress(console=console)
 
 def run_command(command):
-    """Run a shell command and return the output."""
+    """Run a shell command and return the output and status."""
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
-    if result.returncode != 0:
-        console.print(f"[bold red]Error during command:[/bold red] {command}")
-        console.print(f"[bold red]Standard Output:[/bold red] {result.stdout.strip()}")
-        console.print(f"[bold red]Error Output:[/bold red] {result.stderr.strip()}")
-        raise Exception(result.stderr.strip())
-    return result.stdout.strip()
+    return result.stdout.strip(), result.stderr.strip(), result.returncode
+
+def check_for_changes():
+    """Check if there are any changes to commit."""
+    stdout, stderr, returncode = run_command("git status --porcelain")
+    return bool(stdout)
 
 def git_add_commit_push():
     """Add all changes, commit, and push to the repository."""
-    # Start the progress bar
     with progress:
+        # Check for changes first
+        if not check_for_changes():
+            console.print("[yellow]No changes detected in the working directory.[/yellow]")
+            return False
+
+        # Add changes
         task1 = progress.add_task("[cyan]Adding changes...", total=100)
-        run_command("git add .")
+        stdout, stderr, returncode = run_command("git add .")
+        if returncode != 0:
+            progress.update(task1, completed=0)
+            raise Exception(f"Git add failed: {stderr}")
         progress.update(task1, completed=100)
 
+        # Commit changes
         task2 = progress.add_task("[green]Committing changes...", total=100)
         commit_message = "Automated commit of updated scripts"
-        try:
-            run_command(f"git commit -m \"{commit_message}\"")
-        except Exception as e:
+        stdout, stderr, returncode = run_command(f'git commit -m "{commit_message}"')
+        if returncode != 0:
             progress.update(task2, completed=0)
-            raise e
+            raise Exception(f"Git commit failed: {stderr}")
         progress.update(task2, completed=100)
 
+        # Push changes
         task3 = progress.add_task("[blue]Pushing to repository...", total=100)
-        run_command("git push origin main")
+        stdout, stderr, returncode = run_command("git push origin main")
+        if returncode != 0:
+            progress.update(task3, completed=0)
+            raise Exception(f"Git push failed: {stderr}")
         progress.update(task3, completed=100)
+        
+        return True
 
 def show_summary():
     """Show a summary of the git status."""
@@ -47,14 +61,23 @@ def show_summary():
     table.add_column("Status", style="magenta")
 
     # Get git status
-    status = run_command("git status --short")
-    table.add_row("Changes", status if status else "No changes detected")
+    stdout, stderr, returncode = run_command("git status --short")
+    table.add_row("Changes", stdout if stdout else "No changes detected")
+
+    # Get last commit
+    stdout, stderr, returncode = run_command("git log -1 --oneline")
+    table.add_row("Last Commit", stdout if stdout else "No commits yet")
+
+    # Get current branch
+    stdout, stderr, returncode = run_command("git branch --show-current")
+    table.add_row("Current Branch", stdout if stdout else "Unknown")
 
     console.print(Panel(table, title="Git Operations Dashboard", subtitle="Automated Git Management"))
 
 if __name__ == "__main__":
     try:
-        git_add_commit_push()
+        if git_add_commit_push():
+            console.print("[green]Successfully completed all Git operations![/green]")
         show_summary()
     except Exception as e:
         console.print(f"[bold red]Failed to complete Git operations:[/bold red] {str(e)}")
