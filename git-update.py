@@ -14,7 +14,8 @@ def run_command(command):
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
     if result.returncode != 0:
         console.print(f"[bold red]Error during command:[/bold red] {command}")
-        console.print(f"[bold red]Error message:[/bold red] {result.stderr.strip()}")
+        console.print(f"[bold red]Standard Output:[/bold red] {result.stdout.strip()}")
+        console.print(f"[bold red]Error Output:[/bold red] {result.stderr.strip()}")
         raise Exception(result.stderr.strip())
     return result.stdout.strip()
 
