@@ -29,3 +29,6 @@ proot-distro/
 .termux/
 .wget-hsts
 proot-distro
+
+# Ignore the instrument directory
+api/instrument/
