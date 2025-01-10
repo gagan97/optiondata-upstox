@@ -13,7 +13,8 @@ def run_command(command):
     """Run a shell command and return the output."""
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
     if result.returncode != 0:
-        console.print(f"[bold red]Error:[/bold red] {result.stderr.strip()}")
+        console.print(f"[bold red]Error during command:[/bold red] {command}")
+        console.print(f"[bold red]Error message:[/bold red] {result.stderr.strip()}")
         raise Exception(result.stderr.strip())
     return result.stdout.strip()
 
@@ -27,7 +28,11 @@ def git_add_commit_push():
 
         task2 = progress.add_task("[green]Committing changes...", total=100)
         commit_message = "Automated commit of updated scripts"
-        run_command(f"git commit -m \"{commit_message}\"")
+        try:
+            run_command(f"git commit -m \"{commit_message}\"")
+        except Exception as e:
+            progress.update(task2, completed=0)
+            raise e
         progress.update(task2, completed=100)
 
         task3 = progress.add_task("[blue]Pushing to repository...", total=100)
