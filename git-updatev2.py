@@ -92,7 +92,7 @@ class DashboardManager:
         table = Table(
             show_header=True,
             header_style="bold blue",
-            box=box.SIMPLE,
+            box=box.ROUNDED,
             padding=(0, 1),
             show_edge=False
         )
