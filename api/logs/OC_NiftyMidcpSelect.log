@@ -1,0 +1,148 @@
+2025-01-10 15:46:50,269 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:46:51,311 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:46:51,315 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:46:51,315 - INFO - Market open status: False
+2025-01-10 15:46:51,315 - INFO - Market is closed at 2025-01-10 15:46:51.315657+05:30. Waiting for next check.
+2025-01-10 15:46:52,349 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:46:52,349 - INFO - Checking market status for date: 2025-01-10, time: 15:46:52
+2025-01-10 15:46:52,350 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:46:53,070 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:46:53,072 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:46:53,073 - INFO - Market open status: False
+2025-01-10 15:46:53,073 - INFO - Market is closed at 2025-01-10 15:46:53.073345+05:30. Waiting for next check.
+2025-01-10 15:46:54,112 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:46:54,112 - INFO - Checking market status for date: 2025-01-10, time: 15:46:54
+2025-01-10 15:46:54,112 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:46:55,310 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:46:55,311 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:46:55,312 - INFO - Market open status: False
+2025-01-10 15:46:55,312 - INFO - Market is closed at 2025-01-10 15:46:55.312111+05:30. Waiting for next check.
+2025-01-10 15:46:56,352 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:46:56,353 - INFO - Checking market status for date: 2025-01-10, time: 15:46:56
+2025-01-10 15:46:56,354 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:46:57,776 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:46:57,790 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:46:57,790 - INFO - Market open status: False
+2025-01-10 15:46:57,791 - INFO - Market is closed at 2025-01-10 15:46:57.791476+05:30. Waiting for next check.
+2025-01-10 15:46:58,909 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:46:58,909 - INFO - Checking market status for date: 2025-01-10, time: 15:46:58
+2025-01-10 15:46:58,910 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:47:00,430 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:47:00,432 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:47:00,432 - INFO - Market open status: False
+2025-01-10 15:47:00,432 - INFO - Market is closed at 2025-01-10 15:47:00.432831+05:30. Waiting for next check.
+2025-01-10 15:47:01,434 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:47:01,434 - INFO - Checking market status for date: 2025-01-10, time: 15:47:01
+2025-01-10 15:47:01,435 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:47:01,874 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:47:02,110 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:47:02,111 - INFO - Market open status: False
+2025-01-10 15:47:02,111 - INFO - Market is closed at 2025-01-10 15:47:02.111173+05:30. Waiting for next check.
+2025-01-10 15:47:03,309 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:47:03,309 - INFO - Checking market status for date: 2025-01-10, time: 15:47:03
+2025-01-10 15:47:03,310 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:47:04,350 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:47:04,354 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:47:04,354 - INFO - Market open status: False
+2025-01-10 15:47:04,354 - INFO - Market is closed at 2025-01-10 15:47:04.354736+05:30. Waiting for next check.
+2025-01-10 15:47:05,396 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:47:05,709 - INFO - Checking market status for date: 2025-01-10, time: 15:47:05
+2025-01-10 15:47:05,710 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:47:06,757 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:47:06,760 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:47:06,760 - INFO - Market open status: False
+2025-01-10 15:47:06,761 - INFO - Market is closed at 2025-01-10 15:47:06.760998+05:30. Waiting for next check.
+2025-01-10 15:47:07,870 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:47:07,871 - INFO - Checking market status for date: 2025-01-10, time: 15:47:07
+2025-01-10 15:47:07,871 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:47:09,069 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:47:09,073 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:47:09,073 - INFO - Market open status: False
+2025-01-10 15:47:09,073 - INFO - Market is closed at 2025-01-10 15:47:09.073800+05:30. Waiting for next check.
+2025-01-10 15:47:10,109 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:47:10,109 - INFO - Checking market status for date: 2025-01-10, time: 15:47:10
+2025-01-10 15:47:10,109 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:47:11,710 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:47:11,712 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:47:11,713 - INFO - Market open status: False
+2025-01-10 15:47:11,713 - INFO - Market is closed at 2025-01-10 15:47:11.713056+05:30. Waiting for next check.
+2025-01-10 15:47:12,749 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:47:12,749 - INFO - Checking market status for date: 2025-01-10, time: 15:47:12
+2025-01-10 15:47:12,750 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:47:13,795 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:47:13,800 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:47:14,191 - INFO - Market open status: False
+2025-01-10 15:47:14,191 - INFO - Market is closed at 2025-01-10 15:47:14.191418+05:30. Waiting for next check.
+2025-01-10 15:47:15,192 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:47:15,192 - INFO - Checking market status for date: 2025-01-10, time: 15:47:15
+2025-01-10 15:47:15,192 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:47:15,869 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:47:15,871 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:47:15,871 - INFO - Market open status: False
+2025-01-10 15:47:15,871 - INFO - Market is closed at 2025-01-10 15:47:15.871958+05:30. Waiting for next check.
+2025-01-10 15:47:16,993 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:47:16,993 - INFO - Checking market status for date: 2025-01-10, time: 15:47:16
+2025-01-10 15:47:16,994 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:47:18,031 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:47:18,033 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:47:18,033 - INFO - Market open status: False
+2025-01-10 15:47:18,033 - INFO - Market is closed at 2025-01-10 15:47:18.033720+05:30. Waiting for next check.
+2025-01-10 15:47:19,149 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:47:19,149 - INFO - Checking market status for date: 2025-01-10, time: 15:47:19
+2025-01-10 15:47:19,151 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:47:20,910 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:47:20,912 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:47:20,912 - INFO - Market open status: False
+2025-01-10 15:47:20,912 - INFO - Market is closed at 2025-01-10 15:47:20.912739+05:30. Waiting for next check.
+2025-01-10 15:47:21,949 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:47:21,949 - INFO - Checking market status for date: 2025-01-10, time: 15:47:21
+2025-01-10 15:47:21,950 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:47:22,917 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:47:22,918 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:47:22,919 - INFO - Market open status: False
+2025-01-10 15:47:22,919 - INFO - Market is closed at 2025-01-10 15:47:22.919294+05:30. Waiting for next check.
+2025-01-10 15:47:23,949 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:47:23,950 - INFO - Checking market status for date: 2025-01-10, time: 15:47:23
+2025-01-10 15:47:23,950 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:47:24,751 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:47:24,754 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:47:24,755 - INFO - Market open status: False
+2025-01-10 15:47:24,755 - INFO - Market is closed at 2025-01-10 15:47:24.755225+05:30. Waiting for next check.
+2025-01-10 15:47:25,869 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:47:25,869 - INFO - Checking market status for date: 2025-01-10, time: 15:47:25
+2025-01-10 15:47:25,872 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:47:27,631 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:47:27,633 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:47:27,633 - INFO - Market open status: False
+2025-01-10 15:47:27,633 - INFO - Market is closed at 2025-01-10 15:47:27.633361+05:30. Waiting for next check.
+2025-01-10 15:47:28,749 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:47:28,750 - INFO - Checking market status for date: 2025-01-10, time: 15:47:28
+2025-01-10 15:47:28,750 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:47:30,272 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:47:30,274 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:47:30,274 - INFO - Market open status: False
+2025-01-10 15:47:30,274 - INFO - Market is closed at 2025-01-10 15:47:30.274960+05:30. Waiting for next check.
+2025-01-10 15:47:31,390 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:47:31,390 - INFO - Checking market status for date: 2025-01-10, time: 15:47:31
+2025-01-10 15:47:31,392 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:47:32,349 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:47:32,351 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:47:32,351 - INFO - Market open status: False
+2025-01-10 15:47:32,351 - INFO - Market is closed at 2025-01-10 15:47:32.351841+05:30. Waiting for next check.
+2025-01-10 15:47:33,394 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:47:33,394 - INFO - Checking market status for date: 2025-01-10, time: 15:47:33
+2025-01-10 15:47:33,395 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:47:34,835 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:47:34,914 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:47:34,914 - INFO - Market open status: False
+2025-01-10 15:47:34,914 - INFO - Market is closed at 2025-01-10 15:47:34.914692+05:30. Waiting for next check.
+2025-01-10 15:47:36,034 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:47:36,034 - INFO - Checking market status for date: 2025-01-10, time: 15:47:36
+2025-01-10 15:47:36,034 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-10 15:47:37,871 - DEBUG - https://api.upstox.com:443 "GET /v2/market/holidays/2025-01-10 HTTP/1.1" 200 None
+2025-01-10 15:47:37,874 - INFO - Regular market hours check - Is Open: False
+2025-01-10 15:47:37,874 - INFO - Market open status: False
+2025-01-10 15:47:37,875 - INFO - Market is closed at 2025-01-10 15:47:37.875077+05:30. Waiting for next check.
+2025-01-10 15:47:39,155 - DEBUG - Running job Job(interval=1, unit=seconds, do=fetch_and_insert_data, args=(), kwargs={})
+2025-01-10 15:47:39,155 - INFO - Checking market status for date: 2025-01-10, time: 15:47:39
+2025-01-10 15:47:39,157 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443

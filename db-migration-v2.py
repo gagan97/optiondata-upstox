@@ -3,147 +3,210 @@ import configparser
 import os
 import logging
 from datetime import datetime
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, wait, FIRST_COMPLETED
 import io
+import psutil
 from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, TimeElapsedColumn
 from rich.panel import Panel
 from rich.table import Table
 from rich.layout import Layout
 from rich.live import Live
-from rich.align import Align
-from rich.text import Text
-from rich import box
-import pytz
 
-# Set up logging
-log_dir = os.path.join('api', 'db-migration')
-os.makedirs(log_dir, exist_ok=True)
-log_file = os.path.join(log_dir, 'db-migration.log')
-
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler(log_file),
-#        logging.StreamHandler()
-    ]
-)
-
-logger = logging.getLogger(__name__)
 console = Console()
 
-# Create a separate console handler for errors only
-error_console_handler = logging.StreamHandler()
-error_console_handler.setLevel(logging.ERROR)
-error_formatter = logging.Formatter('%(levelname)s: %(message)s')
-error_console_handler.setFormatter(error_formatter)
-logger.addHandler(error_console_handler)
-
 def read_db_config(file_path):
-    try:
-        config = configparser.ConfigParser()
-        config.read(file_path)
-        db_config = {
-            'dbname': config['postgresql']['database'],
-            'user': config['postgresql']['user'],
-            'password': config['postgresql']['password'],
-            'host': config['postgresql']['host'],
-            'port': config['postgresql']['port']
-        }
-        logger.info(f"Successfully read configuration from {file_path}")
-        return db_config
-    except Exception as e:
-        logger.error(f"Error reading configuration from {file_path}: {str(e)}")
-        raise
+    config = configparser.ConfigParser()
+    config.read(file_path)
+    return {
+        'dbname': config['postgresql']['database'],
+        'user': config['postgresql']['user'],
+        'password': config['postgresql']['password'],
+        'host': config['postgresql']['host'],
+        'port': config['postgresql']['port']
+    }
 
-def format_size(size_bytes):
-    units = ['B', 'KB', 'MB', 'GB', 'TB']
-    index = 0
-    size = float(size_bytes)
-    while size >= 1024 and index < len(units) - 1:
-        size /= 1024
-        index += 1
-    return f"{size:.2f} {units[index]}"
+def get_system_info():
+    """Get current system utilization metrics"""
+    cpu_percent = psutil.cpu_percent(interval=1)
+    memory = psutil.virtual_memory()
+    disk = psutil.disk_usage('/')
+    
+    return {
+        'cpu': cpu_percent,
+        'memory_percent': memory.percent,
+        'memory_used': f"{memory.used / (1024 * 1024 * 1024):.2f}GB",
+        'memory_total': f"{memory.total / (1024 * 1024 * 1024):.2f}GB",
+        'disk_percent': disk.percent,
+        'disk_used': f"{disk.used / (1024 * 1024 * 1024):.2f}GB",
+        'disk_total': f"{disk.total / (1024 * 1024 * 1024):.2f}GB"
+    }
 
-def create_db_info_panel(db_stats, title):
-    """Create a panel showing database information"""
-    table = Table(show_header=False, box=box.ROUNDED, padding=(0, 1))
-    table.add_column("Metric", style="cyan", width=20)
-    table.add_column("Value", style="green")
+def create_system_info_table(sys_info):
+    """Create a rich table with system information"""
+    table = Table(show_header=False, padding=(0, 1), expand=True)
+    table.add_column("Metric", style="cyan", no_wrap=True)
+    table.add_column("Value", style="green", justify="right", no_wrap=True)
+    table.add_column("Details", style="blue")
     
-    table.add_row("Size", db_stats['size'])
-    table.add_row("Active Connections", str(db_stats['connections']))
-    table.add_row("Uptime", db_stats['uptime'])
-    table.add_row("Host", db_stats['host'])
-    table.add_row("Database", db_stats['dbname'])
-    
-    return Panel(
-        Align.center(table, vertical="middle"),
-        title=f"[bold]{title}[/bold]",
-        border_style="bright_blue",
-        padding=(1, 1)
+    table.add_row(
+        "CPU",
+        f"{sys_info['cpu']}%",
+        f"[{'red' if sys_info['cpu'] > 80 else 'green'}]{'▇' * int(sys_info['cpu']/10):<10}[/]"
+    )
+    table.add_row(
+        "Memory",
+        f"{sys_info['memory_percent']}%",
+        f"[{'red' if sys_info['memory_percent'] > 80 else 'green'}]{'▇' * int(sys_info['memory_percent']/10):<10}[/] ({sys_info['memory_used']}/{sys_info['memory_total']})"
+    )
+    table.add_row(
+        "Disk",
+        f"{sys_info['disk_percent']}%",
+        f"[{'red' if sys_info['disk_percent'] > 80 else 'green'}]{'▇' * int(sys_info['disk_percent']/10):<10}[/] ({sys_info['disk_used']}/{sys_info['disk_total']})"
     )
 
-def get_database_stats(conn, db_config=None):
-    """
-    Get database statistics and connection information
-    Args:
-        conn: Database connection object
-        db_config: Optional dictionary containing database configuration
-    """
-    try:
-        host = db_config['host'] if db_config else 'unknown'
-        dbname = db_config['dbname'] if db_config else 'unknown'
-        
-        with conn.cursor() as cur:
-            # Get database size
-            cur.execute("SELECT pg_database_size(current_database())")
-            total_size = cur.fetchone()[0]
-            
-            # Get number of active connections
-            cur.execute("SELECT count(*) FROM pg_stat_activity")
-            connections = cur.fetchone()[0]
-            
-            # Get database uptimeGet database uptime
-            cur.execute("SELECT pg_postmaster_start_time()")
-            start_time = cur.fetchone()[0]
-            
-            if start_time.tzinfo is None:
-                start_time = pytz.UTC.localize(start_time)
-            
-            current_time = datetime.now(pytz.UTC)
-            uptime = current_time - start_time
-            
-            stats = {
-                'size': format_size(total_size),
-                'connections': connections,
-                'uptime': str(uptime).split('.')[0],
-                'host': host,
-                'dbname': dbname
-            }
-            
-            return stats
-    except Exception as e:
-        logger.error(f"Error getting database stats: {str(e)}")
-        raise
+    return Panel(table, title="System Monitor", border_style="green")
 
-def copy_table_data(source_conn, target_conn, table_name, progress):
-    try:
-        task_id = progress.add_task(f"[cyan]Migrating {table_name}", total=100)
-        logger.info(f"Starting migration for table: {table_name}")
+def get_table_schema(conn, table_name):
+    """Get the CREATE TABLE statement for a given table"""
+    with conn.cursor() as cur:
+        # Get column definitions
+        cur.execute("""
+            SELECT column_name, data_type, character_maximum_length,
+                   is_nullable, column_default
+            FROM information_schema.columns 
+            WHERE table_name = %s
+            ORDER BY ordinal_position
+        """, (table_name,))
         
+        columns = []
+        for col in cur.fetchall():
+            name, data_type, max_length, is_nullable, default = col
+            column_def = f"{name} {data_type}"
+            if max_length:
+                column_def += f"({max_length})"
+            if default:
+                column_def += f" DEFAULT {default}"
+            if is_nullable == 'NO':
+                column_def += " NOT NULL"
+            columns.append(column_def)
+
+        # Get primary key constraint
+        cur.execute("""
+            SELECT c.column_name
+            FROM information_schema.table_constraints tc
+            JOIN information_schema.constraint_column_usage AS ccu 
+                ON ccu.constraint_name = tc.constraint_name
+            JOIN information_schema.columns AS c 
+                ON c.table_name = tc.table_name 
+                AND c.column_name = ccu.column_name
+            WHERE tc.constraint_type = 'PRIMARY KEY' 
+                AND tc.table_name = %s;
+        """, (table_name,))
+        
+        pk_columns = [row[0] for row in cur.fetchall()]
+        if pk_columns:
+            columns.append(f"PRIMARY KEY ({', '.join(pk_columns)})")
+
+        return f"CREATE TABLE IF NOT EXISTS {table_name} (\n    " + ",\n    ".join(columns) + "\n)"
+
+def ensure_table_exists(source_conn, target_conn, table_name):
+    """Ensure the table exists in the target database with the same schema as source"""
+    create_table_sql = get_table_schema(source_conn, table_name)
+    with target_conn.cursor() as target_cur:
+        target_cur.execute(create_table_sql)
+        target_conn.commit()
+
+
+def get_database_size(conn):
+    with conn.cursor() as cur:
+        cur.execute("""
+            SELECT pg_database_size(current_database()) as size
+        """)
+        size_bytes = cur.fetchone()[0]
+        
+        # Convert to appropriate unit
+        units = ['B', 'KB', 'MB', 'GB', 'TB']
+        index = 0
+        size = float(size_bytes)
+        while size >= 1024 and index < len(units) - 1:
+            size /= 1024
+            index += 1
+        return f"{size:.2f} {units[index]}"
+
+def get_table_size(conn, table_name):
+    with conn.cursor() as cur:
+        cur.execute(f"""
+            SELECT pg_total_relation_size('{table_name}') as size
+        """)
+        size_bytes = cur.fetchone()[0]
+        
+        units = ['B', 'KB', 'MB', 'GB', 'TB']
+        index = 0
+        size = float(size_bytes)
+        while size >= 1024 and index < len(units) - 1:
+            size /= 1024
+            index += 1
+        return f"{size:.2f} {units[index]}"
+
+def get_table_stats(conn, table_name):
+    with conn.cursor() as cur:
+        cur.execute(f"SELECT COUNT(*) FROM {table_name}")
+        return cur.fetchone()[0]
+
+def print_migration_summary(tables_info, source_size, target_size):
+    table = Table(title="Migration Summary", show_header=True, header_style="bold magenta")
+    table.add_column("Table Name", style="cyan")
+    table.add_column("Source Rows", justify="right", style="green")
+    table.add_column("Target Rows", justify="right", style="blue")
+    table.add_column("Source Size", justify="right", style="green")
+    table.add_column("Target Size", justify="right", style="blue")
+    table.add_column("Status", style="yellow")
+    
+    total_source = total_target = 0
+    
+    for info in tables_info:
+        table.add_row(
+            info['table'],
+            str(info['source_rows']),
+            str(info['target_rows']),
+            info['source_size'],
+            info['target_size'],
+            "✅ Success" if info['success'] else "❌ Failed"
+        )
+        total_source += info['source_rows']
+        total_target += info['target_rows']
+    
+    table.add_row(
+        "Total", 
+        str(total_source), 
+        str(total_target),
+        source_size,
+        target_size,
+        "✨ Complete",
+        style="bold"
+    )
+    console.print("\n")
+    console.print(table)
+
+def copy_table_data(source_conn, target_conn, table_name, progress, task_id):
+    try:
+        # First ensure the table exists in the target database
+        ensure_table_exists(source_conn, target_conn, table_name)
+
         with source_conn.cursor() as source_cur, target_conn.cursor() as target_cur:
-            # Get source table statistics
-            source_cur.execute(f"SELECT COUNT(*) FROM {table_name}")
-            source_rows = source_cur.fetchone()[0]
-            progress.update(task_id, advance=10)
+            source_rows = get_table_stats(source_conn, table_name)
+            progress.update(task_id, total=source_rows)
             
-            # Create temporary table (previous code remains the same)
+            source_size = get_table_size(source_conn, table_name)
+            
+            # Create temp table for staging the data
+            temp_table = f"temp_{table_name}"
             source_cur.execute("""
                 SELECT column_name, data_type, character_maximum_length 
                 FROM information_schema.columns 
                 WHERE table_name = %s
+                ORDER BY ordinal_position
             """, (table_name,))
             
             columns_def = ', '.join(
@@ -151,20 +214,17 @@ def copy_table_data(source_conn, target_conn, table_name, progress):
                 for col in source_cur.fetchall()
             )
             
-            temp_table = f"temp_{table_name}"
+            # Drop temp table if it exists and create new one
+            target_cur.execute(f"DROP TABLE IF EXISTS {temp_table}")
             target_cur.execute(f"CREATE TEMP TABLE {temp_table} ({columns_def})")
-            progress.update(task_id, advance=20)
             
-            # Copy data with progress updatesCopy data with progress updates
+            # Copy data using CSV format
             output = io.StringIO()
             source_cur.copy_expert(f"COPY {table_name} TO STDOUT WITH CSV", output)
-            progress.update(task_id, advance=30)
-            
             output.seek(0)
             target_cur.copy_expert(f"COPY {temp_table} FROM STDIN WITH CSV", output)
-            progress.update(task_id, advance=20)
             
-            # Insert new records
+            # Insert only new records
             target_cur.execute(f"""
                 INSERT INTO {table_name}
                 SELECT * FROM {temp_table} t
@@ -176,184 +236,166 @@ def copy_table_data(source_conn, target_conn, table_name, progress):
             
             rows_inserted = target_cur.rowcount
             target_conn.commit()
-            progress.update(task_id, advance=20)
             
-            # Get final statisticsGet final statistics
-            source_cur.execute(f"SELECT pg_total_relation_size('{table_name}')")
-            source_size = format_size(source_cur.fetchone()[0])
-            
-            target_cur.execute(f"SELECT pg_total_relation_size('{table_name}')")
-            target_size = format_size(target_cur.fetchone()[0])
-            
-            progress.update(task_id, completed=100)
+            progress.update(task_id, advance=source_rows)
+            target_rows = get_table_stats(target_conn, table_name)
+            target_size = get_table_size(target_conn, table_name)
             
             return {
                 'table': table_name,
                 'source_rows': source_rows,
-                'target_rows': rows_inserted,
+                'target_rows': target_rows,
                 'source_size': source_size,
                 'target_size': target_size,
                 'success': True
             }
             
     except Exception as e:
-        logger.error(f"Error copying {table_name}: {str(e)}")
-        progress.update(task_id, completed=True, visible=False)
+        console.print(f"[red]Error copying {table_name}: {str(e)}[/red]")
+        target_conn.rollback()
         return {
             'table': table_name,
             'source_rows': source_rows if 'source_rows' in locals() else 0,
             'target_rows': 0,
-            'source_size': '0 B',
+            'source_size': source_size if 'source_size' in locals() else '0 B',
             'target_size': '0 B',
             'success': False
         }
 
-def create_status_panel(source_stats, target_stats):
-    table = Table(show_header=True, box=box.ROUNDED)
-    table.add_column("Metric", style="cyan")
-    table.add_column("Source DB", style="green")
-    table.add_column("Target DB", style="blue")
+def process_tables(source_params, target_params, tables):
+    source_conn = psycopg2.connect(**source_params)
+    target_conn = psycopg2.connect(**target_params)
     
-    table.add_row("Total Size", source_stats['size'], target_stats['size'])
-    table.add_row("Connections", str(source_stats['connections']), str(target_stats['connections']))
-    table.add_row("Uptime", source_stats['uptime'], target_stats['uptime'])
+    source_total_size = get_database_size(source_conn)
+
+    tables_info = []
     
-    return Panel(
-        Align.center(table),
-        title="[bold]Database Status[/bold]",
-        border_style="bright_blue"
+#    # Create layout with proper initialization
+#    class LayoutWithUpdate(Layout):
+#        def __init__(self, *args, **kwargs):
+#            super().__init__(*args, **kwargs)
+#            self.split_column(
+#                Layout(Panel(create_system_info_table(get_system_info()), title="System Monitor"), name="upper", ratio=1),
+#                Layout(name="lower", ratio=2)
+#            )
+#    
+#    layout = LayoutWithUpdate()
+    
+    # Initialize progress
+    progress_table = Progress(
+        SpinnerColumn(),
+        TextColumn("[progress.description]{task.description}"),
+        BarColumn(bar_width=None),
+        TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
+        TimeElapsedColumn(),
+        expand=True,
     )
+    
+    # Add tasks to progress
+    tasks = {}
+    for table in tables:
+        task_id = progress_table.add_task(f"[cyan]Migrating {table}", total=None)
+        tasks[table] = task_id
 
-def create_progress_table(tables_info):
-    """Create a table showing migration progress"""
-    table = Table(
-        show_header=True,
-        header_style="bold magenta",
-        box=box.ROUNDED,
-        padding=(0, 1),
-        width=None  # Allow table to take full width
+#    # Update the lower layout with progress
+#    layout["lower"].update(Panel(progress_table, title="Migration Progress"))
+
+    # Create compact layout
+    layout = Layout()
+    layout.split_column(
+        Layout(name="upper", size=6),  # Fixed size for system info
+        Layout(name="lower", minimum_size=3)  # Minimum size for progress
     )
+    
+    # Initialize layout content
+    layout["upper"].update(create_system_info_table(get_system_info()))
+    layout["lower"].update(Panel(
+        progress_table,
+        title="Migration Progress",
+        border_style="blue",
+        padding=(0, 0)
+    ))
 
-    table = Table(show_header=True, header_style="bold magenta", box=box.ROUNDED)
-    
-    table.add_column("Table Name", style="cyan", width=30)
-    table.add_column("Source Rows", justify="right", style="green")
-    table.add_column("Target Rows", justify="right", style="blue")
-    table.add_column("Source Size", justify="right", style="green")
-    table.add_column("Target Size", justify="right", style="blue")
-    table.add_column("Completion", justify="center", style="yellow", width=10)
-    table.add_column("Status", style="yellow", width=10)
-    
-    for info in tables_info:
-        progress = "⬢" * int((info['target_rows'] / max(info['source_rows'], 1)) * 10)
-        progress = progress.ljust(10, "⬡")
-        
-        status = "✓" if info['success'] else "✗"
-        status_style = "bold green" if info['success'] else "bold red"
-        
-        table.add_row(
-            info['table'],
-            str(info['source_rows']),
-            str(info['target_rows']),
-            info['source_size'],
-            info['target_size'],
-            progress,
-            Text(status, style=status_style)
-        )
-    
-    return Panel(table, border_style="bright_blue", padding=(1, 1))
+#    def update_layout():
+#        """Update the layout with current information"""
+#        layout["upper"].update(Panel(create_system_info_table(get_system_info()), title="System Monitor"))
+#        return layout
 
-def print_to_console(message, style=""):
-    """Utility function to print to console with Rich styling"""
-    if style:
-        console.print(message, style=style)
-    else:
-        console.print(message)
+#    with Live(layout, refresh_per_second=2) as live:
+    with Live(layout, refresh_per_second=2, auto_refresh=False) as live:
+        
+        with ThreadPoolExecutor(max_workers=4) as executor:
+            futures = []
+            
+            # Submit all tasks
+            for table in tables:
+                future = executor.submit(
+                    copy_table_data,
+                    psycopg2.connect(**source_params),
+                    psycopg2.connect(**target_params),
+                    table,
+                    progress_table,
+                    tasks[table]
+                )
+                futures.append((future, table))
+            
+            # Monitor futures
+            while futures:
+                # Wait for any future to complete
+                done, not_done = wait(
+                    [f[0] for f in futures],
+                    timeout=0.5,
+                    return_when=FIRST_COMPLETED
+                )
+                
+                # Process completed futures
+                for future, table in list(futures):
+                    if future in done:
+                        tables_info.append(future.result())
+                        futures.remove((future, table))
+                
+                # Update the display
+                layout["upper"].update(Panel(create_system_info_table(get_system_info()))) #, title="System Monitor"))
+                live.refresh()
+    
+    target_total_size = get_database_size(target_conn)
+    
+    source_conn.close()
+    target_conn.close()
+
+    return tables_info, source_total_size, target_total_size
 
 def main():
-    logger.info("Starting database migration process")
     try:
-        console.clear()
-        
-        console.print(Align.center("[bold blue]Database Migration Dashboard[/bold blue]"))
-        console.print(Align.center("=" * min(console.width, 100)))
-        
-        source_params = read_db_config(os.path.join('api', 'ini', 'test.ini'))
-        target_params = read_db_config(os.path.join('api', 'ini', 'optiondata.ini'))
-
-        progress = Progress(
-            SpinnerColumn(),
-            TextColumn("[progress.description]{task.description}"),
-            BarColumn(),
-            TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
-            TimeElapsedColumn(),
-            console=console,
-            expand=True,
-            transient=True
-        )
-        
-        with Live(auto_refresh=False, vertical_overflow="visible") as live:
-            layout = Layout()
-            layout.split_column(
-                Layout(name="header", size=15),
-                Layout(name="status", size=20),
-                Layout(name="progress")
-            )
+        with console.status("[bold green]Reading configuration...") as status:
+            option_chain_params = read_db_config(os.path.join('api', 'ini', 'test.ini'))
+            option_data_params = read_db_config(os.path.join('api', 'ini', 'optiondata.ini'))
             
-            layout["header"].split_row(
-                Layout(name="source_db"),
-                Layout(name="target_db")
-            )
-            source_conn = psycopg2.connect(**source_params)
-            target_conn = psycopg2.connect(**target_params)
+            with psycopg2.connect(**option_chain_params) as conn:
+                with conn.cursor() as cur:
+                    cur.execute("""
+                        SELECT table_name 
+                        FROM information_schema.tables 
+                        WHERE table_schema = 'public'
+                    """)
+                    tables = [table[0] for table in cur.fetchall()]
+            
+            status.update("[bold green]Configuration loaded successfully!")
 
-            source_stats = get_database_stats(source_conn, source_params)
-            target_stats = get_database_stats(target_conn, target_params)
-
-            layout["source_db"].update(create_db_info_panel(source_stats, "Source Database"))
-            layout["target_db"].update(create_db_info_panel(target_stats, "Target Database"))
-            layout["status"].update(create_progress_table([]))
-
-            with ThreadPoolExecutor(max_workers=4) as executor:
-                tables = get_tables(source_conn)
-                futures = []
-                tables_info = []
-                
-                for table in tables:
-                    future = executor.submit(
-                        copy_table_data,
-                        psycopg2.connect(**source_params),
-                        psycopg2.connect(**target_params),
-                        table,
-                        progress
-                    )
-                    futures.append((future, table))
-                
-                for future, table in futures:
-                    result = future.result()
-                    tables_info.append(result)
-                    layout["status"].update(create_progress_table(tables_info))
-                    live.update(layout)
+        console.print(Panel.fit(
+            f"[bold]Found {len(tables)} tables to migrate[/bold]",
+            border_style="blue"
+        ))
         
-        source_conn.close()
-        target_conn.close()
+        tables_info, source_size, target_size = process_tables(option_chain_params, option_data_params, tables)
+        print_migration_summary(tables_info, source_size, target_size)
 
     except Exception as e:
-        logger.error(f"Migration failed: {str(e)}", exc_info=True)
+        console.print(f"[bold red]Migration failed: {str(e)}[/bold red]")
         raise
 
-def get_tables(conn):
-    with conn.cursor() as cur:
-        cur.execute("""
-            SELECT table_name 
-            FROM information_schema.tables 
-            WHERE table_schema = 'public'
-        """)
-        return [table[0] for table in cur.fetchall()]
-
 if __name__ == "__main__":
-    try:
-        main()
-        console.print("\n[bold green]Migration completed successfully![/bold green]")
-    except Exception as e:
-        console.print(f"\n[bold red]Migration failed: {str(e)}[/bold red]")
+    console.print("[bold blue]Database Migration Tool[/bold blue]")
+    console.print("=" * 50)
+    main()
+    console.print("\n[bold green]Migration completed![/bold green]")

@@ -218,69 +218,6 @@ def copy_table_data(source_conn, target_conn, table_name, progress, task_id):
             'success': False
         }
 
-#def copy_table_data(source_conn, target_conn, table_name, progress, task_id):
-#    try:
-#        with source_conn.cursor() as source_cur, target_conn.cursor() as target_cur:
-#            source_rows = get_table_stats(source_conn, table_name)
-#            progress.update(task_id, total=source_rows)
-#            
-#            source_size = get_table_size(source_conn, table_name)
-#            
-#            temp_table = f"temp_{table_name}"
-#            source_cur.execute("""
-#                SELECT column_name, data_type, character_maximum_length 
-#                FROM information_schema.columns 
-#                WHERE table_name = %s
-#            """, (table_name,))
-#            
-#            columns_def = ', '.join(
-#                f"{col[0]} {col[1]}" + (f"({col[2]})" if col[2] else '')
-#                for col in source_cur.fetchall()
-#            )
-#            target_cur.execute(f"CREATE TEMP TABLE {temp_table} ({columns_def})")
-#            
-#            output = io.StringIO()
-#            source_cur.copy_expert(f"COPY {table_name} TO STDOUT WITH CSV", output)
-#            output.seek(0)
-#            target_cur.copy_expert(f"COPY {temp_table} FROM STDIN WITH CSV", output)
-#            
-#            target_cur.execute(f"""
-#                INSERT INTO {table_name}
-#                SELECT * FROM {temp_table} t
-#                WHERE NOT EXISTS (
-#                    SELECT 1 FROM {table_name} m
-#                    WHERE m.timestamp = t.timestamp
-#                )
-#            """)
-#            
-#            rows_inserted = target_cur.rowcount
-#            target_conn.commit()
-#            
-#            progress.update(task_id, advance=source_rows)
-#            target_rows = get_table_stats(target_conn, table_name)
-#            target_size = get_table_size(target_conn, table_name)
-#            
-#            return {
-#                'table': table_name,
-#                'source_rows': source_rows,
-#                'target_rows': target_rows,
-#                'source_size': source_size,
-#                'target_size': target_size,
-#                'success': True
-#            }
-#            
-#    except Exception as e:
-#        console.print(f"[red]Error copying {table_name}: {str(e)}[/red]")
-#        target_conn.rollback()
-#        return {
-#            'table': table_name,
-#            'source_rows': source_rows if 'source_rows' in locals() else 0,
-#            'target_rows': 0,
-#            'source_size': source_size if 'source_size' in locals() else '0 B',
-#            'target_size': '0 B',
-#            'success': False
-#        }
-
 def process_tables(source_params, target_params, tables):
     source_conn = psycopg2.connect(**source_params)
     target_conn = psycopg2.connect(**target_params)
