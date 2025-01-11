@@ -128,12 +128,13 @@ class DashboardManager:
             files_layout.split_row(
                 Layout(self.create_files_table(
                     initial_files, 
-                    "📤 Pushed Files"
+                    "📤 Pushed Files",
+                    size=40
                 ))
             )
             
             layout.split_column(
-                Layout(name="info", size=13),
+                Layout(name="info", size=3),
                 Layout(name="files", size=8),
                 Layout(name="progress", size=3)
             )
