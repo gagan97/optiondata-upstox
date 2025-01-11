@@ -126,9 +126,15 @@ class DashboardManager:
 
     def create_files_table(self, files_data, title):
         """Create a table for displaying files."""
-        table = Table(show_header=True, box=box.ROUNDED, expand=True)
-        table.add_column("Status", style="cyan", width=12)
-        table.add_column("File", style="white")
+        table = Table(
+            show_header=True,
+            box=box.ROUNDED,
+            expand=True,
+            show_lines=True,  # Add lines between rows
+            padding=(0, 1)    # Reduce vertical padding, keep horizontal padding
+        )
+        table.add_column("Status", style="cyan", width=12, no_wrap=True)
+        table.add_column("File", style="white", min_width=40)  # Set minimum width for file column
 
         status_map = {
             'M ': "📝 Modified",
@@ -139,11 +145,29 @@ class DashboardManager:
             '??': "❓ Untracked"
         }
 
-        for status, filename in files_data:
-            status_text = status_map.get(status, status)
-            table.add_row(status_text, filename)
+    # Create a list from files_data if it's not already a list
+        files_list = list(files_data) if files_data else []
+    
+    # Sort files by status and then by filename
+        sorted_files = sorted(files_list, key=lambda x: (x[0] if isinstance(x, tuple) else '', 
+                                                       x[1] if isinstance(x, tuple) else str(x)))
+    
+    # Add rows to table
+        for file_entry in sorted_files:
+            if isinstance(file_entry, tuple) and len(file_entry) == 2:
+                status, filename = file_entry
+                status_text = status_map.get(status, status)
+                table.add_row(status_text, filename)
+            else:
+            # Handle case where file_entry might not be a tuple
+                table.add_row("", str(file_entry))
 
-        return Panel(table, title=f"[bold blue]{title}[/bold blue]", box=box.ROUNDED)
+        return Panel(
+            table,
+            title=f"[bold blue]{title}[/bold blue]",
+            box=box.ROUNDED,
+            padding=(0, 1)  # Reduce padding around the panel
+        )
 
     def create_progress_section(self):
         """Create the progress section for the footer."""
@@ -165,11 +189,20 @@ class DashboardManager:
             grid.add_row(Text(self.status_message, style=status_style))
             
             if self.pushed_files:
-                pushed_files_text = Text()
-                pushed_files_text.append("\nPushed files:\n", style="bold blue")
-                for filename in self.pushed_files:
-                    pushed_files_text.append(f"✓ {filename}\n", style="green")
-                grid.add_row(pushed_files_text)
+                files_table = Table(
+                    show_header=False,
+                    box=None,
+                    expand=True,
+                    padding=(0, 1)
+                )
+                files_table.add_column(style="bold blue")
+                files_table.add_column(style="green")
+                
+                files_table.add_row("Pushed files:", "")
+                for filename in sorted(self.pushed_files):  # Sort filenames
+                    files_table.add_row("", f"✓ {filename}")
+                
+                grid.add_row(files_table)
             
             return Panel(grid, border_style="blue", box=box.ROUNDED)
 
@@ -177,10 +210,11 @@ class DashboardManager:
         """Create the main dashboard layout."""
         layout = Layout(name="root")
         
+        # Adjust layout proportions
         layout.split(
             Layout(name="header", size=3),
             Layout(name="main", ratio=1),
-            Layout(name="footer", size=10),
+            Layout(name="footer", size=12),  # Increased size for better visibility
         )
         
         layout["header"].update(self.create_header())
@@ -193,7 +227,7 @@ class DashboardManager:
                 Layout(self.create_files_table(
                     [(self.initial_file_statuses.get(f, '??'), f) for f in self.pushed_files],
                     "✅ Successfully Pushed Files"
-                ), ratio=2),
+                ), ratio=3),  # Increased ratio for file list
             )
             layout["main"].update(main_layout)
         else:
@@ -203,7 +237,7 @@ class DashboardManager:
                 Layout(self.create_files_table(
                     stats['changed_files'],
                     "📋 Changed Files"
-                ), ratio=2),
+                ), ratio=3),  # Increased ratio for file list
             )
             layout["main"].update(main_layout)
             
