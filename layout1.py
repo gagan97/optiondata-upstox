@@ -1,3 +1,4 @@
+import select
 import boto3
 import os
 import sys
@@ -14,19 +15,160 @@ from rich.table import Table
 from rich.live import Live
 from rich.tree import Tree
 from botocore.exceptions import ClientError
+from rich.prompt import Prompt
+from rich.console import Console
+from rich.theme import Theme
 
 # Initialize rich console
-console = Console()
+#console = Console()
+# Initialize rich console with custom theme
+custom_theme = Theme({
+    "info": "cyan",
+    "warning": "yellow",
+    "error": "red",
+    "success": "green"
+})
+console = Console(theme=custom_theme)
 
 # Configuration
 INSTANCE_ID = "i-0974bc14f968e1549"
 REGION = "us-east-1"
+KEY_PATH = "path/to/your/key.pem"  # Add your key path here
+USERNAME = "ec2-user"  # Add your SSH username here
 
 # Initialize boto3 clients
 ec2 = boto3.client('ec2')
 cloudwatch = boto3.client('cloudwatch')
 pricing = boto3.client('pricing', region_name='us-east-1')
 iam = boto3.client('iam')
+
+def display_menu():
+    """Display the main menu and return the user's choice"""
+    console.clear()
+    console.print(create_header())
+    
+    menu_table = Table(show_header=False, box=box.ROUNDED, expand=True)
+    menu_table.add_column("Option", style="cyan")
+    menu_table.add_column("Description", style="white")
+    
+    menu_table.add_row("1", "Start Instance")
+    menu_table.add_row("2", "Stop Instance")
+    menu_table.add_row("3", "Monitor Instance")
+    menu_table.add_row("4", "Exit")
+    
+    console.print(Panel(menu_table, title="[bold]Main Menu", border_style="blue"))
+    
+    # Get instance status for display
+    try:
+        status = get_instance_info()['state']
+        status_color = {
+            'running': 'success',
+            'stopped': 'error',
+            'pending': 'warning',
+            'stopping': 'warning'
+        }.get(status, 'white')
+        console.print(f"\nCurrent Instance Status: [{status_color}]{status.upper()}[/{status_color}]")
+    except Exception as e:
+        console.print(f"\n[error]Error getting instance status: {str(e)}[/error]")
+    
+    choice = Prompt.ask("\nSelect an option", choices=["1", "2", "3", "4"])
+    return choice
+
+def custom_progress():
+    """Create a custom progress bar"""
+    return Progress(
+        SpinnerColumn(),
+        "[progress.description]{task.description}",
+        BarColumn(),
+        "[progress.percentage]{task.percentage:>3.0f}%",
+    )
+
+def wait_for_instance_state(desired_state, progress):
+    """Wait for instance to reach desired state with progress bar"""
+    while True:
+        state = get_instance_info()['state']
+        if state == desired_state:
+            progress.update(progress.tasks[0], completed=100)
+            break
+        progress.update(progress.tasks[0], advance=5)
+        time.sleep(1)
+
+def create_header():
+    """Create a header panel"""
+    grid = Table.grid(expand=True)
+    grid.add_column(justify="center")
+    grid.add_row("[bold blue]AWS Instance Controller[/bold blue]")
+    return Panel(grid, style="white on blue")
+
+def start_instance():
+    """Start the EC2 instance with enhanced visual feedback"""
+    console.clear()
+    console.print(create_header())
+    
+    with custom_progress() as progress:
+        task = progress.add_task("[cyan]Starting instance...", total=100)
+        
+        try:
+            if get_instance_info()['state'] == 'running':
+                console.print(Panel("[yellow]Instance is already running! Proceeding to SSH connection...[/yellow]", 
+                                  box=ROUNDED, border_style="yellow"))
+                progress.update(task, completed=100)
+            else:
+                ec2.start_instances(InstanceIds=[INSTANCE_ID])
+                wait_for_instance_state('running', progress)
+                
+                console.print(Panel("[bold green]✓ Instance started successfully![/bold green]", 
+                                  box=ROUNDED, border_style="green"))
+                
+                console.print("[yellow]Waiting 30 seconds for services to start...[/yellow]")
+                time.sleep(30)
+            
+            console.print("[dim]Initiating SSH connection...[/dim]")
+            try:
+                os.chmod(KEY_PATH, 0o600)
+            except Exception as e:
+                console.print(f"[yellow]Warning: Could not set key permissions: {str(e)}[/yellow]")
+            
+            instance_ip = get_instance_info()['ip']
+            time.sleep(1)
+            
+            ssh_args = ['ssh', '-i', KEY_PATH, '-o', 'ConnectTimeout=10', 
+                       '-o', 'StrictHostKeyChecking=no', f'{USERNAME}@{instance_ip}']
+            
+            os.execvp('ssh', ssh_args)
+            
+        except ClientError as e:
+            progress.stop()
+            error_message = f"[bold red]Error:[/bold red] {e.response['Error']['Message']}"
+            console.print(Panel(error_message, border_style="red", box=ROUNDED))
+            sys.exit(1)
+
+def stop_instance():
+    """Stop the EC2 instance with enhanced visual feedback"""
+    console.clear()
+    console.print(create_header())
+    
+    with custom_progress() as progress:
+        task = progress.add_task("[cyan]Stopping instance...", total=100)
+        
+        try:
+            if get_instance_info()['state'] == 'stopped':
+                console.print(Panel("[yellow]Instance is already stopped![/yellow]", 
+                                  box=ROUNDED, border_style="yellow"))
+                time.sleep(1)
+                return
+
+            ec2.stop_instances(InstanceIds=[INSTANCE_ID])
+            wait_for_instance_state('stopped', progress)
+            
+            console.print(Panel("[bold red]✓ Instance stopped successfully![/bold red]", 
+                              box=ROUNDED, border_style="red"))
+            
+        except ClientError as e:
+            progress.stop()
+            error_message = f"[bold red]Error:[/bold red] {e.response['Error']['Message']}"
+            console.print(Panel(error_message, border_style="red", box=ROUNDED))
+            sys.exit(1)
 
 class HeaderWidget:
     """Display header with instance info and current time."""
@@ -277,7 +419,8 @@ def make_layout() -> Layout:
     layout.split(
         Layout(name="header", size=3),
         Layout(name="main", ratio=1),
-        Layout(name="footer", size=7),
+        Layout(name="menu"),
+        Layout(name="footer", size=8),
     )
 
     # Split main area into side and body
@@ -296,6 +439,11 @@ def make_layout() -> Layout:
     layout["body"].split(
         Layout(name="network", ratio=1, size=17),
         Layout(name="security", ratio=1, size=10),
+    )
+
+    layout["menu"].split_row(
+        Layout(name="option",  ratio=1),
+        Layout(name="progress", ratio=1),
     )
 
     return layout
@@ -437,7 +585,7 @@ def monitor_instance(instance_id: str):
                     instance_info = get_instance_info()
                     if not instance_info:
                         raise Exception("Failed to get instance information")
-                    
+                   
                     metrics = get_instance_metrics(instance_id)
                     volumes = get_volume_info(instance_id)
                     network_interfaces = get_network_interfaces(instance_id)
@@ -462,7 +610,7 @@ def monitor_instance(instance_id: str):
                         border_style="red"
                     )
                     layout["footer"].update(error_panel)
-                    time.sleep(5)
+                    time.sleep(1)
 
     except KeyboardInterrupt:
         console.print("\n[yellow]Monitoring stopped by user[/yellow]")
@@ -472,14 +620,28 @@ def monitor_instance(instance_id: str):
 
 def main():
     """Main entry point for the application."""
-    console.print("[blue]AWS Instance Monitor[/blue]")
-    console.print(f"Monitoring instance: [green]{INSTANCE_ID}[/green]")
-    console.print("Press Ctrl+C to exit\n")
-    
     try:
-        # Verify AWS credentials and instance access
-        ec2.describe_instances(InstanceIds=[INSTANCE_ID])
-        monitor_instance(INSTANCE_ID)
+        while True:
+            choice = display_menu()
+#            choice = monitor_instance()
+            
+            if choice == "1":
+                start_instance()
+            elif choice == "2":
+                stop_instance()
+            elif choice == "3":
+                console.print("[blue]AWS Instance Monitor[/blue]")
+                console.print(f"Monitoring instance: [green]{INSTANCE_ID}[/green]")
+                console.print("Press Ctrl+C to return to menu\n")
+                try:
+                    monitor_instance(INSTANCE_ID)
+                except KeyboardInterrupt:
+                    console.print("\n[yellow]Returning to menu...[/yellow]")
+                    time.sleep(1)
+            elif choice == "4":
+                console.print("[yellow]Exiting...[/yellow]")
+                sys.exit(0)
+
     except ClientError as e:
         if e.response['Error']['Code'] == 'UnauthorizedOperation':
             console.print("[red]Error: Invalid AWS credentials or insufficient permissions[/red]")
