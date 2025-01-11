@@ -262,8 +262,8 @@ def process_tables(source_params, target_params, tables):
 def main():
     try:
         with console.status("[bold green]Reading configuration...") as status:
-            option_chain_params = read_db_config(os.path.join('api', 'ini', 'test.ini'))
-            option_data_params = read_db_config(os.path.join('api', 'ini', 'optiondata.ini'))
+            option_chain_params = read_db_config(os.path.join('api', 'ini', 'optiondata.ini'))
+            option_data_params = read_db_config(os.path.join('api', 'ini', 'test.ini'))
             
             with psycopg2.connect(**option_chain_params) as conn:
                 with conn.cursor() as cur:
