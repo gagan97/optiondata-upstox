@@ -119,54 +119,101 @@ def create_system_info_table(sys_info):
 
 def get_table_schema(conn, table_name):
     """Get the CREATE TABLE statement for a given table"""
-    with conn.cursor() as cur:
-        # Get column definitions
-        cur.execute("""
-            SELECT column_name, data_type, character_maximum_length,
-                   is_nullable, column_default
-            FROM information_schema.columns 
-            WHERE table_name = %s
-            ORDER BY ordinal_position
-        """, (table_name,))
-        
-        columns = []
-        for col in cur.fetchall():
-            name, data_type, max_length, is_nullable, default = col
-            column_def = f"{name} {data_type}"
-            if max_length:
-                column_def += f"({max_length})"
-            if default:
-                column_def += f" DEFAULT {default}"
-            if is_nullable == 'NO':
-                column_def += " NOT NULL"
-            columns.append(column_def)
+    try:
+        with conn.cursor() as cur:
+            # First check if table exists
+            cur.execute("""
+                SELECT EXISTS (
+                    SELECT 1 
+                    FROM information_schema.tables 
+                    WHERE table_name = %s
+                )
+            """, (table_name,))
+            
+            if not cur.fetchone()[0]:
+                return None
+                
+            # Get column definitions
+            cur.execute("""
+                SELECT column_name, data_type, character_maximum_length,
+                       is_nullable, column_default
+                FROM information_schema.columns 
+                WHERE table_name = %s
+                ORDER BY ordinal_position
+            """, (table_name,))
+            
+            columns = []
+            for col in cur.fetchall():
+                name, data_type, max_length, is_nullable, default = col
+                column_def = f"{name} {data_type}"
+                if max_length:
+                    column_def += f"({max_length})"
+                if default:
+                    column_def += f" DEFAULT {default}"
+                if is_nullable == 'NO':
+                    column_def += " NOT NULL"
+                columns.append(column_def)
 
-        # Get primary key constraint
-        cur.execute("""
-            SELECT c.column_name
-            FROM information_schema.table_constraints tc
-            JOIN information_schema.constraint_column_usage AS ccu 
-                ON ccu.constraint_name = tc.constraint_name
-            JOIN information_schema.columns AS c 
-                ON c.table_name = tc.table_name 
-                AND c.column_name = ccu.column_name
-            WHERE tc.constraint_type = 'PRIMARY KEY' 
-                AND tc.table_name = %s;
-        """, (table_name,))
-        
-        pk_columns = [row[0] for row in cur.fetchall()]
-        if pk_columns:
-            columns.append(f"PRIMARY KEY ({', '.join(pk_columns)})")
+            # Get primary key constraint
+            cur.execute("""
+                SELECT c.column_name
+                FROM information_schema.table_constraints tc
+                JOIN information_schema.constraint_column_usage AS ccu 
+                    ON ccu.constraint_name = tc.constraint_name
+                JOIN information_schema.columns AS c 
+                    ON c.table_name = tc.table_name 
+                    AND c.column_name = ccu.column_name
+                WHERE tc.constraint_type = 'PRIMARY KEY' 
+                    AND tc.table_name = %s;
+            """, (table_name,))
+            
+            pk_columns = [row[0] for row in cur.fetchall()]
+            if pk_columns:
+                columns.append(f"PRIMARY KEY ({', '.join(pk_columns)})")
 
-        return f"CREATE TABLE IF NOT EXISTS {table_name} (\n    " + ",\n    ".join(columns) + "\n)"
+            return f"CREATE TABLE IF NOT EXISTS {table_name} (\n    " + ",\n    ".join(columns) + "\n)"
+    except Exception as e:
+        console.print(f"[red]Error getting schema for table {table_name}: {str(e)}[/red]")
+        return None
 
 def ensure_table_exists(source_conn, target_conn, table_name):
     """Ensure the table exists in the target database with the same schema as source"""
-    create_table_sql = get_table_schema(source_conn, table_name)
-    with target_conn.cursor() as target_cur:
-        target_cur.execute(create_table_sql)
-        target_conn.commit()
+    try:
+        # Get source table schema
+        create_table_sql = get_table_schema(source_conn, table_name)
+        if not create_table_sql:
+            raise Exception(f"Could not get schema for source table {table_name}")
 
+        with target_conn.cursor() as target_cur:
+            # Check if table exists in target
+            target_cur.execute("""
+                SELECT EXISTS (
+                    SELECT 1 
+                    FROM information_schema.tables 
+                    WHERE table_name = %s
+                )
+            """, (table_name,))
+            
+            table_exists = target_cur.fetchone()[0]
+            
+            if not table_exists:
+                # Create the table
+                console.print(f"[yellow]Creating table {table_name} in target database...[/yellow]")
+                target_cur.execute(create_table_sql)
+                target_conn.commit()
+                console.print(f"[green]Successfully created table {table_name}[/green]")
+            else:
+                # Verify schema matches
+                target_schema = get_table_schema(target_conn, table_name)
+                if target_schema != create_table_sql:
+                    console.print(f"[yellow]Warning: Schema mismatch for table {table_name}[/yellow]")
+                    # Optionally, you could add logic here to alter the table structure
+                    
+        return True
+    except Exception as e:
+        console.print(f"[red]Error ensuring table {table_name} exists: {str(e)}[/red]")
+        target_conn.rollback()
+        return False
 
 def get_database_size(conn):
     with conn.cursor() as cur:
@@ -241,8 +288,10 @@ def print_migration_summary(tables_info, source_size, target_size):
 
 def copy_table_data(source_conn, target_conn, table_name, progress, task_id):
     try:
-        # First ensure the table exists in the target database
-        ensure_table_exists(source_conn, target_conn, table_name)
+       # First ensure the table exists in the target database
+        if not ensure_table_exists(source_conn, target_conn, table_name):
+            raise Exception(f"Failed to ensure table {table_name} exists in target database")
+
 
         with source_conn.cursor() as source_cur, target_conn.cursor() as target_cur:
             source_rows = get_table_stats(source_conn, table_name)
