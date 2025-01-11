@@ -133,7 +133,7 @@ class DashboardManager:
             )
             
             layout.split_column(
-                Layout(name="info", size=3),
+                Layout(name="info", size=13),
                 Layout(name="files", size=8),
                 Layout(name="progress", size=3)
             )
