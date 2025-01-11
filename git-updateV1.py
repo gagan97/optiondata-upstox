@@ -129,13 +129,13 @@ class DashboardManager:
                 Layout(self.create_files_table(
                     initial_files, 
                     "📤 Pushed Files",
-                    size=40
+                    
                 ))
             )
             
             layout.split_column(
                 Layout(name="info", size=3),
-                Layout(name="files", size=8),
+                Layout(name="files", size=12),
                 Layout(name="progress", size=3)
             )
             layout["files"].update(files_layout)
