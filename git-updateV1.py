@@ -135,7 +135,7 @@ class DashboardManager:
             
             layout.split_column(
                 Layout(name="info", size=3),
-                Layout(name="files", size=12),
+                Layout(name="files", size=8),
                 Layout(name="progress", size=3)
             )
             layout["files"].update(files_layout)
