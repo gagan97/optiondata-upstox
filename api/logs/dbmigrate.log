@@ -131,3 +131,39 @@ TypeError: psycopg2.connect() argument after ** must be a mapping, not DatabaseC
   File "/usr/lib/python3.12/threading.py", line 359, in wait
     gotit = waiter.acquire(True, timeout)
  - Memory: 36.11 MB
+2025-01-12 11:17:53 - INFO - [MainThread] - Reading database configuration from api/ini/optiondata.ini - Memory: 32.32 MB
+2025-01-12 11:17:53 - INFO - [MainThread] - Reading database configuration from api/ini/test.ini - Memory: 32.57 MB
+2025-01-12 11:17:53 - ERROR - [MainThread] - Migration failed - Memory: 32.57 MB
+Traceback (most recent call last):
+  File "/home/ubuntu/optiondata-upstox/db-migration-v3.py", line 539, in main
+    with psycopg2.connect(**source_params) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: psycopg2.connect() argument after ** must be a mapping, not DatabaseConfig
+2025-01-12 11:18:22 - INFO - [MainThread] - Database Migration Tool Started - Memory: 32.73 MB
+2025-01-12 11:18:22 - INFO - [MainThread] - ================================================== - Memory: 32.98 MB
+2025-01-12 11:18:22 - INFO - [MainThread] - Starting database migration - Memory: 32.98 MB
+2025-01-12 11:18:22 - DEBUG - [MainThread] - Resource Usage - CPU: 0.0%, Memory: 33.11MB, Peak Memory: 0.14MB, GC Counts: (517, 10, 4), Active Threads: 1 - Memory: 33.11 MB
+2025-01-12 11:18:22 - INFO - [MainThread] - Reading database configuration from api/ini/optiondata.ini - Memory: 33.23 MB
+2025-01-12 11:18:22 - INFO - [MainThread] - Reading database configuration from api/ini/test.ini - Memory: 33.23 MB
+2025-01-12 11:18:22 - CRITICAL - [MainThread] - Failed to connect to source database: psycopg2.connect() argument after ** must be a mapping, not DatabaseConfig - Memory: 33.23 MB
+2025-01-12 11:18:22 - ERROR - [MainThread] - Migration failed: psycopg2.connect() argument after ** must be a mapping, not DatabaseConfig - Memory: 33.48 MB
+Traceback (most recent call last):
+  File "/home/ubuntu/optiondata-upstox/db-migration-v2.py", line 670, in main
+    with psycopg2.connect(**params) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: psycopg2.connect() argument after ** must be a mapping, not DatabaseConfig
+2025-01-12 11:18:24 - CRITICAL - [MainThread] - Final process state on error - Memory: 36.48MB, CPU: 0.0%, Threads: 2 - Memory: 36.48 MB
+2025-01-12 11:18:36 - CRITICAL - [MainThread] - Received signal SIGINT (2) - Memory: 36.23 MB
+2025-01-12 11:18:36 - CRITICAL - [MainThread] - Final process state - Memory: 36.23MB, CPU: 0.0%, Threads: 2 - Memory: 36.23 MB
+2025-01-12 11:18:36 - CRITICAL - [MainThread] - Stack trace for thread Thread-1: - Memory: 36.23 MB
+2025-01-12 11:18:36 - CRITICAL - [MainThread] -   File "/usr/lib/python3.12/threading.py", line 1030, in _bootstrap
+    self._bootstrap_inner()
+  File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.12/threading.py", line 1429, in run
+    self.finished.wait(self.interval)
+  File "/usr/lib/python3.12/threading.py", line 655, in wait
+    signaled = self._cond.wait(timeout)
+  File "/usr/lib/python3.12/threading.py", line 359, in wait
+    gotit = waiter.acquire(True, timeout)
+ - Memory: 36.23 MB

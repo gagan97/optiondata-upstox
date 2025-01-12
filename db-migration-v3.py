@@ -1,4 +1,5 @@
 import psycopg2
+from psycopg2.extensions import connection
 import configparser
 import os
 import logging
@@ -20,11 +21,13 @@ import threading
 from threading import Timer
 import traceback
 from contextlib import contextmanager
-from typing import Dict, List, Tuple, Any
+from typing import Dict, List, Tuple, Any, Optional
 import time
 from dataclasses import dataclass
 from queue import Queue
 import hashlib
+from pathlib import Path
+from functools import lru_cache
 
 @dataclass
 class TableInfo:
@@ -130,7 +133,7 @@ def read_db_config(file_path: str) -> DatabaseConfig:
         logger.error(f"Unexpected error reading configuration: {str(e)}")
         raise
 
-def ensure_table_exists(source_conn: pg_connection, target_conn: pg_connection, 
+def ensure_table_exists(source_conn: connection, target_conn: connection, 
                        table_name: str) -> None:
     """
     Ensure table exists in target database with proper schema
@@ -179,7 +182,7 @@ def ensure_table_exists(source_conn: pg_connection, target_conn: pg_connection,
         raise
 
 @lru_cache(maxsize=128)
-def get_database_size(conn: pg_connection) -> str:
+def get_database_size(conn: connection) -> str:
     """
     Get formatted database size with caching
     
@@ -205,7 +208,7 @@ def get_database_size(conn: pg_connection) -> str:
         raise
 
 @lru_cache(maxsize=256)
-def get_table_size(conn: pg_connection, table_name: str) -> str:
+def get_table_size(conn: connection, table_name: str) -> str:
     """
     Get formatted table size with caching
     
