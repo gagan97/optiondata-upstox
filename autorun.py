@@ -22,8 +22,7 @@ SCRIPTS = {
         os.path.join(os.getcwd(), "historic_optionChain_NiftyMidcpSelect.py"),
         os.path.join(os.getcwd(), "historic_optionChain_NiftyNXT50.py"),
         os.path.join(os.getcwd(), "historic_optionChain_Sensex.py"),
-        os.path.join(os.getcwd(), "nifty1.py"),
-        os.path.join(os.getcwd(), "sensex.py")
+        os.path.join(os.getcwd(), "auto-nifty-sensex.py"),
     ]
 }
 

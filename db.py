@@ -477,49 +477,44 @@ def copy_table_data(
         
         try:
             ensure_table_exists(source_conn, target_conn, table_name)
-
+            
             with source_conn.cursor() as source_cur, target_conn.cursor() as target_cur:
                 source_rows = get_table_stats(source_conn, table_name)
                 progress.update(task_id, total=source_rows)
                 source_size = get_table_size(source_conn, table_name)
                 
-                # Create temporary table for staging
-                temp_table = f"temp_{table_name}"
+                # Get column names for explicit column specification
                 source_cur.execute("""
-                    SELECT column_name, data_type, character_maximum_length 
+                    SELECT column_name 
                     FROM information_schema.columns 
-                    WHERE table_name = %s
+                    WHERE table_name = %s 
                     ORDER BY ordinal_position
                 """, (table_name,))
+                columns = [row[0] for row in source_cur.fetchall()]
+                columns_str = ', '.join(f'"{col}"' for col in columns)
                 
-                columns_def = ', '.join(
-                    f"{col[0]} {col[1]}" + (f"({col[2]})" if col[2] else '')
-                    for col in source_cur.fetchall()
-                )
+                # Use batch processing instead of direct COPY
+                batch_size = 5000
+                source_cur.execute(f'SELECT {columns_str} FROM {quote_identifier(table_name)}')
                 
-                target_cur.execute(f"DROP TABLE IF EXISTS {temp_table}")
-                target_cur.execute(f"CREATE TEMP TABLE {temp_table} ({columns_def})")
+                while True:
+                    rows = source_cur.fetchmany(batch_size)
+                    if not rows:
+                        break
+                        
+                    # Prepare the INSERT statement
+                    placeholders = ','.join(['%s'] * len(columns))
+                    insert_query = f"""
+                        INSERT INTO {quote_identifier(table_name)} ({columns_str})
+                        VALUES ({placeholders})
+                        ON CONFLICT DO NOTHING
+                    """
+                    
+                    target_cur.executemany(insert_query, rows)
+                    target_conn.commit()
+                    
+                    progress.update(task_id, advance=len(rows))
                 
-                # Copy data using CSV format for better performance
-                output = io.StringIO()
-                source_cur.copy_expert(f"COPY {table_name} TO STDOUT WITH CSV", output)
-                output.seek(0)
-                target_cur.copy_expert(f"COPY {temp_table} FROM STDIN WITH CSV", output)
-                
-                # Insert only new records
-                target_cur.execute(f"""
-                    INSERT INTO {table_name}
-                    SELECT * FROM {temp_table} t
-                    WHERE NOT EXISTS (
-                        SELECT 1 FROM {table_name} m
-                        WHERE m.timestamp = t.timestamp
-                    )
-                """)
-                
-                rows_inserted = target_cur.rowcount
-                target_conn.commit()
-                
-                progress.update(task_id, advance=source_rows)
                 target_rows = get_table_stats(target_conn, table_name)
                 target_size = get_table_size(target_conn, table_name)
                 
@@ -536,12 +531,13 @@ def copy_table_data(
                     'target_rows': target_rows,
                     'source_size': source_size,
                     'target_size': target_size,
-                    'rows_inserted': rows_inserted,
+                    'rows_inserted': target_rows,
                     'success': True
                 }
                 
         except Exception as e:
             logger.error(f"Error copying data for table {table_name}: {str(e)}")
+            target_conn.rollback()  # Ensure we rollback on error
             if monitor.is_alive():
                 monitor.stop_flag.set()
                 monitor.join()
@@ -560,19 +556,44 @@ def copy_table_data(
         }
 
 def get_tables_to_migrate(conn: connection) -> List[str]:
-    """Get list of tables to migrate"""
+    """
+    Get list of tables to migrate from the database
+    
+    Args:
+        conn: psycopg2 database connection
+        
+    Returns:
+        List of table names to migrate
+        
+    Raises:
+        psycopg2.Error: If database query fails
+    """
+    logger.info("Retrieving list of tables to migrate")
+    
     try:
         with conn.cursor() as cur:
+            # Query to get user tables, excluding system tables
             cur.execute("""
                 SELECT table_name 
-                FROM information_schema.tables 
+                FROM information_schema.tables
                 WHERE table_schema = 'public'
                 AND table_type = 'BASE TABLE'
+                AND table_name NOT LIKE 'pg_%'
+                AND table_name NOT LIKE 'sql_%'
                 ORDER BY table_name
             """)
-            return [row[0] for row in cur.fetchall()]
+            
+            tables = [row[0] for row in cur.fetchall()]
+            logger.info(f"Found {len(tables)} tables to migrate")
+            logger.debug(f"Tables to migrate: {', '.join(tables)}")
+            
+            return tables
+            
+    except psycopg2.Error as e:
+        logger.error(f"Database error getting tables to migrate: {str(e)}")
+        raise
     except Exception as e:
-        logger.error(f"Error getting tables list: {str(e)}")
+        logger.error(f"Error getting tables to migrate: {str(e)}")
         raise
 
 def main():

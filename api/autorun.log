@@ -1045,3 +1045,9 @@ Script terminated successfully.
 2025-01-12 10:42:30,633 - INFO - [root] - Running in schedule mode
 2025-01-12 10:42:30,633 - INFO - [root] - Scheduled tasks for weekdays at 09:00
 2025-01-12 10:42:30,633 - INFO - [root] - Current time 10:42 is outside trading hours. Waiting for next scheduled run...
+2025-01-13 00:40:46,506 - INFO - [root] - Today is Monday - Weekday
+2025-01-13 00:40:46,507 - INFO - [root] - === Script Runner Started ===
+2025-01-13 00:40:46,507 - INFO - [root] - Current day: Monday (Weekday)
+2025-01-13 00:40:46,507 - INFO - [root] - Current time: 00:40:46
+2025-01-13 00:40:46,508 - INFO - [root] - Scheduled tasks for weekdays at 09:00
+2025-01-13 00:40:46,508 - INFO - [root] - Current time 00:40 is outside trading hours. Waiting for next scheduled run...

@@ -425,7 +425,7 @@ class OptionChainFetcher:
 # Schedule job
 def is_market_open():
     now = datetime.now(pytz.timezone('Asia/Kolkata')).time()
-    return dt_time(9, 00) <= now <= dt_time(15, 30)
+    return dt_time(9, 15) <= now <= dt_time(15, 30)
 
 def fetch_and_insert_data():
     if is_market_open():
@@ -504,7 +504,7 @@ def is_market_open():
     
     # Regular market hours check
     regular_market_time = now.time()
-    is_regular_open = dt_time(9, 00) <= regular_market_time <= dt_time(15, 30)
+    is_regular_open = dt_time(9, 15) <= regular_market_time <= dt_time(15, 30)
     logging.info(f"Regular market hours check - Is Open: {is_regular_open}")
     return is_regular_open
 
