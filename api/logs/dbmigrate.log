@@ -33,3 +33,101 @@
 2025-01-11 18:46:27 - INFO - [ThreadPoolExecutor-0_3] - Ensuring table exists in target database: nse_index_nifty_50_2025_01_09 - Memory: 109.13 MB
 2025-01-11 18:46:28 - DEBUG - [ThreadPoolExecutor-0_3] - Getting schema for table: nse_index_nifty_50_2025_01_09 - Memory: 122.00 MB
 2025-01-11 18:46:28 - INFO - [ThreadPoolExecutor-0_3] - Table nse_index_nifty_50_2025_01_09 created/verified in target database - Memory: 129.63 MB
+2025-01-12 10:45:20 - INFO - [MainThread] - Database Migration Tool Started - Memory: 32.59 MB
+2025-01-12 10:45:20 - INFO - [MainThread] - ================================================== - Memory: 32.96 MB
+2025-01-12 10:45:20 - INFO - [MainThread] - Starting database migration - Memory: 32.96 MB
+2025-01-12 10:45:20 - DEBUG - [MainThread] - Resource Usage - CPU: 0.0%, Memory: 33.09MB, Peak Memory: 0.12MB, GC Counts: (426, 10, 4), Active Threads: 1 - Memory: 33.09 MB
+2025-01-12 10:45:20 - INFO - [MainThread] - Reading database configuration from api/ini/optiondata.ini - Memory: 33.09 MB
+2025-01-12 10:45:20 - INFO - [MainThread] - Reading database configuration from api/ini/test.ini - Memory: 33.21 MB
+2025-01-12 10:45:20 - INFO - [MainThread] - Found 17 tables to migrate - Memory: 35.59 MB
+2025-01-12 10:45:20 - INFO - [MainThread] - Starting table processing - Memory: 35.71 MB
+2025-01-12 10:45:21 - INFO - [MainThread] - Source database total size: 1.15 GB - Memory: 35.84 MB
+2025-01-12 10:45:21 - INFO - [ThreadPoolExecutor-0_0] - Starting data migration for table: nse_index_nifty_mid_select_2025_01_27 in thread ThreadPoolExecutor-0_0 - Memory: 36.21 MB
+2025-01-12 10:45:21 - INFO - [ThreadPoolExecutor-0_0] - Ensuring table exists in target database: nse_index_nifty_mid_select_2025_01_27 - Memory: 36.34 MB
+2025-01-12 10:45:21 - DEBUG - [ThreadPoolExecutor-0_0] - Getting schema for table: nse_index_nifty_mid_select_2025_01_27 - Memory: 36.59 MB
+2025-01-12 10:45:21 - INFO - [ThreadPoolExecutor-0_1] - Starting data migration for table: nse_index_nifty_50_2025_01_16 in thread ThreadPoolExecutor-0_1 - Memory: 36.59 MB
+2025-01-12 10:45:21 - INFO - [ThreadPoolExecutor-0_0] - Table nse_index_nifty_mid_select_2025_01_27 created/verified in target database - Memory: 36.84 MB
+2025-01-12 10:45:21 - INFO - [ThreadPoolExecutor-0_2] - Starting data migration for table: nse_index_nifty_50_2025_02_06 in thread ThreadPoolExecutor-0_2 - Memory: 36.96 MB
+2025-01-12 10:45:21 - INFO - [ThreadPoolExecutor-0_1] - Ensuring table exists in target database: nse_index_nifty_50_2025_01_16 - Memory: 36.96 MB
+2025-01-12 10:45:21 - INFO - [ThreadPoolExecutor-0_3] - Starting data migration for table: bse_index_sensex_2025_01_24 in thread ThreadPoolExecutor-0_3 - Memory: 37.34 MB
+2025-01-12 10:45:21 - INFO - [ThreadPoolExecutor-0_2] - Ensuring table exists in target database: nse_index_nifty_50_2025_02_06 - Memory: 37.34 MB
+2025-01-12 10:45:21 - DEBUG - [ThreadPoolExecutor-0_1] - Getting schema for table: nse_index_nifty_50_2025_01_16 - Memory: 38.09 MB
+2025-01-12 10:45:21 - INFO - [ThreadPoolExecutor-0_1] - Table nse_index_nifty_50_2025_01_16 created/verified in target database - Memory: 38.21 MB
+2025-01-12 10:45:21 - INFO - [ThreadPoolExecutor-0_3] - Ensuring table exists in target database: bse_index_sensex_2025_01_24 - Memory: 40.09 MB
+2025-01-12 10:45:22 - DEBUG - [ThreadPoolExecutor-0_2] - Getting schema for table: nse_index_nifty_50_2025_02_06 - Memory: 42.09 MB
+2025-01-12 10:45:22 - INFO - [ThreadPoolExecutor-0_2] - Table nse_index_nifty_50_2025_02_06 created/verified in target database - Memory: 42.71 MB
+2025-01-12 10:45:22 - DEBUG - [ThreadPoolExecutor-0_3] - Getting schema for table: bse_index_sensex_2025_01_24 - Memory: 48.84 MB
+2025-01-12 10:45:22 - INFO - [ThreadPoolExecutor-0_3] - Table bse_index_sensex_2025_01_24 created/verified in target database - Memory: 49.59 MB
+2025-01-12 10:45:23 - INFO - [ThreadPoolExecutor-0_2] - Memory usage for nse_index_nifty_50_2025_02_06: 19.25MB - Memory: 56.59 MB
+2025-01-12 10:45:23 - INFO - [ThreadPoolExecutor-0_2] - Starting data migration for table: nse_index_nifty_bank_2025_01_29 in thread ThreadPoolExecutor-0_2 - Memory: 66.71 MB
+2025-01-12 10:45:24 - INFO - [ThreadPoolExecutor-0_2] - Ensuring table exists in target database: nse_index_nifty_bank_2025_01_29 - Memory: 75.46 MB
+2025-01-12 10:45:24 - INFO - [ThreadPoolExecutor-0_3] - Memory usage for bse_index_sensex_2025_01_24: 51.66MB - Memory: 91.62 MB
+2025-01-12 10:45:24 - DEBUG - [ThreadPoolExecutor-0_2] - Getting schema for table: nse_index_nifty_bank_2025_01_29 - Memory: 94.12 MB
+2025-01-12 10:45:24 - INFO - [ThreadPoolExecutor-0_2] - Table nse_index_nifty_bank_2025_01_29 created/verified in target database - Memory: 94.87 MB
+2025-01-12 10:45:24 - INFO - [ThreadPoolExecutor-0_3] - Starting data migration for table: nse_index_nifty_50_2025_01_09 in thread ThreadPoolExecutor-0_3 - Memory: 85.08 MB
+2025-01-12 10:45:26 - INFO - [ThreadPoolExecutor-0_3] - Ensuring table exists in target database: nse_index_nifty_50_2025_01_09 - Memory: 103.08 MB
+2025-01-12 10:45:26 - DEBUG - [ThreadPoolExecutor-0_3] - Getting schema for table: nse_index_nifty_50_2025_01_09 - Memory: 117.83 MB
+2025-01-12 10:45:26 - INFO - [ThreadPoolExecutor-0_3] - Table nse_index_nifty_50_2025_01_09 created/verified in target database - Memory: 123.08 MB
+2025-01-12 10:48:17 - INFO - [MainThread] - Database Migration Tool Started - Memory: 32.46 MB
+2025-01-12 10:48:17 - INFO - [MainThread] - ================================================== - Memory: 32.84 MB
+2025-01-12 10:48:17 - INFO - [MainThread] - Starting database migration - Memory: 32.84 MB
+2025-01-12 10:48:17 - DEBUG - [MainThread] - Resource Usage - CPU: 0.0%, Memory: 32.96MB, Peak Memory: 0.12MB, GC Counts: (426, 10, 4), Active Threads: 1 - Memory: 32.96 MB
+2025-01-12 10:48:17 - INFO - [MainThread] - Reading database configuration from api/ini/optiondata.ini - Memory: 32.96 MB
+2025-01-12 10:48:17 - INFO - [MainThread] - Reading database configuration from api/ini/test.ini - Memory: 33.09 MB
+2025-01-12 10:48:17 - INFO - [MainThread] - Found 17 tables to migrate - Memory: 35.46 MB
+2025-01-12 10:48:18 - INFO - [MainThread] - Starting table processing - Memory: 35.59 MB
+2025-01-12 10:48:18 - INFO - [MainThread] - Source database total size: 1.15 GB - Memory: 35.71 MB
+2025-01-12 10:48:18 - INFO - [ThreadPoolExecutor-0_0] - Starting data migration for table: nse_index_nifty_mid_select_2025_01_27 in thread ThreadPoolExecutor-0_0 - Memory: 36.09 MB
+2025-01-12 10:48:18 - INFO - [ThreadPoolExecutor-0_0] - Ensuring table exists in target database: nse_index_nifty_mid_select_2025_01_27 - Memory: 36.21 MB
+2025-01-12 10:48:18 - DEBUG - [ThreadPoolExecutor-0_0] - Getting schema for table: nse_index_nifty_mid_select_2025_01_27 - Memory: 36.46 MB
+2025-01-12 10:48:18 - INFO - [ThreadPoolExecutor-0_1] - Starting data migration for table: nse_index_nifty_50_2025_01_16 in thread ThreadPoolExecutor-0_1 - Memory: 36.59 MB
+2025-01-12 10:48:18 - INFO - [ThreadPoolExecutor-0_0] - Table nse_index_nifty_mid_select_2025_01_27 created/verified in target database - Memory: 36.59 MB
+2025-01-12 10:48:18 - INFO - [ThreadPoolExecutor-0_1] - Ensuring table exists in target database: nse_index_nifty_50_2025_01_16 - Memory: 36.84 MB
+2025-01-12 10:48:18 - INFO - [ThreadPoolExecutor-0_2] - Starting data migration for table: nse_index_nifty_50_2025_02_06 in thread ThreadPoolExecutor-0_2 - Memory: 36.96 MB
+2025-01-12 10:48:18 - DEBUG - [ThreadPoolExecutor-0_1] - Getting schema for table: nse_index_nifty_50_2025_01_16 - Memory: 37.09 MB
+2025-01-12 10:48:18 - INFO - [ThreadPoolExecutor-0_3] - Starting data migration for table: bse_index_sensex_2025_01_24 in thread ThreadPoolExecutor-0_3 - Memory: 37.34 MB
+2025-01-12 10:48:18 - INFO - [ThreadPoolExecutor-0_1] - Table nse_index_nifty_50_2025_01_16 created/verified in target database - Memory: 37.34 MB
+2025-01-12 10:48:18 - INFO - [ThreadPoolExecutor-0_2] - Ensuring table exists in target database: nse_index_nifty_50_2025_02_06 - Memory: 38.46 MB
+2025-01-12 10:48:18 - INFO - [ThreadPoolExecutor-0_3] - Ensuring table exists in target database: bse_index_sensex_2025_01_24 - Memory: 40.71 MB
+2025-01-12 10:48:19 - DEBUG - [ThreadPoolExecutor-0_2] - Getting schema for table: nse_index_nifty_50_2025_02_06 - Memory: 46.96 MB
+2025-01-12 10:48:19 - INFO - [ThreadPoolExecutor-0_2] - Table nse_index_nifty_50_2025_02_06 created/verified in target database - Memory: 47.96 MB
+2025-01-12 10:48:19 - DEBUG - [ThreadPoolExecutor-0_3] - Getting schema for table: bse_index_sensex_2025_01_24 - Memory: 51.84 MB
+2025-01-12 10:48:19 - INFO - [ThreadPoolExecutor-0_3] - Table bse_index_sensex_2025_01_24 created/verified in target database - Memory: 52.71 MB
+2025-01-12 10:48:20 - INFO - [ThreadPoolExecutor-0_2] - Memory usage for nse_index_nifty_50_2025_02_06: 19.75MB - Memory: 58.09 MB
+2025-01-12 10:48:20 - INFO - [ThreadPoolExecutor-0_2] - Starting data migration for table: nse_index_nifty_bank_2025_01_29 in thread ThreadPoolExecutor-0_2 - Memory: 70.34 MB
+2025-01-12 10:48:21 - INFO - [ThreadPoolExecutor-0_2] - Ensuring table exists in target database: nse_index_nifty_bank_2025_01_29 - Memory: 89.65 MB
+2025-01-12 10:48:21 - INFO - [ThreadPoolExecutor-0_3] - Memory usage for bse_index_sensex_2025_01_24: 49.44MB - Memory: 90.15 MB
+2025-01-12 10:48:21 - DEBUG - [ThreadPoolExecutor-0_2] - Getting schema for table: nse_index_nifty_bank_2025_01_29 - Memory: 96.03 MB
+2025-01-12 10:48:21 - INFO - [ThreadPoolExecutor-0_2] - Table nse_index_nifty_bank_2025_01_29 created/verified in target database - Memory: 97.28 MB
+2025-01-12 10:48:22 - INFO - [ThreadPoolExecutor-0_3] - Starting data migration for table: nse_index_nifty_50_2025_01_09 in thread ThreadPoolExecutor-0_3 - Memory: 87.55 MB
+2025-01-12 10:48:23 - INFO - [ThreadPoolExecutor-0_3] - Ensuring table exists in target database: nse_index_nifty_50_2025_01_09 - Memory: 107.17 MB
+2025-01-12 10:48:23 - DEBUG - [ThreadPoolExecutor-0_3] - Getting schema for table: nse_index_nifty_50_2025_01_09 - Memory: 119.67 MB
+2025-01-12 10:48:24 - INFO - [ThreadPoolExecutor-0_3] - Table nse_index_nifty_50_2025_01_09 created/verified in target database - Memory: 128.05 MB
+2025-01-12 11:04:13 - INFO - [MainThread] - Database Migration Tool Started - Memory: 32.61 MB
+2025-01-12 11:04:13 - INFO - [MainThread] - ================================================== - Memory: 32.86 MB
+2025-01-12 11:04:13 - INFO - [MainThread] - Starting database migration - Memory: 32.86 MB
+2025-01-12 11:04:13 - DEBUG - [MainThread] - Resource Usage - CPU: 0.0%, Memory: 32.98MB, Peak Memory: 0.14MB, GC Counts: (517, 10, 4), Active Threads: 1 - Memory: 32.98 MB
+2025-01-12 11:04:13 - INFO - [MainThread] - Reading database configuration from api/ini/optiondata.ini - Memory: 32.98 MB
+2025-01-12 11:04:13 - INFO - [MainThread] - Reading database configuration from api/ini/test.ini - Memory: 33.11 MB
+2025-01-12 11:04:13 - CRITICAL - [MainThread] - Failed to connect to source database: psycopg2.connect() argument after ** must be a mapping, not DatabaseConfig - Memory: 33.11 MB
+2025-01-12 11:04:13 - ERROR - [MainThread] - Migration failed: psycopg2.connect() argument after ** must be a mapping, not DatabaseConfig - Memory: 33.36 MB
+Traceback (most recent call last):
+  File "/home/ubuntu/optiondata-upstox/db-migration-v2.py", line 670, in main
+    with psycopg2.connect(**params) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: psycopg2.connect() argument after ** must be a mapping, not DatabaseConfig
+2025-01-12 11:04:15 - CRITICAL - [MainThread] - Final process state on error - Memory: 36.36MB, CPU: 0.0%, Threads: 2 - Memory: 36.36 MB
+2025-01-12 11:04:44 - CRITICAL - [MainThread] - Received signal SIGINT (2) - Memory: 36.11 MB
+2025-01-12 11:04:44 - CRITICAL - [MainThread] - Final process state - Memory: 36.11MB, CPU: 0.0%, Threads: 2 - Memory: 36.11 MB
+2025-01-12 11:04:44 - CRITICAL - [MainThread] - Stack trace for thread Thread-1: - Memory: 36.11 MB
+2025-01-12 11:04:44 - CRITICAL - [MainThread] -   File "/usr/lib/python3.12/threading.py", line 1030, in _bootstrap
+    self._bootstrap_inner()
+  File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.12/threading.py", line 1429, in run
+    self.finished.wait(self.interval)
+  File "/usr/lib/python3.12/threading.py", line 655, in wait
+    signaled = self._cond.wait(timeout)
+  File "/usr/lib/python3.12/threading.py", line 359, in wait
+    gotit = waiter.acquire(True, timeout)
+ - Memory: 36.11 MB

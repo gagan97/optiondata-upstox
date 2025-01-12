@@ -4,7 +4,7 @@ import os
 import logging
 from logging.handlers import RotatingFileHandler
 from datetime import datetime
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import io
 from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, TimeElapsedColumn
@@ -19,50 +19,91 @@ import gc
 import threading
 from threading import Timer
 import traceback
+from contextlib import contextmanager
+from typing import Dict, List, Tuple, Any, Optional
+import time
+from dataclasses import dataclass
+from queue import Queue
+import hashlib
+from pathlib import Path
+from psycopg2.extensions import connection
+from functools import lru_cache
 
 # Initialize Rich console
 console = Console()
 
-def setup_logging():
-    """Set up logging with both file and console handlers"""
-    log_dir = os.path.join('api', 'logs')
-    os.makedirs(log_dir, exist_ok=True)
+def setup_logging(
+    log_dir: str = 'api/logs',
+    log_file: str = 'dbmigrate.log',
+    max_bytes: int = 10*1024*1024,
+    backup_count: int = 5
+) -> logging.Logger:
+    """
+    Set up logging with file and console handlers
+    
+    Args:
+        log_dir: Directory for log files
+        log_file: Name of log file
+        max_bytes: Maximum size of each log file
+        backup_count: Number of backup files to keep
+        
+    Returns:
+        Configured logger instance
+    """
+    # Create log directory
+    log_path = Path(log_dir)
+    log_path.mkdir(parents=True, exist_ok=True)
     
     class MemoryFilter(logging.Filter):
-        def filter(self, record):
-            process = psutil.Process(os.getpid())
-            record.memory_usage = f"{process.memory_info().rss / 1024 / 1024:.2f}"
-            return True
+        """Add memory usageinformation to log records"""
+        def filter(self, record: logging.LogRecord) -> bool:
+            try:
+                process = psutil.Process(os.getpid())
+                record.memory_usage = f"{process.memory_info().rss / 1024 / 1024:.2f}"
+                return True
+            except Exception:
+                record.memory_usage = "N/A"
+                return True
 
+    # Configure formatters
     file_formatter = logging.Formatter(
         '%(asctime)s - %(levelname)s - [%(threadName)s] - %(message)s - Memory: %(memory_usage)s MB',
         datefmt='%Y-%m-%d %H:%M:%S'
     )
     
-    # File handler with rotation
-    log_file = os.path.join(log_dir, 'dbmigrate.log')
+    # Set up file handler
     file_handler = RotatingFileHandler(
-        log_file,
-        maxBytes=10*1024*1024,  # 10MB
-        backupCount=5
+        log_path / log_file,
+        maxBytes=max_bytes,
+        backupCount=backup_count
     )
     file_handler.setFormatter(file_formatter)
     file_handler.setLevel(logging.DEBUG)
     file_handler.addFilter(MemoryFilter())
     
-    # Console handler
-    console_handler = RichHandler(rich_tracebacks=True, console=console)
+    # Set up console handler
+    console = Console()
+    console_handler = RichHandler(
+        rich_tracebacks=True,
+        console=console,
+        show_time=True
+    )
     console_handler.setLevel(logging.INFO)
     
-    # Root logger configuration
+    # Configure root logger
     logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)
+    
+    # Remove any existing handlers
+    for handler in logger.handlers[:]:
+        logger.removeHandler(handler)
+        
     logger.addHandler(file_handler)
     logger.addHandler(console_handler)
     
     return logger
 
-# Global variables
+# Initialize global variablglobal variables
 resource_monitor_active = True
 logger = setup_logging()
 tracemalloc.start()
@@ -91,6 +132,8 @@ def log_system_resources():
             Timer(60.0, log_system_resources).start()
     except Exception as e:
         logger.error(f"Error in resource monitoring: {str(e)}")
+
+
 
 class ConnectionMonitor(threading.Thread):
     """Monitor database connections"""
@@ -147,23 +190,97 @@ signal.signal(signal.SIGINT, signal_handler)
 if hasattr(signal, 'SIGQUIT'):
     signal.signal(signal.SIGQUIT, signal_handler)
 
-def read_db_config(file_path):
-    """Read database configuration from file"""
+@dataclass
+class DatabaseConfig:
+    """Database configuration container with validation"""
+    host: str
+    port: int
+    database: str
+    user: str
+    password: str
+
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert to dictionary for psycopg2"""
+        return {
+            'host': self.host,
+            'port': self.port,
+            'dbname': self.database,
+            'user': self.user,
+            'password': self.password
+        }
+
+    @classmethod
+    def from_config(cls, config: configparser.ConfigParser) -> 'DatabaseConfig':
+        """Create from ConfigParser object with validation"""
+        try:
+            postgresql = config['postgresql']
+            return cls(
+                host=postgresql['host'],
+                port=int(postgresql['port']),
+                database=postgresql['database'],
+                user=postgresql['user'],
+                password=postgresql['password']
+            )
+        except KeyError as e:
+            raise ValueError(f"Missing required configuration key: {e}")
+        except ValueError as e:
+            raise ValueError(f"Invalid configuration value: {e}")
+
+#def read_db_config(file_path):
+#    """Read database configuration from file"""
+#    logger.info(f"Reading database configuration from {file_path}")
+#    try:
+#        config = configparser.ConfigParser()
+#        config.read(file_path)
+#        return {
+#            'dbname': config['postgresql']['database'],
+#            'user': config['postgresql']['user'],
+#            'password': config['postgresql']['password'],
+#            'host': config['postgresql']['host'],
+#            'port': config['postgresql']['port']
+#        }
+#    except Exception as e:
+#        logger.error(f"Failed to read database configuration: {str(e)}")
+#        raise
+
+def read_db_config(file_path: str) -> DatabaseConfig:
+    """
+    Read and validate database configuration from file
+    
+    Args:
+        file_path: Path to configuration file
+        
+    Returns:
+        DatabaseConfig object containing validated configuration
+        
+    Raises:
+        FileNotFoundError: If configuration file doesn't exist
+        ValueError: If configuration is invalid
+        configparser.Error: If configuration file can't be parsed
+    """
+    logger = logging.getLogger(__name__)
     logger.info(f"Reading database configuration from {file_path}")
+    
+    file_path = Path(file_path)
+    if not file_path.exists():
+        raise FileNotFoundError(f"Configuration file not found: {file_path}")
+        
     try:
         config = configparser.ConfigParser()
         config.read(file_path)
-        return {
-            'dbname': config['postgresql']['database'],
-            'user': config['postgresql']['user'],
-            'password': config['postgresql']['password'],
-            'host': config['postgresql']['host'],
-            'port': config['postgresql']['port']
-        }
-    except Exception as e:
+        
+        # Validate required section exists
+        if 'postgresql' not in config:
+            raise ValueError("Missing 'postgresql' section in configuration")
+            
+        return DatabaseConfig.from_config(config)
+        
+    except (configparser.Error, ValueError) as e:
         logger.error(f"Failed to read database configuration: {str(e)}")
         raise
-
+    except Exception as e:
+        logger.error(f"Unexpected error reading configuration: {str(e)}")
+        raise
 def get_table_schema(conn, table_name):
     """Get table schema as CREATE TABLE statement"""
     logger.debug(f"Getting schema for table: {table_name}")
@@ -213,53 +330,129 @@ def get_table_schema(conn, table_name):
         logger.error(f"Error getting schema for table {table_name}: {str(e)}")
         raise
 
-def ensure_table_exists(source_conn, target_conn, table_name):
-    """Ensure table exists in target database"""
+class SizeFormatter:
+    """Utility class for formatting byte sizes"""
+    UNITS = ['B', 'KB', 'MB', 'GB', 'TB']
+    
+    @staticmethod
+    def format_size(size_bytes: int) -> str:
+        """Format byte size to human readable string"""
+        if size_bytes < 0:
+            raise ValueError("Size cannot be negative")
+            
+        index = 0
+        size = float(size_bytes)
+        while size >= 1024 and index < len(SizeFormatter.UNITS) - 1:
+            size /= 1024
+            index += 1
+        return f"{size:.2f} {SizeFormatter.UNITS[index]}"
+
+def ensure_table_exists(source_conn: connection, target_conn: connection, 
+                       table_name: str) -> None:
+    """
+    Ensure table exists in target database with proper schema
+    
+    Args:
+        source_conn: Source database connection
+        target_conn: Target database connection
+        table_name: Name of table to verify/create
+        
+    Raises:
+        psycopg2.Error: On database errors
+    """
+    logger = logging.getLogger(__name__)
     logger.info(f"Ensuring table exists in target database: {table_name}")
+    
     try:
+        # Verify table name to prevent SQL injection
+        if not table_name.isalnum() and not all(c in '_' for c in table_name):
+            raise ValueError(f"Invalid table name: {table_name}")
+            
         create_table_sql = get_table_schema(source_conn, table_name)
+        
         with target_conn.cursor() as target_cur:
-            target_cur.execute(create_table_sql)
-            target_conn.commit()
-        logger.info(f"Table {table_name} created/verified in target database")
+            target_cur.execute("""
+                SELECT EXISTS (
+                    SELECT FROM information_schema.tables 
+                    WHERE table_name = %s
+                )
+            """, (table_name,))
+            
+            table_exists = target_cur.fetchone()[0]
+            
+            if not table_exists:
+                target_cur.execute(create_table_sql)
+                target_conn.commit()
+                logger.info(f"Created table {table_name} in target database")
+            else:
+                logger.info(f"Table {table_name} already exists in target database")
+                
+    except psycopg2.Error as e:
+        logger.error(f"Database error ensuring table exists: {table_name}: {str(e)}")
+        target_conn.rollback()
+        raise
     except Exception as e:
         logger.error(f"Failed to ensure table exists: {table_name}: {str(e)}")
         raise
 
-def get_database_size(conn):
-    """Get formatted database size"""
+@lru_cache(maxsize=128)
+def get_database_size(conn: connection) -> str:
+    """
+    Get formatted database size with caching
+    
+    Args:
+        conn: Database connection
+        
+    Returns:
+        Formatted size string (e.g. "1.23 GB")
+        
+    Raises:
+        psycopg2.Error: On database errors
+    """
     try:
         with conn.cursor() as cur:
             cur.execute("SELECT pg_database_size(current_database()) as size")
             size_bytes = cur.fetchone()[0]
-            
-            units = ['B', 'KB', 'MB', 'GB', 'TB']
-            index = 0
-            size = float(size_bytes)
-            while size >= 1024 and index < len(units) - 1:
-                size /= 1024
-                index += 1
-            return f"{size:.2f} {units[index]}"
+            return SizeFormatter.format_size(size_bytes)
+    except psycopg2.Error as e:
+        logger.error(f"Database error getting size: {str(e)}")
+        raise
     except Exception as e:
         logger.error(f"Error getting database size: {str(e)}")
         raise
 
-def get_table_size(conn, table_name):
-    """Get formatted table size"""
+@lru_cache(maxsize=256)
+def get_table_size(conn: connection, table_name: str) -> str:
+    """
+    Get formatted table size with caching
+    
+    Args:
+        conn: Database connection
+        table_name: Name of table to measure
+        
+    Returns:
+        Formatted size string (e.g. "1.23 MB")
+        
+    Raises:
+        psycopg2.Error: On database errors
+        ValueError: On invalid table name
+    """
+    if not table_name.isalnum() and not all(c in '_' for c in table_name):
+        raise ValueError(f"Invalid table name: {table_name}")
+        
     try:
         with conn.cursor() as cur:
-            cur.execute(f"SELECT pg_total_relation_size('{table_name}') as size")
+            cur.execute(
+                "SELECT pg_total_relation_size(%s) as size",
+                (table_name,)
+            )
             size_bytes = cur.fetchone()[0]
-            
-            units = ['B', 'KB', 'MB', 'GB', 'TB']
-            index = 0
-            size = float(size_bytes)
-            while size >= 1024 and index < len(units) - 1:
-                size /= 1024
-                index += 1
-            return f"{size:.2f} {units[index]}"
+            return SizeFormatter.format_size(size_bytes)
+    except psycopg2.Error as e:
+        logger.error(f"Database error getting table size: {str(e)}")
+        raise
     except Exception as e:
-        logger.error(f"Error getting table size for {table_name}: {str(e)}")
+        logger.error(f"Error getting table size: {str(e)}")
         raise
 
 def get_table_stats(conn, table_name):
