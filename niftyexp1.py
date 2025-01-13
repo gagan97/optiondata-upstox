@@ -107,7 +107,7 @@ class MarketCalendar:
         
         # Regular market hours check (9:15 AM to 3:30 PM)
         regular_market_time = now.time()
-        return dt_time(9, 14) <= regular_market_time <= dt_time(15, 30)
+        return dt_time(9, 14) <= regular_market_time <= dt_time(18, 30)
     
     @staticmethod
     def convert_milliseconds_to_time(milliseconds):
@@ -127,15 +127,15 @@ class ExpiryManager:
         self.lock = threading.Lock()
         
     def get_next_n_expiries(self, n=5):
-        """Get the next n valid Tuesday expiry dates starting from current date."""
+        """Get the next n valid Thursday expiry dates starting from current date."""
         current_date = datetime.now()
         expiries = []
         month = current_date.month
         year = current_date.year
         
         while len(expiries) < n:
-            # Get all Tuesday expiries for current month
-            month_expiries = self.get_month_tuesday_expiries(year, month)
+            # Get all Thursday expiries for current month
+            month_expiries = self.get_month_thursday_expiries(year, month)
             
             # Filter out past dates if we're looking at current month
             if month == current_date.month and year == current_date.year:
@@ -158,23 +158,23 @@ class ExpiryManager:
                     
         return expiries
     
-    def get_month_tuesday_expiries(self, year, month):
-        """Get all Tuesday expiry dates for a given month."""
+    def get_month_thursday_expiries(self, year, month):
+        """Get all Thursday expiry dates for a given month."""
         first_day = datetime(year, month, 1)
         last_day = (first_day + timedelta(days=32)).replace(day=1) - timedelta(days=1)
         
-        tuesdays = []
+        thursdays = []
         current_day = first_day
         
         while current_day <= last_day:
-            if current_day.weekday() == 1:  # Tuesday
-                tuesday_date = current_day.date()
+            if current_day.weekday() == 3:  # Thursday
+                thursday_date = current_day.date()
                 # Check if it's not a holiday
-                if self.is_valid_trading_day(tuesday_date):
-                    tuesdays.append(tuesday_date)
+                if self.is_valid_trading_day(thursday_date):
+                    thurdays.append(thursday_date)
             current_day += timedelta(days=1)
             
-        return tuesdays
+        return thursdays
     
     def is_valid_trading_day(self, date):
         """Check if the given date is a valid trading day."""
@@ -396,7 +396,7 @@ class DataFetcher(threading.Thread):
 
                 # Prepare API request
                 params = {
-                    'instrument_key': 'BSE_INDEX|SENSEX',
+                    'instrument_key': 'NSE_INDEX|Nifty 50',
                     'expiry_date': self.expiry_date
                 }
                 headers = {
@@ -542,25 +542,25 @@ def main():
         # Initialize market calendar and expiry manager
         market_calendar = MarketCalendar()
         expiry_manager = ExpiryManager()
-        
+
         # Get database configuration
         db_config = configDB()
         check_and_create_db(db_config)
-        
+
         # Initialize progress display
         progress_display = ProgressDisplay()
-        
+
         # Get the next 5 expiry dates
         expiry_dates = expiry_manager.get_next_n_expiries(5)
         logging.info(f"Found {len(expiry_dates)} expiry dates: {expiry_dates}")
-        
+
         # Get current year and month
         now = datetime.now()
-        
+
         rprint(f"[bold green]Found {len(expiry_dates)} expiry dates for {now.strftime('%B %Y')}:[/bold green]")
         for date in expiry_dates:
             rprint(f"[blue]• {date}[/blue]")
-        
+
         # Initialize progress data
         progress_data = {
             str(date): {
@@ -569,12 +569,12 @@ def main():
                 'records_count': 0
             } for date in expiry_dates
         }
-        
+
         lock = threading.Lock()
-        
+
         # Initialize thread container
         threads = []
-        
+
         # Create and start threads for each expiry date
         for expiry_date in expiry_dates:
             thread = DataFetcher(
@@ -587,15 +587,15 @@ def main():
             threads.append(thread)
             thread.start()
             logging.info(f"Started thread for expiry date: {expiry_date}")
-        
-        
+
+
         # Display progress with Rich
         with Live(progress_display.generate_table(progress_data), refresh_per_second=1) as live:
             while True:
                 if not market_calendar.is_market_open():
                     rprint("[bold red]Market is closed. Stopping data collection.[/bold red]")
                     break
-                
+
                 if not any(thread.is_alive() for thread in threads):
                     rprint("[bold yellow]All threads have completed. Restarting threads...[/bold yellow]")
                     # Restart threads
@@ -604,7 +604,7 @@ def main():
                         thread = DataFetcher(expiry_date, progress_data, lock, db_config, market_calendar)
                         thread.start()
                         threads.append(thread)
-                
+
                 live.update(progress_display.generate_table(progress_data))
                 t.sleep(1)
 

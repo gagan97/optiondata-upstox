@@ -107,7 +107,7 @@ class MarketCalendar:
         
         # Regular market hours check (9:15 AM to 3:30 PM)
         regular_market_time = now.time()
-        return dt_time(9, 14) <= regular_market_time <= dt_time(15, 30)
+        return dt_time(9, 14) <= regular_market_time <= dt_time(18, 30)
     
     @staticmethod
     def convert_milliseconds_to_time(milliseconds):
@@ -119,7 +119,6 @@ class MarketCalendar:
             logging.error(f"Error converting milliseconds {milliseconds}: {e}")
             return None
 
-
 class ExpiryManager:
     def __init__(self):
         self.expiry_dates = []
@@ -127,7 +126,39 @@ class ExpiryManager:
         self.progress_data = {}
         self.lock = threading.Lock()
         
-    def get_all_tuesday_expiries(self, year, month):
+    def get_next_n_expiries(self, n=5):
+        """Get the next n valid Tuesday expiry dates starting from current date."""
+        current_date = datetime.now()
+        expiries = []
+        month = current_date.month
+        year = current_date.year
+        
+        while len(expiries) < n:
+            # Get all Tuesday expiries for current month
+            month_expiries = self.get_month_tuesday_expiries(year, month)
+            
+            # Filter out past dates if we're looking at current month
+            if month == current_date.month and year == current_date.year:
+                month_expiries = [date for date in month_expiries if date >= current_date.date()]
+            
+            # Add expiries until we reach n or run out of dates
+            for expiry in month_expiries:
+                if len(expiries) < n:
+                    expiries.append(expiry)
+                else:
+                    break
+            
+            # Move to next month if we still need more dates
+            if len(expiries) < n:
+                if month == 12:
+                    month = 1
+                    year += 1
+                else:
+                    month += 1
+                    
+        return expiries
+    
+    def get_month_tuesday_expiries(self, year, month):
         """Get all Tuesday expiry dates for a given month."""
         first_day = datetime(year, month, 1)
         last_day = (first_day + timedelta(days=32)).replace(day=1) - timedelta(days=1)
@@ -508,20 +539,23 @@ def main():
             ]
         )
 
-        # Initialize market calendar
+        # Initialize market calendar and expiry manager
         market_calendar = MarketCalendar()
-
-        # Database setup
+        expiry_manager = ExpiryManager()
+        
+        # Get database configuration
         db_config = configDB()
         check_and_create_db(db_config)
-
-        # Initialize managers
-        expiry_manager = ExpiryManager()
+        
+        # Initialize progress display
         progress_display = ProgressDisplay()
+        
+        # Get the next 5 expiry dates
+        expiry_dates = expiry_manager.get_next_n_expiries(5)
+        logging.info(f"Found {len(expiry_dates)} expiry dates: {expiry_dates}")
         
         # Get current year and month
         now = datetime.now()
-        expiry_dates = expiry_manager.get_all_tuesday_expiries(now.year, now.month)
         
         rprint(f"[bold green]Found {len(expiry_dates)} expiry dates for {now.strftime('%B %Y')}:[/bold green]")
         for date in expiry_dates:
@@ -538,12 +572,22 @@ def main():
         
         lock = threading.Lock()
         
-        # Start a thread for each expiry
+        # Initialize thread container
         threads = []
+        
+        # Create and start threads for each expiry date
         for expiry_date in expiry_dates:
-            thread = DataFetcher(expiry_date, progress_data, lock, db_config, market_calendar)
-            thread.start()
+            thread = DataFetcher(
+                expiry_date=expiry_date,
+                progress_data=progress_data,
+                lock=lock,
+                db_config=db_config,
+                market_calendar=market_calendar
+            )
             threads.append(thread)
+            thread.start()
+            logging.info(f"Started thread for expiry date: {expiry_date}")
+        
         
         # Display progress with Rich
         with Live(progress_display.generate_table(progress_data), refresh_per_second=1) as live:
