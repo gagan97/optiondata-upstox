@@ -1,0 +1,35 @@
+2025-01-13 11:59:16,167 - WARNING - Failed to initialize holidays list
+2025-01-13 11:59:16,168 - INFO - Starting option chain data service...
+2025-01-13 11:59:17,176 - INFO - Market is open. Fetching data...
+2025-01-13 11:59:30,225 - INFO - Successfully processed data for expiry: 2025-01-16
+2025-01-13 11:59:42,609 - INFO - Successfully processed data for expiry: 2025-01-23
+2025-01-13 11:59:57,361 - INFO - Successfully processed data for expiry: 2025-01-30
+2025-01-13 12:00:08,233 - INFO - Service stopped by user
+2025-01-13 16:22:36,867 - WARNING - Failed to initialize holidays list
+2025-01-13 16:22:36,868 - INFO - Starting option chain data service...
+2025-01-13 16:22:37,869 - INFO - Market is closed.
+2025-01-13 16:22:38,869 - INFO - Market is closed.
+2025-01-13 16:22:39,870 - INFO - Market is closed.
+2025-01-13 16:22:40,870 - INFO - Market is closed.
+2025-01-13 16:22:41,871 - INFO - Market is closed.
+2025-01-13 16:22:42,871 - INFO - Market is closed.
+2025-01-13 16:22:43,644 - INFO - Service stopped by user
+2025-01-13 16:23:19,200 - WARNING - Failed to initialize holidays list
+2025-01-13 16:23:19,201 - INFO - Starting option chain data service...
+2025-01-13 16:23:20,201 - INFO - Market is open. Fetching data...
+2025-01-13 16:23:23,752 - INFO - Successfully processed data for expiry: 2025-01-16
+2025-01-13 16:23:27,309 - INFO - Successfully processed data for expiry: 2025-01-23
+2025-01-13 16:23:31,660 - INFO - Successfully processed data for expiry: 2025-01-30
+2025-01-13 16:23:35,145 - INFO - Successfully processed data for expiry: 2025-02-06
+2025-01-13 16:23:38,395 - INFO - Successfully processed data for expiry: 2025-02-13
+2025-01-13 16:23:39,897 - INFO - Market is open. Fetching data...
+2025-01-13 16:23:43,420 - INFO - Successfully processed data for expiry: 2025-01-16
+2025-01-13 16:23:47,136 - INFO - Successfully processed data for expiry: 2025-01-23
+2025-01-13 16:23:51,092 - INFO - Successfully processed data for expiry: 2025-01-30
+2025-01-13 16:23:54,614 - INFO - Successfully processed data for expiry: 2025-02-06
+2025-01-13 16:23:57,702 - INFO - Successfully processed data for expiry: 2025-02-13
+2025-01-13 16:23:59,204 - INFO - Market is open. Fetching data...
+2025-01-13 16:24:03,027 - INFO - Successfully processed data for expiry: 2025-01-16
+2025-01-13 16:24:06,576 - INFO - Successfully processed data for expiry: 2025-01-23
+2025-01-13 16:24:10,557 - INFO - Successfully processed data for expiry: 2025-01-30
+2025-01-13 16:24:12,494 - INFO - Service stopped by user

@@ -13,8 +13,38 @@ No holiday for today.
 Status: success
 
 No holiday for today.
-Found 4 expiry dates for January 2025:
-• 2025-01-07
+Status: success
+
+No holiday for today.
+Status: success
+
+No holiday for today.
+Status: success
+
+No holiday for today.
+Status: success
+
+No holiday for today.
+Found 5 expiry dates for January 2025:
 • 2025-01-14
 • 2025-01-21
 • 2025-01-28
+• 2025-02-04
+• 2025-02-11
+Market is closed. Stopping data collection.
+         Option Chain Data Fetching Progress          
+┏━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━┓
+┃ Expiry Date ┃    Status    ┃ Last Update ┃ Records ┃
+┡━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━┩
+│ 2025-01-14  │ Initializing │      -      │       0 │
+│ 2025-01-21  │ Initializing │      -      │       0 │
+│ 2025-01-28  │ Initializing │      -      │       0 │
+│ 2025-02-04  │ Initializing │      -      │       0 │
+│ 2025-02-11  │ Initializing │      -      │       0 │
+│ 2025-01-14  │   Fetching   │  15:27:13   │       0 │
+│ 2025-01-21  │   Fetching   │  15:27:13   │       0 │
+│ 2025-01-28  │   Fetching   │  15:27:14   │       0 │
+│ 2025-02-04  │   Fetching   │  15:29:42   │       0 │
+│ 2025-02-11  │   Fetching   │  15:27:13   │       0 │
+└─────────────┴──────────────┴─────────────┴─────────┘Waiting for threads to complete...
+Script terminated successfully.
