@@ -127,23 +127,23 @@ class ExpiryManager:
         self.progress_data = {}
         self.lock = threading.Lock()
         
-    def get_all_friday_expiries(self, year, month):
-        """Get all Thursday expiry dates for a given month."""
+    def get_all_tuesday_expiries(self, year, month):
+        """Get all Tuesday expiry dates for a given month."""
         first_day = datetime(year, month, 1)
         last_day = (first_day + timedelta(days=32)).replace(day=1) - timedelta(days=1)
         
-        fridays = []
+        tuesdays = []
         current_day = first_day
         
         while current_day <= last_day:
-            if current_day.weekday() == 4:  # Friday
-                friday_date = current_day.date()
+            if current_day.weekday() == 1:  # Tuesday
+                tuesday_date = current_day.date()
                 # Check if it's not a holiday
-                if self.is_valid_trading_day(friday_date):
-                    fridays.append(friday_date)
+                if self.is_valid_trading_day(tuesday_date):
+                    tuesdays.append(tuesday_date)
             current_day += timedelta(days=1)
             
-        return fridays
+        return tuesdays
     
     def is_valid_trading_day(self, date):
         """Check if the given date is a valid trading day."""
@@ -521,7 +521,7 @@ def main():
         
         # Get current year and month
         now = datetime.now()
-        expiry_dates = expiry_manager.get_all_friday_expiries(now.year, now.month)
+        expiry_dates = expiry_manager.get_all_tuesday_expiries(now.year, now.month)
         
         rprint(f"[bold green]Found {len(expiry_dates)} expiry dates for {now.strftime('%B %Y')}:[/bold green]")
         for date in expiry_dates:
