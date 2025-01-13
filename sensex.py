@@ -107,7 +107,7 @@ class MarketCalendar:
         
         # Regular market hours check (9:15 AM to 3:30 PM)
         regular_market_time = now.time()
-        return dt_time(9, 14) <= regular_market_time <= dt_time(18, 30)
+        return dt_time(9, 14) <= regular_market_time <= dt_time(15, 30)
     
     @staticmethod
     def convert_milliseconds_to_time(milliseconds):

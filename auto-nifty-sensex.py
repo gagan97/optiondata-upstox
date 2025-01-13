@@ -11,7 +11,7 @@ import argparse
 
 # Define paths to the scripts
 SCRIPTS = [
-    os.path.join(os.getcwd(), "niftyexp.py"),
+    os.path.join(os.getcwd(), "nifty.py"),
     os.path.join(os.getcwd(), "sensex.py")
 ]
 
