@@ -59737,3 +59737,2702 @@ DETAIL:  Key (datname)=(test) already exists.
 2025-01-13 10:04:46,927 - INFO - Data inserted successfully.
 2025-01-13 10:04:46,927 - DEBUG - Expiry Date is 2025-01-28.
 2025-01-13 10:04:46,927 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:46,980 - INFO - Data inserted successfully.
+2025-01-13 10:04:46,980 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:46,980 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:47,049 - INFO - Data inserted successfully.
+2025-01-13 10:04:47,049 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:47,050 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:47,054 - INFO - Data inserted successfully.
+2025-01-13 10:04:47,054 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:47,054 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:47,103 - INFO - Data inserted successfully.
+2025-01-13 10:04:47,104 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:47,104 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:47,163 - INFO - Data inserted successfully.
+2025-01-13 10:04:47,163 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:47,164 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:47,189 - INFO - Data inserted successfully.
+2025-01-13 10:04:47,190 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:47,190 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:47,201 - INFO - Data inserted successfully.
+2025-01-13 10:04:47,201 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:47,201 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:47,269 - INFO - Data inserted successfully.
+2025-01-13 10:04:47,269 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:47,269 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:47,301 - INFO - Data inserted successfully.
+2025-01-13 10:04:47,302 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:47,302 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:47,322 - INFO - Data inserted successfully.
+2025-01-13 10:04:47,323 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:47,323 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:47,345 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:04:47,382 - INFO - Data inserted successfully.
+2025-01-13 10:04:47,382 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:47,382 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:47,447 - INFO - Data inserted successfully.
+2025-01-13 10:04:47,447 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:47,447 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:47,481 - INFO - Data inserted successfully.
+2025-01-13 10:04:47,481 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:47,481 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:47,528 - INFO - Data inserted successfully.
+2025-01-13 10:04:47,528 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:47,528 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:47,638 - INFO - Data inserted successfully.
+2025-01-13 10:04:47,638 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:47,638 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:47,684 - INFO - Data inserted successfully.
+2025-01-13 10:04:47,684 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:47,684 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:47,722 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:04:47,922 - INFO - Data inserted successfully.
+2025-01-13 10:04:47,925 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:47,925 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:47,927 - INFO - Data inserted successfully.
+2025-01-13 10:04:47,927 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:47,928 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:47,931 - INFO - Data inserted successfully.
+2025-01-13 10:04:47,931 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:47,931 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:48,055 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,056 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:48,056 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:48,079 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,080 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:48,080 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:48,081 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,082 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:48,082 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:48,140 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,141 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:48,142 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:48,226 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,227 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:48,227 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:48,230 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,230 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:48,233 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:48,252 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,253 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:48,253 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:48,335 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,337 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:48,337 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:48,344 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,345 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:48,345 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:48,398 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,400 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:48,400 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:48,455 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,455 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:48,456 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:48,459 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,459 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:48,459 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:48,515 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,516 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:48,516 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:48,570 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,570 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:48,570 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:48,585 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,586 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:48,586 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:48,615 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,616 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:48,616 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:48,696 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,697 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:48,697 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:48,711 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,713 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:48,713 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:48,715 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,717 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:48,717 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:48,826 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,827 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:48,827 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:48,845 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,846 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:48,846 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:48,854 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,857 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:48,857 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:48,876 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:04:48,965 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,966 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:48,966 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:48,971 - INFO - Data inserted successfully.
+2025-01-13 10:04:48,971 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:48,971 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:49,013 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,013 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:49,014 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:49,125 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,125 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:49,125 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:49,139 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,139 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:49,139 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:49,142 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,143 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:49,143 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:49,231 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:04:49,288 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,288 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:49,288 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:49,299 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,299 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:49,299 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:49,312 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,312 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:49,313 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:49,415 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,416 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:49,416 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:49,452 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,453 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:49,453 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:49,455 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,456 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:49,456 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:49,520 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,521 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:49,521 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:49,566 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,568 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:49,568 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:49,577 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,577 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:49,577 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:49,618 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,618 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:49,619 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:49,686 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,687 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:49,687 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:49,697 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,697 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:49,702 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:49,746 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,746 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:49,747 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:49,793 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,793 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:49,794 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:49,828 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,828 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:49,829 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:49,876 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,877 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:49,877 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:49,919 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,919 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:49,919 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:49,940 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,940 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:49,940 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:49,995 - INFO - Data inserted successfully.
+2025-01-13 10:04:49,996 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:49,996 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:50,051 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,051 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:50,051 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:50,058 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,060 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:50,060 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:50,114 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,114 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:50,114 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:50,170 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,170 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:50,171 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:50,177 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,178 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:50,178 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:50,217 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,217 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:50,217 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:50,278 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:04:50,283 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,283 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:50,283 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:50,305 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,305 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:50,305 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:50,346 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,346 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:50,346 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:50,443 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,444 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:50,444 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:50,461 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,461 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:50,461 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:50,469 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,469 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:50,470 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:50,578 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:04:50,600 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,600 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:50,600 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:50,604 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,605 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:50,605 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:50,608 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,608 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:50,609 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:50,713 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,713 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:50,713 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:50,719 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,719 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:50,719 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:50,720 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,720 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:50,720 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:50,826 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,826 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:50,826 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:50,835 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,835 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:50,835 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:50,838 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,838 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:50,838 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:50,897 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,898 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:50,908 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:50,930 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,931 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:50,931 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:50,933 - INFO - Data inserted successfully.
+2025-01-13 10:04:50,934 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:50,934 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:51,021 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,021 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:51,021 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:51,043 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,043 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:51,043 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:51,044 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,044 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:51,044 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:51,100 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,101 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:51,101 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:51,152 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,152 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:51,152 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:51,153 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,153 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:51,153 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:51,192 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,193 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:51,193 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:51,247 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,248 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:51,248 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:51,250 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,250 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:51,250 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:51,272 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,272 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:51,273 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:51,351 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,351 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:51,351 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:51,352 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,353 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:51,353 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:51,375 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,378 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:51,378 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:51,428 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,428 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:51,428 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:51,431 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,432 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:51,432 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:51,446 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,447 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:51,447 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:51,538 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,539 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:51,539 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:51,542 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,542 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:51,542 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:51,546 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,546 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:51,546 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:51,596 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:04:51,618 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,618 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:51,618 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:51,652 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,652 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:51,652 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:51,659 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,659 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:51,659 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:51,713 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,714 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:51,714 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:51,762 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,763 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:51,763 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:51,775 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,776 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:51,776 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:51,800 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,800 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:51,800 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:51,808 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:04:51,885 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,885 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:51,886 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:51,902 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,903 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:51,903 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:51,910 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,911 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:51,911 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:51,983 - INFO - Data inserted successfully.
+2025-01-13 10:04:51,983 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:51,983 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:52,016 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,017 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:52,017 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:52,030 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,031 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:52,031 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:52,143 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,144 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:52,144 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:52,159 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,159 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,159 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:52,160 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:52,160 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:52,160 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:52,288 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,289 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:52,289 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:52,296 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,297 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:52,297 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:52,297 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,299 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:52,299 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:52,372 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,372 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:52,372 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:52,382 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,383 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:52,383 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:52,396 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,399 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:52,399 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:52,446 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,446 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:52,447 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:52,461 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,461 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:52,461 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:52,466 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,467 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:52,467 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:52,536 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,536 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:52,536 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:52,561 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,561 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:52,562 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:52,575 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,575 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:52,575 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:52,620 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,621 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:52,621 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:52,629 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,629 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:52,630 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:52,671 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,671 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:52,671 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:52,720 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,721 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:52,721 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:52,723 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,723 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:52,723 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:52,781 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,782 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:52,782 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:52,820 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,820 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:52,820 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:52,823 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,823 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:52,827 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:52,835 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:04:52,871 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,872 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:52,872 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:52,923 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,924 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:52,924 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:52,940 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,940 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:52,940 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:52,979 - INFO - Data inserted successfully.
+2025-01-13 10:04:52,980 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:52,981 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:53,031 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,031 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:53,031 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:53,037 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,037 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:53,037 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:53,043 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:04:53,073 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,073 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:53,074 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:53,131 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,132 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:53,132 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:53,146 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,147 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:53,147 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:53,187 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,187 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:53,188 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:53,244 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,244 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:53,245 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:53,262 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,263 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:53,263 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:53,290 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,291 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:53,291 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:53,339 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,340 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:53,341 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:53,376 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,376 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:53,376 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:53,423 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,424 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:53,424 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:53,447 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,447 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:53,447 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:53,485 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,485 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:53,485 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:53,530 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,530 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:53,530 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:53,574 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,574 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:53,574 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:53,582 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,582 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:53,582 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:53,635 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,635 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:53,635 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:53,695 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,695 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:53,695 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:53,697 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,697 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:53,698 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:53,745 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,745 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:53,745 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:53,809 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,809 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:53,809 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:53,816 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,816 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:53,817 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:53,859 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,859 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:53,859 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:53,929 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,929 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:53,930 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:53,938 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,938 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:53,938 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:53,966 - INFO - Data inserted successfully.
+2025-01-13 10:04:53,966 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:53,966 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:54,042 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,042 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:54,042 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:54,053 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,053 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:54,053 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:54,058 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:04:54,091 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,091 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:54,091 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:54,178 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,178 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:54,179 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:54,194 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,194 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:54,194 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:54,251 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,251 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:54,251 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:54,312 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,312 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:54,322 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:54,330 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,330 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:54,330 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:54,376 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,376 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:54,376 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:54,398 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:04:54,458 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,458 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:54,458 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:54,459 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,460 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:54,460 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:54,499 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,499 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:54,500 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:54,569 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,569 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:54,569 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:54,599 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,600 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:54,600 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:54,603 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,603 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:54,604 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:54,692 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,693 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:54,693 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:54,728 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,728 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:54,729 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:54,734 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,734 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:54,734 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:54,807 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,807 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:54,807 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:54,834 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,835 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:54,835 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:54,869 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,869 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:54,869 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:54,924 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,924 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:54,929 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:54,942 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,942 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:54,942 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:54,996 - INFO - Data inserted successfully.
+2025-01-13 10:04:54,996 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:54,996 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:55,050 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,050 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:55,050 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:55,057 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,058 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:55,058 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:55,104 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,104 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:55,104 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:55,172 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,173 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:55,173 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:55,181 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,181 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:55,181 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:55,232 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,232 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:55,232 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:55,303 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,303 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:55,303 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:55,320 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,320 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:55,320 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:55,348 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,348 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:55,348 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:55,430 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:04:55,433 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,433 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:55,433 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:55,450 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,450 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:55,450 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:55,473 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,474 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:55,474 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:55,571 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,572 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:55,572 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:55,592 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,592 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:55,593 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:55,623 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,702 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,702 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:55,702 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:55,717 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,717 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:55,717 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:55,744 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:04:55,820 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,820 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:55,820 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:55,834 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,834 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:55,835 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:55,921 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,921 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:55,922 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:55,935 - INFO - Data inserted successfully.
+2025-01-13 10:04:55,936 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:55,936 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:56,036 - INFO - Data inserted successfully.
+2025-01-13 10:04:56,036 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:56,037 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:56,052 - INFO - Data inserted successfully.
+2025-01-13 10:04:56,055 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:56,055 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:56,147 - INFO - Data inserted successfully.
+2025-01-13 10:04:56,147 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:56,148 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:56,161 - INFO - Data inserted successfully.
+2025-01-13 10:04:56,161 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:56,162 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:56,253 - INFO - Data inserted successfully.
+2025-01-13 10:04:56,254 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:56,254 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:56,265 - INFO - Data inserted successfully.
+2025-01-13 10:04:56,265 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:56,265 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:56,357 - INFO - Data inserted successfully.
+2025-01-13 10:04:56,357 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:56,357 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:56,372 - INFO - Data inserted successfully.
+2025-01-13 10:04:56,372 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:56,372 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:56,461 - INFO - Data inserted successfully.
+2025-01-13 10:04:56,461 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:56,462 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:56,486 - INFO - Data inserted successfully.
+2025-01-13 10:04:56,486 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:56,487 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:56,584 - INFO - Data inserted successfully.
+2025-01-13 10:04:56,584 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:56,584 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:56,607 - INFO - Data inserted successfully.
+2025-01-13 10:04:56,607 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:56,610 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:56,631 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:04:56,695 - INFO - Data inserted successfully.
+2025-01-13 10:04:56,695 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:56,695 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:56,743 - INFO - Data inserted successfully.
+2025-01-13 10:04:56,743 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:56,743 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:56,784 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:04:56,850 - INFO - Data inserted successfully.
+2025-01-13 10:04:56,850 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:56,850 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:56,878 - INFO - Data inserted successfully.
+2025-01-13 10:04:56,884 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:56,884 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:56,971 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-21 HTTP/1.1" 200 None
+2025-01-13 10:04:56,978 - INFO - Data inserted successfully.
+2025-01-13 10:04:56,978 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:56,978 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:57,009 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:57,010 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:57,035 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,036 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:57,036 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:57,096 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,096 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:57,096 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:57,120 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:04:57,155 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,155 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:57,155 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:57,165 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,165 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:57,165 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:57,215 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,215 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:57,215 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:57,274 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,275 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:57,275 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:57,292 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,292 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:57,293 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:57,325 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,325 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:57,325 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:57,394 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,394 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:57,395 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:57,405 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,405 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:57,405 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:57,449 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,449 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:57,449 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:57,522 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,523 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:57,523 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:57,527 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,528 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:57,528 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:57,566 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,566 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:57,567 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:57,637 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,637 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:57,638 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:57,642 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,642 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:57,642 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:57,697 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,698 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:57,698 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:57,755 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,755 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:57,755 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:57,758 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,758 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:57,759 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:57,816 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,858 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,859 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:57,859 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:57,869 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,869 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:57,869 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:57,956 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,956 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:57,957 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:57,987 - INFO - Data inserted successfully.
+2025-01-13 10:04:57,987 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:57,988 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:58,052 - INFO - Data inserted successfully.
+2025-01-13 10:04:58,052 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:58,053 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:58,083 - INFO - Data inserted successfully.
+2025-01-13 10:04:58,083 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:58,083 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:58,153 - INFO - Data inserted successfully.
+2025-01-13 10:04:58,153 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:58,154 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:58,154 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:04:58,200 - INFO - Data inserted successfully.
+2025-01-13 10:04:58,200 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:58,200 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:58,288 - INFO - Data inserted successfully.
+2025-01-13 10:04:58,288 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:58,288 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:58,331 - INFO - Data inserted successfully.
+2025-01-13 10:04:58,331 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:58,331 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:58,407 - INFO - Data inserted successfully.
+2025-01-13 10:04:58,407 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:58,407 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:58,424 - INFO - Data inserted successfully.
+2025-01-13 10:04:58,424 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:58,424 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:58,436 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:04:58,515 - INFO - Data inserted successfully.
+2025-01-13 10:04:58,515 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:58,515 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:58,526 - INFO - Data inserted successfully.
+2025-01-13 10:04:58,605 - INFO - Data inserted successfully.
+2025-01-13 10:04:58,605 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:58,605 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:58,702 - INFO - Data inserted successfully.
+2025-01-13 10:04:58,702 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:58,703 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:58,775 - INFO - Data inserted successfully.
+2025-01-13 10:04:58,776 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:58,776 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:58,833 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:04:58,866 - INFO - Data inserted successfully.
+2025-01-13 10:04:58,866 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:58,866 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:58,978 - INFO - Data inserted successfully.
+2025-01-13 10:04:58,978 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:58,978 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:59,057 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-14 HTTP/1.1" 200 None
+2025-01-13 10:04:59,077 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:59,077 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:59,084 - INFO - Data inserted successfully.
+2025-01-13 10:04:59,084 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:59,084 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:59,190 - INFO - Data inserted successfully.
+2025-01-13 10:04:59,190 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:59,190 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:59,194 - INFO - Data inserted successfully.
+2025-01-13 10:04:59,194 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:59,194 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:59,302 - INFO - Data inserted successfully.
+2025-01-13 10:04:59,303 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:59,303 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:59,310 - INFO - Data inserted successfully.
+2025-01-13 10:04:59,310 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:59,311 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:59,413 - INFO - Data inserted successfully.
+2025-01-13 10:04:59,413 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:59,413 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:59,415 - INFO - Data inserted successfully.
+2025-01-13 10:04:59,415 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:59,416 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:59,463 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:04:59,528 - INFO - Data inserted successfully.
+2025-01-13 10:04:59,528 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:59,528 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:59,530 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:04:59,536 - INFO - Data inserted successfully.
+2025-01-13 10:04:59,536 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:59,536 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:59,667 - INFO - Data inserted successfully.
+2025-01-13 10:04:59,667 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:59,667 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:59,696 - INFO - Data inserted successfully.
+2025-01-13 10:04:59,696 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:59,696 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:04:59,801 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:04:59,852 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-28 HTTP/1.1" 200 None
+2025-01-13 10:04:59,868 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:04:59,869 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:04:59,906 - INFO - Data inserted successfully.
+2025-01-13 10:04:59,906 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:04:59,907 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:04:59,927 - INFO - Data inserted successfully.
+2025-01-13 10:04:59,929 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:04:59,931 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:00,046 - INFO - Data inserted successfully.
+2025-01-13 10:05:00,046 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:00,047 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:00,082 - INFO - Data inserted successfully.
+2025-01-13 10:05:00,082 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:00,082 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:00,240 - INFO - Data inserted successfully.
+2025-01-13 10:05:00,240 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:00,240 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:00,608 - INFO - Data inserted successfully.
+2025-01-13 10:05:00,608 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:00,608 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:00,706 - INFO - Data inserted successfully.
+2025-01-13 10:05:00,707 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:00,707 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:00,758 - INFO - Data inserted successfully.
+2025-01-13 10:05:00,759 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:00,759 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:00,782 - INFO - Data inserted successfully.
+2025-01-13 10:05:00,783 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:00,783 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:00,838 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:00,848 - INFO - Data inserted successfully.
+2025-01-13 10:05:00,849 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:00,849 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:00,895 - INFO - Data inserted successfully.
+2025-01-13 10:05:00,895 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:00,895 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:00,912 - INFO - Data inserted successfully.
+2025-01-13 10:05:00,912 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:00,912 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:01,017 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,017 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:01,018 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:01,082 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,082 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:01,082 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:01,088 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,088 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:01,088 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:01,095 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:05:01,170 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,171 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:01,177 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:01,212 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,213 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:01,214 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:01,216 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,217 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:01,217 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:01,296 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,296 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:01,296 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:01,349 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,350 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,351 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:01,351 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:01,352 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:01,352 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:01,427 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,427 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:01,427 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:01,493 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,493 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:01,493 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:01,524 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,525 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:01,525 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:01,556 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,556 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:01,556 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:01,631 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,631 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:01,632 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:01,633 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,633 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:01,633 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:01,686 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,686 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:01,687 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:01,760 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,760 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:01,760 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:01,767 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,767 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:01,767 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:01,839 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,839 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:01,839 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:01,967 - INFO - Data inserted successfully.
+2025-01-13 10:05:01,967 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:01,968 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:02,000 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,000 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:02,000 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:02,001 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,001 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:02,001 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:02,068 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,068 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:02,068 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:02,120 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:02,172 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,173 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:02,173 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:02,173 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,173 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:02,174 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:02,308 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,308 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:02,308 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:02,339 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,339 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:02,339 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:02,344 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,344 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:02,346 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:02,355 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:05:02,495 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,495 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:02,495 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:02,540 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,540 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:02,540 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:02,549 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,549 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:02,550 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:02,624 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,625 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:02,625 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:02,690 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,691 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:02,691 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:02,691 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,691 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:02,692 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:02,742 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,742 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:02,742 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:02,838 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,838 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:02,839 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:02,851 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,851 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:02,851 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:02,852 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,854 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:02,854 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:02,952 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,953 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:02,953 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:02,990 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,990 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:02,991 - INFO - Data inserted successfully.
+2025-01-13 10:05:02,994 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:02,994 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:02,996 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:03,071 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,072 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:03,072 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:03,137 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,137 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:03,137 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:03,145 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,146 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:03,146 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:03,186 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,186 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:03,186 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:03,234 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,235 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:03,235 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:03,249 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,249 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:03,249 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:03,311 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,311 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:03,311 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:03,353 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,353 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:03,354 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:03,356 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,357 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:03,357 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:03,367 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:03,404 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,404 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:03,404 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:03,468 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,468 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:03,469 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:03,471 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,471 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:03,471 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:03,509 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,510 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:03,510 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:03,569 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,569 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:03,569 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:03,570 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,570 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:03,570 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:03,586 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:05:03,628 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,628 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:03,628 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:03,672 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,672 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:03,672 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:03,681 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,681 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:03,681 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:03,734 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,734 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:03,734 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:03,820 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,820 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:03,821 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:03,844 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,844 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:03,844 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:03,881 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,881 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:03,881 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:03,903 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,903 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:03,903 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:03,983 - INFO - Data inserted successfully.
+2025-01-13 10:05:03,984 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:03,984 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:04,032 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,032 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:04,032 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:04,067 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,067 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:04,067 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:04,115 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,115 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:04,115 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:04,196 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,196 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:04,196 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:04,201 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,201 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:04,201 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:04,221 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,221 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:04,221 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:04,271 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,271 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:04,271 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:04,317 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,318 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:04,318 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:04,348 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,349 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:04,349 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:04,381 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,381 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:04,381 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:04,408 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,408 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:04,409 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:04,442 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,442 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:04,442 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:04,483 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,483 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:04,484 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:04,491 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,492 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:04,492 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:04,555 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,556 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:04,556 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:04,599 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:04,628 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,628 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:04,628 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:04,651 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,652 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:04,652 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:04,693 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,693 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:04,693 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:04,710 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:05:04,772 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,772 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:04,773 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:04,778 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,778 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:04,778 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:04,782 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,782 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:04,782 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:04,855 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,856 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:04,856 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:04,866 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,867 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:04,867 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:04,878 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,878 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:04,878 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:04,971 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,974 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:04,974 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:04,975 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,975 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:04,975 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:04,981 - INFO - Data inserted successfully.
+2025-01-13 10:05:04,981 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:04,981 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:05,072 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,072 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:05,073 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:05,075 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,075 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:05,075 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:05,083 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,083 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:05,083 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:05,152 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,152 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:05,152 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:05,168 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,169 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:05,169 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:05,172 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,173 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:05,173 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:05,244 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,244 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:05,244 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:05,259 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,259 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:05,259 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:05,263 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,263 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:05,263 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:05,319 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,319 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:05,319 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:05,331 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,331 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:05,331 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:05,339 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,340 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:05,340 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:05,426 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,426 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:05,426 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:05,432 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,433 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:05,433 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:05,438 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,438 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:05,438 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:05,505 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,505 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:05,505 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:05,511 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,511 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:05,511 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:05,535 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,535 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:05,535 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:05,634 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,634 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:05,634 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:05,639 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,639 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:05,639 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:05,640 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,640 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:05,640 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:05,729 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:05,771 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,772 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:05,772 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:05,776 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,778 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:05,778 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:05,780 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,780 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:05,780 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:05,872 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:05:05,907 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,907 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:05,907 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:05,915 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,915 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:05,915 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:05,918 - INFO - Data inserted successfully.
+2025-01-13 10:05:05,918 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:05,919 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:06,044 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,044 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:06,044 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:06,061 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,062 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:06,062 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:06,075 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,075 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:06,075 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:06,136 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,136 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:06,137 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:06,188 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,189 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:06,189 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:06,212 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,212 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:06,212 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:06,213 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,213 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:06,214 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:06,265 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,265 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:06,265 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:06,296 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,296 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:06,296 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:06,297 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,297 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:06,297 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:06,364 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,364 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:06,364 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:06,381 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,382 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:06,382 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:06,386 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,386 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:06,386 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:06,454 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,455 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:06,455 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:06,474 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,474 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:06,474 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:06,479 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,480 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:06,480 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:06,527 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,527 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:06,528 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:06,546 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,546 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:06,547 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:06,580 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,580 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:06,580 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:06,599 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,599 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:06,599 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:06,628 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,628 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:06,629 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:06,652 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,652 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:06,652 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:06,676 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,677 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:06,677 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:06,727 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,727 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:06,727 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:06,730 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,731 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:06,731 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:06,769 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,769 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:06,769 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:06,818 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,821 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:06,821 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:06,821 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,821 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:06,822 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:06,850 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,851 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:06,851 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:06,898 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:06,929 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,929 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:06,929 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:06,954 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,954 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:06,954 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:06,963 - INFO - Data inserted successfully.
+2025-01-13 10:05:06,963 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:06,963 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:07,024 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,024 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:07,024 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:07,068 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,069 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:07,069 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:07,071 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,071 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:07,071 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:07,102 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,103 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:07,103 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:07,107 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:05:07,168 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,169 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:07,169 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:07,174 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,175 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:07,175 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:07,181 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,181 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:07,181 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:07,258 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,259 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:07,259 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:07,263 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,263 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:07,265 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:07,285 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,286 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:07,286 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:07,338 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,338 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:07,338 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:07,367 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,367 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:07,367 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:07,371 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,371 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:07,371 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:07,418 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,419 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:07,419 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:07,432 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,432 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:07,432 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:07,453 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,453 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:07,453 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:07,489 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,489 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:07,493 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:07,507 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,507 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:07,507 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:07,542 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,542 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:07,544 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:07,565 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,565 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:07,566 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:07,586 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,587 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:07,587 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:07,615 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,615 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:07,615 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:07,651 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,652 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:07,652 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:07,666 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,666 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:07,666 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:07,721 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,721 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,722 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:07,723 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:07,724 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:07,724 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:07,744 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,744 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:07,745 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:07,807 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,807 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:07,807 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:07,814 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,815 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:07,815 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:07,816 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,816 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:07,816 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:07,886 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,886 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:07,886 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:07,887 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,887 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:07,887 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:07,909 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,909 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:07,909 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:07,974 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,975 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:07,975 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:07,990 - INFO - Data inserted successfully.
+2025-01-13 10:05:07,991 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:07,991 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:08,014 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,015 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:08,015 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:08,092 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,092 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:08,093 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:08,093 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,093 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:08,093 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:08,114 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:08,133 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,133 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:08,133 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:08,200 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,200 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:08,200 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:08,213 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,213 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:08,213 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:08,240 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,240 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:08,240 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:08,310 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,310 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:08,310 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:08,313 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,314 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:08,314 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:08,324 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:05:08,333 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,333 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:08,333 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:08,389 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,389 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:08,389 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:08,408 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,409 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:08,409 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:08,423 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,424 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:08,424 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:08,459 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,459 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:08,459 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:08,493 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,494 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:08,494 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:08,514 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,514 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:08,514 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:08,564 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,564 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:08,564 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:08,567 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,568 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:08,568 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:08,589 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,589 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:08,589 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:08,652 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,652 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:08,652 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:08,663 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,663 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:08,663 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:08,670 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,670 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:08,670 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:08,746 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,746 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:08,747 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:08,759 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,760 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:08,760 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:08,762 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,762 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:08,762 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:08,840 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,841 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:08,841 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:08,843 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,843 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:08,844 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:08,846 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,847 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:08,847 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:08,920 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,920 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:08,921 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:08,938 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,938 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:08,938 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:08,941 - INFO - Data inserted successfully.
+2025-01-13 10:05:08,942 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:08,942 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:09,011 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,011 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:09,011 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:09,023 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,023 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:09,023 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:09,026 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,026 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:09,026 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:09,095 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,095 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:09,095 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:09,109 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,110 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:09,110 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:09,118 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,118 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:09,118 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:09,171 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,171 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:09,171 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:09,194 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,194 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:09,194 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:09,195 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,195 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:09,195 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:09,246 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,248 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:09,248 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:09,283 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,283 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:09,283 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:09,284 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,284 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:09,284 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:09,334 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:09,384 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,384 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:09,384 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:09,385 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,387 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:09,387 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:09,392 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,392 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:09,392 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:09,503 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,503 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:09,503 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:09,505 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,506 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:09,507 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:09,512 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,512 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:09,512 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:09,542 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:05:09,588 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,588 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:09,588 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:09,611 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,612 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:09,612 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:09,632 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,632 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:09,632 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:09,700 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,700 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:09,701 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:09,716 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,716 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:09,716 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:09,722 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,723 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:09,723 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:09,775 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,775 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:09,776 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:09,800 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,800 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:09,801 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:09,801 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,801 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:09,801 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:09,854 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,854 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:09,854 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:09,903 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,903 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:09,903 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:09,911 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,911 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:09,911 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:09,934 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,934 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:09,935 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:09,970 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,970 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:09,970 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:09,983 - INFO - Data inserted successfully.
+2025-01-13 10:05:09,984 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:09,984 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:10,022 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,022 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:10,023 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:10,063 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,063 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:10,064 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:10,087 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,088 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:10,088 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:10,102 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,105 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:10,105 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:10,132 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,132 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:10,132 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:10,161 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,162 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:10,162 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:10,180 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,180 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:10,180 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:10,206 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,206 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:10,206 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:10,231 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,231 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:10,232 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:10,261 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,261 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:10,261 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:10,289 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,289 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:10,289 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:10,327 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,328 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:10,328 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:10,339 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,339 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:10,339 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:10,362 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,362 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:10,363 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:10,423 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,423 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:10,423 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:10,427 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,427 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:10,427 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:10,438 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,438 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:10,439 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:10,494 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,494 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:10,494 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:10,514 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,515 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:10,515 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:10,535 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,535 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:10,535 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:10,568 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:10,583 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,583 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:10,583 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:10,605 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,605 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:10,605 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:10,643 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,643 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:10,643 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:10,689 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,689 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:10,689 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:10,722 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,722 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:10,723 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:10,756 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,756 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:10,757 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:10,768 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,769 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:10,770 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:10,774 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:05:10,803 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,803 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:10,803 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:10,838 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,839 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:10,839 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:10,880 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,880 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:10,881 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:10,886 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,887 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:10,887 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:10,918 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,920 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:10,920 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:10,953 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,953 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:10,953 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:10,959 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,960 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:10,960 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:10,999 - INFO - Data inserted successfully.
+2025-01-13 10:05:10,999 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:10,999 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:11,044 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,045 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:11,045 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:11,049 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,049 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:11,049 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:11,083 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,084 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:11,084 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:11,123 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,124 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:11,124 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:11,131 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,131 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:11,131 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:11,157 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,158 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:11,158 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:11,216 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,219 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:11,220 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:11,225 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,226 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:11,227 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:11,231 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,232 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:11,232 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:11,315 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,316 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:11,316 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:11,316 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,316 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:11,316 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:11,323 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,323 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:11,323 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:11,398 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,399 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:11,399 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:11,404 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,404 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:11,404 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:11,408 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,408 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:11,408 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:11,504 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,504 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:11,504 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:11,505 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,506 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:11,506 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:11,508 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,509 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:11,509 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:11,592 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,592 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:11,593 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:11,598 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,599 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:11,599 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:11,599 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,600 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:11,601 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:11,673 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,673 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:11,673 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:11,705 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,705 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:11,705 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:11,707 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,708 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:11,708 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:11,750 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,750 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:11,750 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:11,775 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,775 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:11,776 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:11,786 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:11,803 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,803 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:11,803 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:11,831 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,831 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:11,831 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:11,882 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,882 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:11,882 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:11,912 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,913 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:11,913 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:11,934 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,934 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:11,934 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:11,993 - INFO - Data inserted successfully.
+2025-01-13 10:05:11,993 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:11,993 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:12,019 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,019 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:12,020 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:12,027 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:05:12,042 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,042 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:12,042 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:12,087 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,087 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:12,087 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:12,097 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,097 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:12,100 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:12,136 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,136 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:12,137 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:12,185 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,185 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:12,186 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:12,187 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,187 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:12,187 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:12,203 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,204 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:12,204 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:12,298 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,299 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:12,299 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:12,300 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,300 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:12,300 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:12,316 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,316 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:12,316 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:12,395 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,395 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:12,395 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:12,399 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,399 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:12,399 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:12,408 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,476 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,477 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:12,479 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:12,479 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,480 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:12,480 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:12,574 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,575 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:12,575 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:12,577 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,577 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:12,577 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:12,641 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,642 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:12,642 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:12,651 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,651 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:12,652 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:12,702 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,705 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:12,705 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:12,731 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,731 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:12,731 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:12,798 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,798 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:12,799 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:12,805 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,806 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:12,806 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:12,856 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,856 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:12,856 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:12,871 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,871 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:12,871 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:12,925 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,925 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:12,925 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:12,933 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,933 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:12,934 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:12,992 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,992 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:12,992 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:12,997 - INFO - Data inserted successfully.
+2025-01-13 10:05:12,997 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:12,997 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:13,045 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:13,082 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,082 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:13,082 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:13,094 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,094 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:13,094 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:13,178 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,178 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:13,178 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:13,181 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,181 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:13,181 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:13,210 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:05:13,267 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,267 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:13,267 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:13,268 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,268 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:13,268 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:13,333 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,333 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:13,333 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:13,337 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,337 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:13,338 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:13,409 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:13,418 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,418 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:13,419 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:13,421 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,421 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:13,421 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:13,518 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,519 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:13,519 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:13,528 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,529 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:13,529 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:13,578 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-21 HTTP/1.1" 200 None
+2025-01-13 10:05:13,596 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:13,596 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:13,603 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,603 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:13,603 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:13,629 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,630 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:13,630 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:13,682 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,682 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:13,682 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:13,683 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,683 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:13,686 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:13,710 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,710 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:13,710 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:13,801 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,801 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:13,801 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:13,802 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,802 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:13,802 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:13,804 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,804 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:13,804 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:13,884 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,893 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,893 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:13,893 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:13,897 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,897 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:13,897 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:13,964 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,964 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:13,965 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:13,971 - INFO - Data inserted successfully.
+2025-01-13 10:05:13,971 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:13,971 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:14,026 - INFO - Data inserted successfully.
+2025-01-13 10:05:14,029 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:14,029 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:14,044 - INFO - Data inserted successfully.
+2025-01-13 10:05:14,044 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:14,044 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:14,088 - INFO - Data inserted successfully.
+2025-01-13 10:05:14,088 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:14,089 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:14,112 - INFO - Data inserted successfully.
+2025-01-13 10:05:14,112 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:14,112 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:14,149 - INFO - Data inserted successfully.
+2025-01-13 10:05:14,149 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:14,149 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:14,179 - INFO - Data inserted successfully.
+2025-01-13 10:05:14,180 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:14,180 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:14,215 - INFO - Data inserted successfully.
+2025-01-13 10:05:14,215 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:14,215 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:14,233 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:14,249 - INFO - Data inserted successfully.
+2025-01-13 10:05:14,249 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:14,249 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:14,322 - INFO - Data inserted successfully.
+2025-01-13 10:05:14,322 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:14,322 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:14,352 - INFO - Data inserted successfully.
+2025-01-13 10:05:14,425 - INFO - Data inserted successfully.
+2025-01-13 10:05:14,425 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:14,425 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:14,433 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:05:14,509 - INFO - Data inserted successfully.
+2025-01-13 10:05:14,510 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:14,510 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:14,582 - INFO - Data inserted successfully.
+2025-01-13 10:05:14,582 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:14,582 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:14,711 - INFO - Data inserted successfully.
+2025-01-13 10:05:14,712 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:14,712 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:14,783 - INFO - Data inserted successfully.
+2025-01-13 10:05:14,783 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:14,783 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:14,886 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:14,991 - INFO - Data inserted successfully.
+2025-01-13 10:05:14,991 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:14,992 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:15,012 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-14 HTTP/1.1" 200 None
+2025-01-13 10:05:15,025 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:15,025 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:15,125 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,125 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:15,125 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:15,126 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,126 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:15,127 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:15,260 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,260 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:15,260 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:15,263 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,263 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:15,263 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:15,352 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,352 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:15,352 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:15,355 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,355 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:15,355 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:15,357 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:15,456 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:15,488 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,488 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:15,489 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:15,499 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,500 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:15,500 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:15,631 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,631 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:15,632 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:15,636 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,636 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:15,636 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:15,652 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-28 HTTP/1.1" 200 None
+2025-01-13 10:05:15,670 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:15,671 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:15,721 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:05:15,754 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,754 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:15,755 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:15,758 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,758 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:15,758 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:15,761 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,761 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:15,761 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:15,840 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,841 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:15,843 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:15,846 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,847 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:15,847 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:15,853 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,853 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:15,853 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:15,943 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,943 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:15,943 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:15,960 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,960 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:15,960 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:15,965 - INFO - Data inserted successfully.
+2025-01-13 10:05:15,966 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:15,966 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:16,031 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,031 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:16,032 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:16,054 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,055 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:16,055 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:16,057 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,057 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:16,058 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:16,122 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,122 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:16,123 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:16,174 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,174 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:16,174 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:16,209 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,209 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:16,210 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:16,262 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,263 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:16,264 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:16,264 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,264 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:16,264 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:16,289 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,289 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:16,290 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:16,413 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,413 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:16,414 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:16,415 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,415 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:16,416 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:16,420 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,420 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:16,420 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:16,503 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,504 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:16,504 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:16,552 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,552 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:16,552 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:16,592 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,592 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:16,593 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:16,629 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,630 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:16,630 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:16,636 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,636 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:16,636 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:16,659 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,660 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:16,660 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:16,711 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,711 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:16,711 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:16,728 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,729 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:16,729 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:16,741 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:16,768 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,768 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:16,768 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:16,833 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,834 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:16,834 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:16,837 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,837 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:16,838 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:16,890 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,890 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:16,891 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:16,945 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:05:16,951 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,951 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:16,951 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:16,965 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,966 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:16,966 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:16,969 - INFO - Data inserted successfully.
+2025-01-13 10:05:16,970 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:16,970 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:17,018 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,018 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:17,018 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:17,065 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,065 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:17,065 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:17,078 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,082 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:17,083 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:17,112 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,112 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:17,112 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:17,152 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,153 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:17,153 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:17,161 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,161 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:17,162 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:17,201 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,201 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:17,201 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:17,244 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,244 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:17,244 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:17,253 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,253 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:17,253 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:17,292 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,293 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:17,295 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:17,354 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,354 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:17,354 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:17,362 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,362 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:17,362 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:17,395 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,395 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:17,396 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:17,441 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,442 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:17,442 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:17,446 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,447 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:17,447 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:17,475 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,475 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:17,476 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:17,536 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,536 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:17,536 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:17,539 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,541 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:17,541 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:17,574 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,574 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:17,574 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:17,630 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,630 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:17,631 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:17,640 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,641 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:17,641 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:17,660 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,660 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:17,660 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:17,756 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,756 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:17,756 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:17,764 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,765 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:17,765 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:17,777 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,777 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:17,777 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:17,849 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,851 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:17,851 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:17,853 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,853 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:17,853 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:17,865 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,865 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:17,865 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:17,952 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,952 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:17,953 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:17,955 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,956 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:17,956 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:17,958 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:17,967 - INFO - Data inserted successfully.
+2025-01-13 10:05:17,969 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:17,969 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:18,100 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,101 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:18,101 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:18,106 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,108 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:18,108 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:18,115 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,116 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:18,116 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:18,181 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:05:18,225 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,226 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:18,226 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:18,231 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,232 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:18,232 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:18,236 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,237 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:18,237 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:18,307 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,307 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:18,308 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:18,334 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,334 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:18,335 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:18,340 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,340 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:18,340 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:18,390 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,390 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:18,391 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:18,429 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,432 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:18,432 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:18,437 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,438 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:18,438 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:18,460 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,460 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:18,460 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:18,527 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,528 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:18,528 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:18,532 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,532 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:18,532 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:18,569 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,569 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:18,570 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:18,623 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,624 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:18,624 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:18,658 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,659 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:18,660 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:18,661 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,661 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:18,661 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:18,707 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,708 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:18,708 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:18,763 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,763 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:18,763 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:18,766 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,768 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:18,768 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:18,782 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,782 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:18,782 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:18,864 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,864 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:18,864 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:18,873 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,873 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:18,873 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:18,874 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,874 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:18,875 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:18,926 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,926 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:18,926 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:18,975 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,976 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:18,976 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:18,980 - INFO - Data inserted successfully.
+2025-01-13 10:05:18,980 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:18,980 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:19,008 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,008 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:19,008 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:19,056 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,056 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:19,056 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:19,074 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,074 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:19,074 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:19,087 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,088 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:19,088 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:19,135 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,135 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:19,135 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:19,152 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,153 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:19,153 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:19,169 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,169 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:19,170 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:19,212 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:19,215 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,215 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:19,215 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:19,256 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,256 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:19,256 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:19,295 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,295 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:19,295 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:19,332 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,332 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:19,332 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:19,352 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,352 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:19,352 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:19,414 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,414 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:19,415 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:19,431 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,432 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:19,433 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:19,464 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:05:19,467 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,467 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:19,467 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:19,503 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,503 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:19,503 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:19,523 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,524 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:19,524 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:19,553 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,553 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:19,553 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:19,611 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,611 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:19,611 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:19,625 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,625 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:19,625 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:19,637 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,637 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:19,637 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:19,711 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,711 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:19,711 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:19,733 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,733 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:19,733 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:19,735 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,736 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:19,736 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:19,775 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,775 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:19,776 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:19,820 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,820 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:19,820 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:19,853 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,854 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:19,854 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:19,877 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,878 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:19,878 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:19,944 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,944 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:19,945 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:19,968 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,969 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:19,969 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:19,993 - INFO - Data inserted successfully.
+2025-01-13 10:05:19,993 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:19,993 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:20,053 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,053 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:20,053 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:20,109 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,110 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:20,110 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:20,113 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,114 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:20,114 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:20,160 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,160 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:20,162 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:20,242 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,243 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:20,243 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:20,250 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,251 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:20,251 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:20,283 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,283 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:20,283 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:20,356 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,356 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:20,357 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:20,368 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,368 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:20,368 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:20,407 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,407 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:20,407 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:20,483 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,483 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:20,483 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:20,492 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:20,501 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,501 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:20,501 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:20,518 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,518 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:20,518 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:20,646 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,646 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:20,647 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:20,652 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,652 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:20,652 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:20,660 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,660 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:20,660 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:20,772 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:05:20,785 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,785 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:20,786 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:20,789 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,789 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:20,789 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:20,795 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,796 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:20,796 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:20,912 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,913 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:20,913 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:20,924 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,926 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:20,926 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:20,942 - INFO - Data inserted successfully.
+2025-01-13 10:05:20,942 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:20,942 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:21,011 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,011 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:21,011 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:21,062 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,062 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:21,062 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:21,063 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,063 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:21,063 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:21,127 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,127 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:21,127 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:21,179 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,179 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:21,179 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:21,181 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,181 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:21,182 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:21,240 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,240 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:21,240 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:21,297 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,297 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:21,297 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:21,298 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,298 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:21,298 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:21,344 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,344 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:21,344 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:21,424 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,425 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:21,425 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:21,429 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,429 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:21,429 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:21,470 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,470 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:21,470 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:21,536 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,537 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:21,537 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:21,567 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,567 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:21,571 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:21,581 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,581 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:21,581 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:21,647 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,647 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:21,647 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:21,681 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,682 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:21,682 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:21,693 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,694 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:21,694 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:21,754 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,754 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:21,754 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:21,788 - DEBUG - Starting new HTTPS connection (1): api.upstox.com:443
+2025-01-13 10:05:21,824 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,824 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:21,824 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:21,841 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,842 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:21,842 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:21,874 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,875 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:21,875 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:21,962 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,962 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:21,962 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:21,991 - INFO - Data inserted successfully.
+2025-01-13 10:05:21,991 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:21,992 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:22,033 - INFO - Data inserted successfully.
+2025-01-13 10:05:22,034 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:22,034 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:22,086 - INFO - Data inserted successfully.
+2025-01-13 10:05:22,086 - DEBUG - Expiry Date is 2025-01-21.
+2025-01-13 10:05:22,086 - DEBUG - Inserting data into table bse_index_sensex_2025_01_21.
+2025-01-13 10:05:22,107 - DEBUG - https://api.upstox.com:443 "GET /v2/option/chain?instrument_key=BSE_INDEX%7CSENSEX&expiry_date=2025-01-07 HTTP/1.1" 200 None
+2025-01-13 10:05:22,140 - INFO - Data inserted successfully.
+2025-01-13 10:05:22,140 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:22,140 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
+2025-01-13 10:05:22,167 - INFO - Data inserted successfully.
+2025-01-13 10:05:22,168 - DEBUG - Expiry Date is 2025-01-28.
+2025-01-13 10:05:22,168 - DEBUG - Inserting data into table bse_index_sensex_2025_01_28.
+2025-01-13 10:05:22,259 - INFO - Data inserted successfully.
+2025-01-13 10:05:22,259 - DEBUG - Expiry Date is 2025-01-14.
+2025-01-13 10:05:22,260 - DEBUG - Inserting data into table bse_index_sensex_2025_01_14.
