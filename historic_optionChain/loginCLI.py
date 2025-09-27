@@ -34,7 +34,7 @@ CONFIG_DIR = BASE_DIR / "api" / "ini"
 LOG_DIR = BASE_DIR / "api" / "logs"
 INSTRUMENT_DIR = BASE_DIR / "api" / "instrument"
 
-FUND_MARGIN_SEGMENTS: Iterable[str] = ("EQUITY", "COMMODITY")
+FUND_MARGIN_SEGMENTS: Iterable[str] = ("EQ", "COMM", "FO", "CD", "SLB", "ALL")
 MARGIN_DISPLAY_FIELDS = (
     ("available_margin", "Available Margin"),
     ("used_margin", "Used Margin"),
