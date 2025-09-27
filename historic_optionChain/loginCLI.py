@@ -7,6 +7,7 @@ import glob
 import gzip
 import json
 import shutil
+from typing import Dict, Iterable, Optional
 import pyotp
 import requests as rq
 from time import sleep
@@ -32,6 +33,17 @@ TOKEN_DIR = BASE_DIR / "api" / "token"
 CONFIG_DIR = BASE_DIR / "api" / "ini"
 LOG_DIR = BASE_DIR / "api" / "logs"
 INSTRUMENT_DIR = BASE_DIR / "api" / "instrument"
+
+FUND_MARGIN_SEGMENTS: Iterable[str] = ("EQUITY", "COMMODITY")
+MARGIN_DISPLAY_FIELDS = (
+    ("available_margin", "Available Margin"),
+    ("used_margin", "Used Margin"),
+    ("span_margin", "SPAN Margin"),
+    ("exposure_margin", "Exposure Margin"),
+    ("payin_amount", "Pay-in Amount"),
+    ("adhoc_margin", "Adhoc Margin"),
+    ("notional_cash", "Notional Cash"),
+)
 
 # Ensure required directories exist
 def ensure_directories():
@@ -117,12 +129,15 @@ def perform_login_process():
     finally:
         driver.quit()
 
-# Get user profile using access token
-def get_user_profile(access_token):
+# Build User API client with provided token
+def create_user_api(access_token: str) -> upstox_client.UserApi:
     configuration = upstox_client.Configuration()
     configuration.access_token = access_token
-    api_instance = upstox_client.UserApi(upstox_client.ApiClient(configuration))
+    return upstox_client.UserApi(upstox_client.ApiClient(configuration))
 
+
+# Get user profile using API client
+def get_user_profile(api_instance: upstox_client.UserApi):
     try:
         api_response = api_instance.get_profile(api_version='2.0')
         if api_response.status == "success":
@@ -146,6 +161,47 @@ def print_user_profile(user_data):
     
     print(Fore.CYAN + "="*30 + Style.RESET_ALL)
 
+
+def format_amount(value: Optional[float]) -> str:
+    if value is None:
+        return "--"
+    try:
+        return f"₹{value:,.2f}"
+    except (ValueError, TypeError):
+        return str(value)
+
+
+def print_user_fund_margin(segment: str, margin_data: Dict[str, float]):
+    print(Fore.MAGENTA + f"\n💼 Fund & Margin - {segment.upper()}" + Style.RESET_ALL)
+    print(Fore.CYAN + "-" * 30 + Style.RESET_ALL)
+    for field, label in MARGIN_DISPLAY_FIELDS:
+        print(f"{Fore.YELLOW}{label}: {Style.RESET_ALL}{format_amount(margin_data.get(field))}")
+    print(Fore.CYAN + "-" * 30 + Style.RESET_ALL)
+
+
+def get_user_fund_margins(api_instance: upstox_client.UserApi, segments: Iterable[str] = FUND_MARGIN_SEGMENTS):
+    for segment in segments:
+        try:
+            response = api_instance.get_user_fund_margin(api_version='2.0', segment=segment)
+        except ApiException as exc:
+            print(Fore.RED + f"⚠️ Failed to retrieve fund & margin for {segment}: {exc}" + Style.RESET_ALL)
+            continue
+
+        if getattr(response, "status", "").lower() != "success" or not getattr(response, "data", None):
+            print(Fore.RED + f"❌ No fund & margin data available for segment {segment}" + Style.RESET_ALL)
+            continue
+
+        for segment_key, margin_obj in response.data.items():
+            if hasattr(margin_obj, "to_dict"):
+                margin_dict = margin_obj.to_dict()
+            elif isinstance(margin_obj, dict):
+                margin_dict = margin_obj
+            else:
+                margin_dict = margin_obj.__dict__
+
+            print_user_fund_margin(segment_key, margin_dict)
+
+
 # Process tokens from the directory and fetch profiles
 def process_tokens():
     # Fixed: Use Path's glob method or convert to string and use proper path joining
@@ -158,7 +214,9 @@ def process_tokens():
         with open(token_file, 'r') as file:
             access_token = file.read().strip()
             print(Fore.CYAN + f"\n🔑 Processing token from {token_file.name}" + Style.RESET_ALL)
-            get_user_profile(access_token)
+            api_instance = create_user_api(access_token)
+            get_user_profile(api_instance)
+            get_user_fund_margins(api_instance)
 
 # Download and parse instrument JSONs
 def download_instruments():
