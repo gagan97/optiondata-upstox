@@ -208,15 +208,6 @@ def main() -> None:
     if not args.skip_pnl:
         print("\n==== Trade Profit & Loss ====")
 
-        try:
-            pnl_metadata = api_get("/trade/profit-loss/metadata", token).get("data", {})
-            print("Available profit & loss metadata:")
-            print(json.dumps(pnl_metadata, indent=2))
-            output_payload["trade_pnl_metadata"] = pnl_metadata
-        except RuntimeError as exc:
-            print(f"Failed to fetch P&L metadata: {exc}")
-            pnl_metadata = {}
-
         today = date.today()
         default_from = today - timedelta(days=7)
         from_date = ensure_date(args.from_date, default_from)
@@ -256,6 +247,8 @@ def main() -> None:
         consolidated_pnl: List[Dict[str, Any]] = []
         pnl_by_segment: Dict[str, Any] = {}
 
+        aggregated_metadata: Dict[str, Any] = {}
+
         for segment in segments_to_fetch:
             segment_params = dict(base_params)
             segment_params["segment"] = segment
@@ -271,6 +264,7 @@ def main() -> None:
                 )
                 pnl_metadata_segment = metadata_response.get("data", {})
                 pnl_by_segment[f"{segment}_metadata"] = pnl_metadata_segment
+                aggregated_metadata[segment] = pnl_metadata_segment
 
                 pnl_data_response = api_get(
                     "/trade/profit-loss/data", token, params=segment_params
@@ -298,8 +292,13 @@ def main() -> None:
             **base_params,
             "segments": segments_to_fetch,
         }
+        output_payload["trade_pnl_metadata"] = aggregated_metadata
         output_payload["trade_pnl_by_segment"] = pnl_by_segment
         output_payload["trade_pnl_data"] = consolidated_pnl
+
+        if aggregated_metadata:
+            print("Available profit & loss metadata (by segment):")
+            print(json.dumps(aggregated_metadata, indent=2))
 
         if consolidated_pnl:
             render_table(
