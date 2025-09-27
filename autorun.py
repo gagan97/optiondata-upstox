@@ -150,12 +150,12 @@ def run_concurrent_scripts(script_paths):
         except Exception as e:
             logging.error(f"Error waiting for process: {str(e)}")
 
-def task_sequence():
+def task_sequence(force: bool = False):
     """Run the task sequence with validation and error handling."""
     current_day, is_weekday = get_current_day()
     logging.info(f"Running task sequence on {current_day}")
     
-    if not is_weekday:
+    if not is_weekday and not force:
         logging.info("Today is weekend. Skipping task sequence.")
         return False
         
@@ -192,7 +192,7 @@ def task_sequence():
         logging.debug(traceback.format_exc())
         return False
 
-def schedule_tasks():
+def schedule_tasks(force: bool = False):
     """Schedule tasks with improved time handling and error recovery."""
     def random_task():
         current_day, is_weekday = get_current_day()
@@ -200,19 +200,22 @@ def schedule_tasks():
         
         logging.info(f"Checking schedule: {current_day} at {current_time}")
         
-        if not is_weekday:
+        if not is_weekday and not force:
             logging.info("Weekend detected. Skipping execution.")
             return
             
-        if current_time <= "15:30":
+        if force or current_time <= "15:30":
             random_delay = random.randint(0, 3900)
             logging.info(f"[INFO] Delaying task execution by {random_delay} seconds")
             time.sleep(random_delay)
-            task_sequence()
+            task_sequence(force=force)
     
     # Schedule tasks for weekdays
-    for day in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday']:
-        getattr(schedule.every(), day).at("09:00").do(random_task)
+    if force:
+        schedule.every().day.at("09:00").do(random_task)
+    else:
+        for day in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday']:
+            getattr(schedule.every(), day).at("09:00").do(random_task)
     
     logging.info("Scheduled tasks for weekdays at 09:00")
     
@@ -222,7 +225,7 @@ def schedule_tasks():
             current_day, is_weekday = get_current_day()
             current_time = datetime.now().strftime("%H:%M")
             
-            if current_time >= "15:30":
+            if not force and current_time >= "15:30":
                 logging.info(f"[INFO] Stopping execution for today ({current_day})")
                 # Sleep until next day
                 time.sleep(3600)  # Check every hour
@@ -233,27 +236,35 @@ def schedule_tasks():
             logging.error(f"Scheduler error: {str(e)}")
             logging.debug(traceback.format_exc())
             time.sleep(60)  # Wait a minute before retrying
-def schedule_and_run_tasks():
-    """Schedule tasks and handle immediate execution if within trading hours."""
+def schedule_and_run_tasks(force: bool = False):
+    """Schedule tasks and handle execution windows.
+
+    When ``force`` is ``True``, the scheduler ignores weekday and trading-hour
+    guards so the full workflow can be demonstrated on holidays or outside of
+    market hours.
+    """
     def random_task():
         current_day, is_weekday = get_current_day()
         current_time = datetime.now().strftime("%H:%M")
         
         logging.info(f"Checking schedule: {current_day} at {current_time}")
         
-        if not is_weekday:
+        if not is_weekday and not force:
             logging.info("Weekend detected. Skipping execution.")
             return
             
-        if current_time <= "15:30":
+        if force or current_time <= "15:30":
             random_delay = random.randint(0, 3900)
             logging.info(f"[INFO] Delaying task execution by {random_delay} seconds")
             time.sleep(random_delay)
-            task_sequence()
+            task_sequence(force=force)
 
     # Schedule for future days
-    for day in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday']:
-        getattr(schedule.every(), day).at("09:00").do(random_task)
+    if force:
+        schedule.every().day.at("09:00").do(random_task)
+    else:
+        for day in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday']:
+            getattr(schedule.every(), day).at("09:00").do(random_task)
     
     logging.info("Scheduled tasks for weekdays at 09:00")
 
@@ -261,9 +272,9 @@ def schedule_and_run_tasks():
     current_time = datetime.now().strftime("%H:%M")
     current_day, is_weekday = get_current_day()
     
-    if is_weekday and "09:00" <= current_time <= "15:30":
-        logging.info(f"Current time {current_time} is within trading hours. Starting immediate execution...")
-        task_sequence()
+    if force or (is_weekday and "09:00" <= current_time <= "15:30"):
+        logging.info("Immediate execution enabled for current context.")
+        task_sequence(force=force)
     else:
         logging.info(f"Current time {current_time} is outside trading hours. Waiting for next scheduled run...")
 
@@ -273,11 +284,11 @@ def schedule_and_run_tasks():
             schedule.run_pending()
             current_time = datetime.now().strftime("%H:%M")
             
-            if current_time >= "15:30":
+            if not force and current_time >= "15:30":
                 logging.info(f"[INFO] Stopping execution for today ({current_day})")
                 time.sleep(3600)  # Check every hour
             else:
-                time.sleep(60)  # Check every minute during trading hours
+                time.sleep(60)  # Check every minute during trading hours or forced mode
                 
         except Exception as e:
             logging.error(f"Scheduler error: {str(e)}")
@@ -315,9 +326,12 @@ def execute_loginCLI_logoutCLI():
 def main():
     """Main function with argument parsing for different execution modes."""
     parser = argparse.ArgumentParser(description='Script Runner with multiple modes')
-    parser.add_argument('--mode', choices=['schedule', 'loginCLI-logoutCLI'], 
-                       default='schedule',
-                       help='Execution mode: schedule (default) or loginCLI-logoutCLI')
+    parser.add_argument(
+        '--mode',
+        choices=['schedule', 'schedule-always', 'loginCLI-logoutCLI'],
+        default='schedule',
+        help='Execution mode: schedule (default), schedule-always (ignore market hours), or loginCLI-logoutCLI'
+    )
     
     args = parser.parse_args()
     
@@ -333,14 +347,18 @@ def main():
         logging.info("Running in loginCLI-logoutCLI mode")
         execute_loginCLI_logoutCLI()
         sys.exit(0)
-    else:
-        logging.info("Running in schedule mode")
-        if is_weekday:
-            if "09:00" <= current_time <= "15:30":
-                logging.info("Currently in trading hours (09:00-15:30)")
-            else:
-                logging.info("Outside trading hours (09:00-15:30)")
-        schedule_and_run_tasks()
+    if args.mode == 'schedule-always':
+        logging.info("Running in schedule mode (always-on)")
+        schedule_and_run_tasks(force=True)
+        sys.exit(0)
+
+    logging.info("Running in schedule mode")
+    if is_weekday:
+        if "09:00" <= current_time <= "15:30":
+            logging.info("Currently in trading hours (09:00-15:30)")
+        else:
+            logging.info("Outside trading hours (09:00-15:30)")
+    schedule_and_run_tasks()
 
 if __name__ == "__main__":
     main()
