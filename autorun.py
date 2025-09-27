@@ -46,7 +46,7 @@ def is_weekday():
 def get_current_day():
     """Get current day name and check if it's a weekday."""
     current_day = datetime.now().strftime("%A")
-    is_weekday = datetime.now().weekday() < 6
+    is_weekday = datetime.now().weekday() < 5
     return current_day, is_weekday
 
 def setup_logging():
@@ -213,11 +213,11 @@ def schedule_tasks(force: bool = False):
     # Schedule tasks for weekdays
     if force:
         schedule.every().day.at("09:00").do(random_task)
+        logging.info("Scheduled tasks for all days at 09:00 (force mode)")
     else:
         for day in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday']:
             getattr(schedule.every(), day).at("09:00").do(random_task)
-    
-    logging.info("Scheduled tasks for weekdays at 09:00")
+        logging.info("Scheduled tasks for weekdays at 09:00")
     
     while True:
         try:
@@ -262,11 +262,11 @@ def schedule_and_run_tasks(force: bool = False):
     # Schedule for future days
     if force:
         schedule.every().day.at("09:00").do(random_task)
+        logging.info("Scheduled tasks for all days at 09:00 (force mode)")
     else:
         for day in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday']:
             getattr(schedule.every(), day).at("09:00").do(random_task)
-    
-    logging.info("Scheduled tasks for weekdays at 09:00")
+        logging.info("Scheduled tasks for weekdays at 09:00")
 
     # Check for immediate execution
     current_time = datetime.now().strftime("%H:%M")
