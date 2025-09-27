@@ -2,8 +2,9 @@
 
 Usage examples:
     python fetch_portfolio_pnl.py
-    python fetch_portfolio_pnl.py --from-date 2024-01-01 --to-date 2024-01-31 --segment EQUITY
+    python fetch_portfolio_pnl.py --from-date 2024-01-01 --to-date 2024-01-31
     python fetch_portfolio_pnl.py --token-file /path/to/token.txt --output-json upstox_dump.json
+    python fetch_portfolio_pnl.py --segments EQ FO
 
 This script expects a valid Upstox access token stored in the token directory that the
 existing login automation writes to (default: api/token/accessToken_oc.txt).
@@ -20,6 +21,7 @@ import requests
 
 API_BASE_URL = "https://api.upstox.com/v2"
 DEFAULT_TOKEN_FILENAME = "accessToken_oc.txt"
+SEGMENT_CHOICES = ("EQ", "FO", "COM", "CD")
 
 
 def load_access_token(token_path: Path) -> str:
@@ -104,8 +106,11 @@ def parse_args() -> argparse.Namespace:
         help="End date for trade P&L data (YYYY-MM-DD). Defaults to today.",
     )
     parser.add_argument(
-        "--segment",
-        help="Optional segment filter for trade P&L data (e.g., EQUITY, FNO).",
+        "--segments",
+        nargs="+",
+        choices=SEGMENT_CHOICES,
+        metavar="SEGMENT",
+        help="Segments to include in trade P&L. Default: all segments (EQ FO COM CD).",
     )
     parser.add_argument(
         "--product-type",
@@ -202,46 +207,67 @@ def main() -> None:
             print("from-date cannot be after to-date.")
             raise SystemExit(1)
 
-        pnl_params: Dict[str, Any] = {
+        base_params: Dict[str, Any] = {
             "from_date": from_date.isoformat(),
             "to_date": to_date.isoformat(),
         }
-        if args.segment:
-            pnl_params["segment"] = args.segment
         if args.product_type:
-            pnl_params["product_type"] = args.product_type
+            base_params["product_type"] = args.product_type
         if args.instrument_type:
-            pnl_params["instrument_type"] = args.instrument_type
+            base_params["instrument_type"] = args.instrument_type
 
-        message = (
-            f"Fetching trade P&L data for {pnl_params['from_date']} to {pnl_params['to_date']}"
-        )
-        print(message)
+        segments_to_fetch = args.segments or list(SEGMENT_CHOICES)
+        consolidated_pnl: List[Dict[str, Any]] = []
+        pnl_by_segment: Dict[str, Any] = {}
 
-        try:
-            pnl_data_response = api_get("/trade/profit-loss/data", token, params=pnl_params)
-            pnl_data = pnl_data_response.get("data", [])
-            output_payload["trade_pnl_params"] = pnl_params
-            output_payload["trade_pnl_data"] = pnl_data
+        for segment in segments_to_fetch:
+            segment_params = dict(base_params)
+            segment_params["segment"] = segment
+            message = (
+                f"Fetching trade P&L data for {segment_params['from_date']} to {segment_params['to_date']}"
+                f" [segment: {segment}]"
+            )
+            print(message)
 
-            if isinstance(pnl_data, list):
-                render_table(
-                    "Trade Profit & Loss",
-                    pnl_data,
-                    [
-                        "trade_date",
-                        "segment",
-                        "trading_symbol",
-                        "quantity",
-                        "buy_value",
-                        "sell_value",
-                        "pnl",
-                    ],
+            try:
+                pnl_data_response = api_get(
+                    "/trade/profit-loss/data", token, params=segment_params
                 )
-            else:
-                print(json.dumps(pnl_data, indent=2))
-        except RuntimeError as exc:
-            print(f"Failed to fetch trade P&L data: {exc}")
+                pnl_data = pnl_data_response.get("data", [])
+                pnl_by_segment[segment] = pnl_data
+
+                if isinstance(pnl_data, list):
+                    for entry in pnl_data:
+                        entry.setdefault("segment", segment)
+                    consolidated_pnl.extend(pnl_data)
+                else:
+                    consolidated_pnl.append({"segment": segment, "data": pnl_data})
+            except RuntimeError as exc:
+                print(f"Failed to fetch trade P&L data for segment {segment}: {exc}")
+
+        output_payload["trade_pnl_params"] = {
+            **base_params,
+            "segments": segments_to_fetch,
+        }
+        output_payload["trade_pnl_by_segment"] = pnl_by_segment
+        output_payload["trade_pnl_data"] = consolidated_pnl
+
+        if consolidated_pnl:
+            render_table(
+                "Trade Profit & Loss (All Segments)",
+                consolidated_pnl,
+                [
+                    "trade_date",
+                    "segment",
+                    "trading_symbol",
+                    "quantity",
+                    "buy_value",
+                    "sell_value",
+                    "pnl",
+                ],
+            )
+        else:
+            print("No trade P&L records returned for the requested segments.")
 
     if args.output_json:
         args.output_json.parent.mkdir(parents=True, exist_ok=True)
