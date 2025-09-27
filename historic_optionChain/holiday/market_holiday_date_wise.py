@@ -1,54 +1,48 @@
+import json
+from typing import Any, Dict, Optional, Union
+
 import requests
 from datetime import datetime
 
-# from market_holiday_date_wise import market_holiday_date_wise
 
-# # Call the function
-# market_holiday_date_wise()
-
-
-# Define the function to get market holiday details by date
-def market_holiday_date_wise(date_today=None):
-    # Use today's date if no date is provided
+def _normalize_date_input(date_today: Optional[Union[str, datetime]]) -> str:
     if date_today is None:
-        date_today = datetime.now().strftime('%Y-%m-%d')
-    
-    url = f'https://api.upstox.com/v2/market/holidays/{date_today}'
-    headers = {'Accept': 'application/json'}
+        return datetime.now().strftime('%Y-%m-%d')
+    if isinstance(date_today, datetime):
+        return date_today.strftime('%Y-%m-%d')
+    return str(date_today)
 
-    response = requests.get(url, headers=headers)
 
-    if response.status_code == 200:
-        data = response.json()
-        
-        # Print the status
-        print(f"Status: {data['status']}\n")
-        
-        # Check if there are holidays in the response
-        if 'data' in data and data['data']:
-            print("Holidays:")
-            for holiday in data['data']:
-                holiday_date = holiday['date']
-                description = holiday['description']
-                holiday_type = holiday['holiday_type']
-                closed_exchanges = ", ".join(holiday.get('closed_exchanges', []))
-                open_exchanges = ", ".join([f"{ex['exchange']} (Start: {ex['start_time']}, End: {ex['end_time']})" for ex in holiday.get('open_exchanges', [])])
-                
-                # Convert the date string to a more readable format
-                formatted_date = datetime.strptime(holiday_date, '%Y-%m-%d').strftime('%B %d, %Y')
-                
-                print(f"Date: {formatted_date}")
-                print(f"Description: {description}")
-                print(f"Holiday Type: {holiday_type}")
-                print(f"Closed Exchanges: {closed_exchanges}")
-                print(f"Open Exchanges: {open_exchanges}\n")
-        else:
-            print("No holiday for today.")
-            return response.json
-    else:
-        print("Failed to retrieve data. Status code:", response.status_code)
-        return response.json
+def market_holiday_date_wise(date_today: Optional[Union[str, datetime]] = None) -> Dict[str, Any]:
+    """Fetch market holiday details for the provided date.
 
-# If needed, you can call the function directly
+    Returns a dictionary with at least ``status`` and ``data`` keys to align with Upstox API responses.
+    In case of errors the ``status`` will be ``"error"`` and ``data`` will be an empty list with an
+    optional ``message`` describing the failure.
+    """
+
+    formatted_date = _normalize_date_input(date_today)
+    url = f"https://api.upstox.com/v2/market/holidays/{formatted_date}"
+    headers = {"Accept": "application/json"}
+
+    try:
+        response = requests.get(url, headers=headers, timeout=10)
+        response.raise_for_status()
+    except requests.RequestException as exc:
+        return {"status": "error", "data": [], "message": str(exc)}
+
+    try:
+        payload: Dict[str, Any] = response.json()
+    except ValueError:
+        return {"status": "error", "data": [], "message": "Invalid JSON response from Upstox API"}
+
+    # Ensure the payload always exposes a data list for callers
+    if "data" not in payload or payload["data"] is None:
+        payload["data"] = []
+
+    return payload
+
+
 if __name__ == "__main__":
-    market_holiday_date_wise()
+    result = market_holiday_date_wise()
+    print(json.dumps(result, indent=2, default=str))
