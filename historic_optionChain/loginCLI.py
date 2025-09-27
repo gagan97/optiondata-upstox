@@ -2,6 +2,7 @@
 
 from pathlib import Path
 import os
+import sys
 import glob
 import gzip
 import json
@@ -16,6 +17,7 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
 from datetime import datetime
 import upstox_client
 from upstox_client.rest import ApiException
@@ -59,18 +61,31 @@ def generate_access_token(code, client_id, client_secret, token_filename):
 # Perform login and get authorization code
 def perform_login_process():
     auth_url = f'https://api-v2.upstox.com/login/authorization/dialog?response_type=code&client_id={apikey_his}&redirect_uri={redirect_url}'
-    options = webdriver.ChromeOptions()
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-gpu')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('--headless')
-    options.add_argument('--disable-software-rasterizer') 
-    options.add_argument('--log-level=3')  # Suppress most logging
 
-    driver_dir = os.path.join('api', 'chromedriver.exe')
-    service = ChromeService(service=driver_dir)
+    import tempfile
+    import time
+    import os
+    import random
+
+
+    # Setup Chrome options
+    options = Options()
+    options.add_argument('--headless')  # Run headless for testing
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+
+    # Create unique temp dir
+    temp_dir = f'/tmp/test_chrome_{int(time.time())}_{os.getpid()}'
+    options.add_argument(f'--user-data-dir={temp_dir}')
+
+
+    #driver_path = BASE_DIR / "api" / ("chromedriver.exe" if os.name == "nt" else "chromedriver")
+    driver_path = "/snap/bin/chromium.chromedriver"
+    service = ChromeService(executable_path=str(driver_path))
+
+
     driver = webdriver.Chrome(service=service, options=options)
-    
+    print("created driver") 
     driver.get(auth_url)
 
     try:
