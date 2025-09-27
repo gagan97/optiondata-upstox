@@ -106,6 +106,13 @@ def parse_args() -> argparse.Namespace:
         help="End date for trade P&L data (YYYY-MM-DD). Defaults to today.",
     )
     parser.add_argument(
+        "--financial-year",
+        help=(
+            "Financial year identifier required by Upstox (e.g., 2223 for FY 2022-23)."
+            " Defaults to the FY that covers the chosen to-date."
+        ),
+    )
+    parser.add_argument(
         "--segments",
         nargs="+",
         choices=SEGMENT_CHOICES,
@@ -119,6 +126,18 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--instrument-type",
         help="Optional instrument type filter for trade P&L data.",
+    )
+    parser.add_argument(
+        "--page-size",
+        type=int,
+        default=3000,
+        help="Number of records per page when fetching trade P&L data (default: 3000).",
+    )
+    parser.add_argument(
+        "--page-number",
+        type=int,
+        default=1,
+        help="Page number to fetch for trade P&L data (default: 1).",
     )
     parser.add_argument(
         "--output-json",
@@ -207,9 +226,26 @@ def main() -> None:
             print("from-date cannot be after to-date.")
             raise SystemExit(1)
 
+        def format_trade_date(value: date) -> str:
+            return value.strftime("%d-%m-%Y")
+
+        def deduce_financial_year(target_date: date) -> str:
+            # Upstox expects YY(YY+1) format e.g., FY 2022-23 -> 2223
+            if target_date.month >= 4:
+                start_year = target_date.year % 100
+            else:
+                start_year = (target_date.year - 1) % 100
+            end_year = (start_year + 1) % 100
+            return f"{start_year:02d}{end_year:02d}"
+
+        financial_year = args.financial_year or deduce_financial_year(to_date)
+
         base_params: Dict[str, Any] = {
-            "from_date": from_date.isoformat(),
-            "to_date": to_date.isoformat(),
+            "from_date": format_trade_date(from_date),
+            "to_date": format_trade_date(to_date),
+            "financial_year": financial_year,
+            "page_number": args.page_number,
+            "page_size": args.page_size,
         }
         if args.product_type:
             base_params["product_type"] = args.product_type
@@ -230,6 +266,12 @@ def main() -> None:
             print(message)
 
             try:
+                metadata_response = api_get(
+                    "/trade/profit-loss/metadata", token, params=segment_params
+                )
+                pnl_metadata_segment = metadata_response.get("data", {})
+                pnl_by_segment[f"{segment}_metadata"] = pnl_metadata_segment
+
                 pnl_data_response = api_get(
                     "/trade/profit-loss/data", token, params=segment_params
                 )
@@ -239,9 +281,16 @@ def main() -> None:
                 if isinstance(pnl_data, list):
                     for entry in pnl_data:
                         entry.setdefault("segment", segment)
+                        entry.setdefault("financial_year", financial_year)
                     consolidated_pnl.extend(pnl_data)
                 else:
-                    consolidated_pnl.append({"segment": segment, "data": pnl_data})
+                    consolidated_pnl.append(
+                        {
+                            "segment": segment,
+                            "financial_year": financial_year,
+                            "data": pnl_data,
+                        }
+                    )
             except RuntimeError as exc:
                 print(f"Failed to fetch trade P&L data for segment {segment}: {exc}")
 
