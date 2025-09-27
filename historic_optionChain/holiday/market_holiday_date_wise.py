@@ -44,8 +44,10 @@ def market_holiday_date_wise(date_today=None):
                 print(f"Open Exchanges: {open_exchanges}\n")
         else:
             print("No holiday for today.")
+            return response.json
     else:
         print("Failed to retrieve data. Status code:", response.status_code)
+        return response.json
 
 # If needed, you can call the function directly
 if __name__ == "__main__":
