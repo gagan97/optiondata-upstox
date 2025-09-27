@@ -17,11 +17,43 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional
 
-import requests
+import upstox_client
+from upstox_client.rest import ApiException
 
-API_BASE_URL = "https://api.upstox.com/v2"
 DEFAULT_TOKEN_FILENAME = "accessToken_oc.txt"
 SEGMENT_CHOICES = ("EQ", "FO", "COM", "CD")
+API_VERSION = "2.0"
+
+
+def create_api_client(access_token: str) -> upstox_client.ApiClient:
+    configuration = upstox_client.Configuration()
+    configuration.access_token = access_token
+    return upstox_client.ApiClient(configuration)
+
+
+def to_serializable(value: Any) -> Any:
+    if value is None:
+        return None
+    if isinstance(value, list):
+        return [to_serializable(item) for item in value]
+    if isinstance(value, dict):
+        return {key: to_serializable(val) for key, val in value.items()}
+    if hasattr(value, "to_dict"):
+        return value.to_dict()
+    return value
+
+
+def to_dict_list(items: Optional[Iterable[Any]]) -> List[Dict[str, Any]]:
+    if not items:
+        return []
+    result: List[Dict[str, Any]] = []
+    for item in items:
+        converted = to_serializable(item) or {}
+        if isinstance(converted, dict):
+            result.append(converted)
+        else:
+            result.append({"value": converted})
+    return result
 
 
 def load_access_token(token_path: Path) -> str:
@@ -34,28 +66,6 @@ def load_access_token(token_path: Path) -> str:
     if not token:
         raise ValueError(f"Access token file at {token_path} is empty.")
     return token
-
-
-def api_get(endpoint: str, token: str, params: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-    url = f"{API_BASE_URL}{endpoint}"
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "Accept": "application/json",
-    }
-
-    response = requests.get(url, headers=headers, params=params, timeout=30)
-    try:
-        payload = response.json()
-    except json.JSONDecodeError:
-        response.raise_for_status()
-        raise RuntimeError(f"Received non-JSON response from {url}") from None
-
-    if response.status_code >= 400 or payload.get("status") == "error":
-        message = payload.get("message") or payload.get("errors") or payload
-        raise RuntimeError(f"API call to {endpoint} failed: {message}")
-
-    return payload
-
 
 def format_value(value: Any) -> str:
     if value is None:
@@ -161,10 +171,26 @@ def main() -> None:
         print(f"Error: {exc}")
         raise SystemExit(1) from exc
 
+    api_client = create_api_client(token)
+    portfolio_api = upstox_client.PortfolioApi(api_client)
+    trade_pnl_api = None if args.skip_pnl else upstox_client.TradeProfitAndLossApi(api_client)
+
     print("\n==== Portfolio Snapshot ====")
 
+    short_positions: List[Dict[str, Any]] = []
+    long_holdings: List[Dict[str, Any]] = []
+
     try:
-        short_positions = api_get("/portfolio/short-term-positions", token).get("data", [])
+        positions_response = portfolio_api.get_positions(API_VERSION)
+        if getattr(positions_response, "status", "").lower() != "success":
+            raise RuntimeError(f"Positions API returned status {getattr(positions_response, 'status', None)}")
+        short_positions = to_dict_list(getattr(positions_response, "data", []))
+
+        holdings_response = portfolio_api.get_holdings(API_VERSION)
+        if getattr(holdings_response, "status", "").lower() != "success":
+            raise RuntimeError(f"Holdings API returned status {getattr(holdings_response, 'status', None)}")
+        long_holdings = to_dict_list(getattr(holdings_response, "data", []))
+
         render_table(
             "Short-Term Positions",
             short_positions,
@@ -181,7 +207,6 @@ def main() -> None:
             ],
         )
 
-        long_holdings = api_get("/portfolio/long-term-holdings", token).get("data", [])
         render_table(
             "Long-Term Holdings",
             long_holdings,
@@ -196,7 +221,7 @@ def main() -> None:
                 "current_value",
             ],
         )
-    except RuntimeError as exc:
+    except (RuntimeError, ApiException) as exc:
         print(f"Failed to fetch portfolio data: {exc}")
         raise SystemExit(1) from exc
 
@@ -206,6 +231,8 @@ def main() -> None:
     }
 
     if not args.skip_pnl:
+        if trade_pnl_api is None:
+            trade_pnl_api = upstox_client.TradeProfitAndLossApi(api_client)
         print("\n==== Trade Profit & Loss ====")
 
         today = date.today()
@@ -238,10 +265,15 @@ def main() -> None:
             "page_number": args.page_number,
             "page_size": args.page_size,
         }
-        if args.product_type:
-            base_params["product_type"] = args.product_type
-        if args.instrument_type:
-            base_params["instrument_type"] = args.instrument_type
+        if args.product_type or args.instrument_type:
+            print(
+                "Note: product_type and instrument_type filters are not supported by the Upstox SDK "
+                "Trade Profit & Loss endpoints and will be ignored."
+            )
+            if args.product_type:
+                base_params["product_type"] = args.product_type
+            if args.instrument_type:
+                base_params["instrument_type"] = args.instrument_type
 
         segments_to_fetch = args.segments or list(SEGMENT_CHOICES)
         consolidated_pnl: List[Dict[str, Any]] = []
@@ -259,23 +291,42 @@ def main() -> None:
             print(message)
 
             try:
-                metadata_response = api_get(
-                    "/trade/profit-loss/metadata", token, params=segment_params
+                metadata_response = trade_pnl_api.get_trade_wise_profit_and_loss_meta_data(
+                    segment,
+                    financial_year,
+                    API_VERSION,
+                    from_date=segment_params["from_date"],
+                    to_date=segment_params["to_date"],
                 )
-                pnl_metadata_segment = metadata_response.get("data", {})
+                if getattr(metadata_response, "status", "").lower() != "success":
+                    raise RuntimeError(
+                        f"Metadata API returned status {getattr(metadata_response, 'status', None)}"
+                    )
+                pnl_metadata_segment = to_serializable(getattr(metadata_response, "data", {})) or {}
                 pnl_by_segment[f"{segment}_metadata"] = pnl_metadata_segment
                 aggregated_metadata[segment] = pnl_metadata_segment
 
-                pnl_data_response = api_get(
-                    "/trade/profit-loss/data", token, params=segment_params
+                data_response = trade_pnl_api.get_trade_wise_profit_and_loss_data(
+                    segment,
+                    financial_year,
+                    args.page_number,
+                    args.page_size,
+                    API_VERSION,
+                    from_date=segment_params["from_date"],
+                    to_date=segment_params["to_date"],
                 )
-                pnl_data = pnl_data_response.get("data", [])
+                if getattr(data_response, "status", "").lower() != "success":
+                    raise RuntimeError(
+                        f"Data API returned status {getattr(data_response, 'status', None)}"
+                    )
+                pnl_data = to_serializable(getattr(data_response, "data", [])) or []
                 pnl_by_segment[segment] = pnl_data
 
                 if isinstance(pnl_data, list):
                     for entry in pnl_data:
-                        entry.setdefault("segment", segment)
-                        entry.setdefault("financial_year", financial_year)
+                        if isinstance(entry, dict):
+                            entry.setdefault("segment", segment)
+                            entry.setdefault("financial_year", financial_year)
                     consolidated_pnl.extend(pnl_data)
                 else:
                     consolidated_pnl.append(
@@ -285,7 +336,7 @@ def main() -> None:
                             "data": pnl_data,
                         }
                     )
-            except RuntimeError as exc:
+            except (RuntimeError, ApiException) as exc:
                 print(f"Failed to fetch trade P&L data for segment {segment}: {exc}")
 
         output_payload["trade_pnl_params"] = {
