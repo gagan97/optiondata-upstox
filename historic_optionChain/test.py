@@ -6,7 +6,6 @@ import psycopg2
 from psycopg2 import sql
 import logging
 from logging.handlers import RotatingFileHandler
-from configparser import ConfigParser
 import os
 from datetime import datetime, timedelta, time as dt_time 
 import time as t
@@ -23,10 +22,11 @@ from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, TimeEl
 from rich import print as rprint
 from pathlib import Path
 
+from db_settings import get_db_config
+
 # At the top of the file
 BASE_DIR = Path(__file__).parent
 ACCESS_TOKEN_FILE_PATH = BASE_DIR / "api" / "token" / "accessToken_oc.txt"
-CONFIG_FILE_PATH = BASE_DIR / "api" / "ini" / "test.ini"
 LOG_DIRECTORY = BASE_DIR / "api" / "logs"
 LOG_FILE = LOG_DIRECTORY / "Nifty50.log"
 
@@ -243,31 +243,6 @@ def resource_path(relative_path):
 def get_current_timestamp():
     now = datetime.now()
     return now.strftime("%Y-%m-%d %H:%M:%S") + f".{now.microsecond // 1000:03d}"
-
-def configDB(filename=CONFIG_FILE_PATH, section="postgresql"):
-    """Enhanced database configuration with more robust error handling."""
-    try:
-        logging.debug(f"Attempting to read database configuration from {filename}")
-        parser = ConfigParser()
-        
-        # Ensure file exists and is readable
-        if not os.path.exists(filename):
-            logging.error(f"Configuration file not found: {filename}")
-            raise FileNotFoundError(f"Configuration file not found: {filename}")
-        
-        parser.read(filename)
-        
-        if not parser.has_section(section):
-            logging.error(f"Section {section} not found in {filename}")
-            raise ValueError(f'Section {section} not found in {filename} file.')
-        
-        db = dict(parser.items(section))
-        logging.info(f"Successfully loaded database configuration for section: {section}")
-        return db
-    
-    except Exception as e:
-        logging.error(f"Error reading database configuration: {e}")
-        raise
 
 def check_and_create_db(db_config):
     """Check and create database if not exists."""
@@ -609,7 +584,7 @@ def main():
         expiry_manager = ExpiryManager()
 
         # Get database configuration
-        db_config = configDB()
+        db_config = get_db_config()
         check_and_create_db(db_config)
 
         # Initialize progress display

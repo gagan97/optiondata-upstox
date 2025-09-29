@@ -6,6 +6,9 @@
 /venv/
 /historic_optionChain/api/api.py
 
+# Local environment configuration
+.env
+
 /aws/
 /.venv/
 
@@ -14,3 +17,5 @@ aws/aws-instance-server/password.txt
 aws/aws-instance-server/window-server-aws.rdp
 aws/aws-instance-server/windows-server-aws.pem
 aws/aws-postgresql/user-password.txt
+
+

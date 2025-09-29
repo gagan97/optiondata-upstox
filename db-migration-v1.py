@@ -1,7 +1,4 @@
 import psycopg2
-import configparser
-import os
-import logging
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
 import io
@@ -10,18 +7,24 @@ from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, TimeEl
 from rich.panel import Panel
 from rich.table import Table
 
+from historic_optionChain.db_settings import get_db_config
+
 console = Console()
 
-def read_db_config(file_path):
-    config = configparser.ConfigParser()
-    config.read(file_path)
-    return {
-        'dbname': config['postgresql']['database'],
-        'user': config['postgresql']['user'],
-        'password': config['postgresql']['password'],
-        'host': config['postgresql']['host'],
-        'port': config['postgresql']['port']
-    }
+def get_connection_params(prefix: str, fallback: dict | None = None):
+    try:
+        params = get_db_config(prefix=prefix.upper())
+    except RuntimeError as exc:
+        if fallback is not None:
+            console.print(
+                f"[yellow]Environment for prefix '{prefix.upper()}' not found. Using fallback configuration.[/yellow]"
+            )
+            params = fallback
+        else:
+            raise
+    params = params.copy()
+    params.setdefault('dbname', params.get('database'))
+    return params
 
 def get_table_schema(conn, table_name):
     """Get the CREATE TABLE statement for a given table"""
@@ -262,10 +265,10 @@ def process_tables(source_params, target_params, tables):
 def main():
     try:
         with console.status("[bold green]Reading configuration...") as status:
-            option_chain_params = read_db_config(os.path.join('api', 'ini', 'test.ini'))
-            option_data_params = read_db_config(os.path.join('api', 'ini', 'optiondata.ini'))
-            
-            with psycopg2.connect(**option_chain_params) as conn:
+            source_params = get_db_config()
+            target_params = get_connection_params("TARGET_POSTGRES", fallback=source_params)
+
+            with psycopg2.connect(**source_params) as conn:
                 with conn.cursor() as cur:
                     cur.execute("""
                         SELECT table_name 
@@ -281,7 +284,7 @@ def main():
             border_style="blue"
         ))
         
-        tables_info, source_size, target_size = process_tables(option_chain_params, option_data_params, tables)
+        tables_info, source_size, target_size = process_tables(source_params, target_params, tables)
         print_migration_summary(tables_info, source_size, target_size)
 
     except Exception as e:

@@ -1,20 +1,9 @@
 import os
 import psycopg2
 from psycopg2 import sql
-from configparser import ConfigParser
 import json
 
-def configDB(filename="historical.ini", section="postgresql"):
-    parser = ConfigParser()
-    parser.read(filename)
-    db = {}
-    if parser.has_section(section):
-        params = parser.items(section)
-        for param in params:
-            db[param[0]] = param[1]
-    else:
-        raise Exception(f'Section {section} not found in {filename} file.')
-    return db
+from db_settings import get_db_config
 
 def check_and_create_db(db_config):
     conn = None
@@ -104,7 +93,7 @@ def main():
         print(f"Using '{table_name}' as table name.")
 
         # Step 4: Check if database exists, then connect
-        db_config = configDB()
+        db_config = get_db_config()
         check_and_create_db(db_config)
 
         # Step 5: Connect to the specified database
